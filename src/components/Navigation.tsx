@@ -4,9 +4,10 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const navItems = [
-  { href: "#philosophy", label: "理念" },
-  { href: "#how-we-work", label: "私たちの方法" },
-  { href: "#products", label: "プロダクト" },
+  { href: "#services", label: "サービス" },
+  { href: "#process", label: "開発プロセス" },
+  { href: "#case-study", label: "実績" },
+  { href: "#philosophy", label: "私たちについて" },
   { href: "#team", label: "チーム" },
   { href: "#contact", label: "お問い合わせ" },
 ];

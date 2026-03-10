@@ -10,21 +10,20 @@ export default function PhilosophySection() {
           <p className="text-accent text-sm tracking-[0.2em] uppercase mb-6 font-sans">
             Philosophy
           </p>
-        </FadeInSection>
-
-        <FadeInSection delay={0.1}>
           <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-semibold text-snow leading-tight mb-8">
-            遊びの中に仕事があり、
-            <br />
-            仕事の中に生活がある。
+            なぜ、私たちのアプローチは違うのか
           </h2>
         </FadeInSection>
 
-        <FadeInSection delay={0.2}>
-          <p className="text-slate-400 text-lg leading-relaxed mb-12 max-w-2xl">
+        <FadeInSection delay={0.1}>
+          <p className="text-slate-400 text-lg leading-relaxed mb-6 max-w-2xl">
             「戯（あじゃら）が誠になるわいな」——
-            これは江戸の言葉で、最初は遊びや冗談だったものが、やがて本物になるという意味です。
-            私たちはこの精神を、現代のテクノロジーとAIによって実現します。
+            江戸の言葉で、最初は遊びや実験だったものが、やがて本物の価値になるという意味です。
+          </p>
+          <p className="text-slate-400 text-lg leading-relaxed mb-12 max-w-2xl">
+            私たちはこの精神で、クライアントの課題に向き合います。
+            大きな計画から始めるのではなく、小さな仮説と実験から始める。
+            だからこそ、リスクを抑えながら本質的な解決策にたどり着けるのです。
           </p>
         </FadeInSection>
 
@@ -53,12 +52,12 @@ export default function PhilosophySection() {
                 Mission
               </h3>
               <p className="font-serif text-2xl text-snow mb-4">
-                戯れから価値を生み、
+                実験から価値を生み、
                 <br />
-                生活を豊かにする。
+                ビジネスを前に進める。
               </p>
               <p className="text-slate-400 text-sm leading-relaxed">
-                AIとテクノロジーによって小さなアイデアを実験し、社会と人々の生活を少しずつ豊かにする。
+                AIとテクノロジーで小さな仮説を検証し、クライアントと社会に確かな価値を届ける。
               </p>
             </div>
           </FadeInSection>
@@ -81,12 +80,12 @@ export default function PhilosophySection() {
                 Vision
               </h3>
               <p className="font-serif text-2xl text-snow mb-4">
-                遊び心から
+                実験的アプローチで、
                 <br />
                 次の産業をつくる。
               </p>
               <p className="text-slate-400 text-sm leading-relaxed">
-                働くことが消耗ではなく、創造と楽しさにつながる世界をプロダクトによって実現する。
+                仮説検証と遊び心を原動力に、AIがビジネスの創造性を拡張する世界を実現する。
               </p>
             </div>
           </FadeInSection>

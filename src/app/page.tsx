@@ -1,9 +1,10 @@
 import Navigation from "@/components/Navigation";
 import ScrollProgress from "@/components/ScrollProgress";
 import HeroSection from "@/components/HeroSection";
-import PhilosophySection from "@/components/PhilosophySection";
+import ServicesSection from "@/components/ServicesSection";
 import HowWeWorkSection from "@/components/HowWeWorkSection";
 import ProductsSection from "@/components/ProductsSection";
+import PhilosophySection from "@/components/PhilosophySection";
 import TeamSection from "@/components/TeamSection";
 import ContactSection from "@/components/ContactSection";
 import FloatingCTA from "@/components/FloatingCTA";
@@ -17,10 +18,12 @@ export default function Home() {
       <main>
         <HeroSection />
         <div className="section-divider" />
-        <PhilosophySection />
+        <ServicesSection />
         <HowWeWorkSection />
         <div className="section-divider" />
         <ProductsSection />
+        <div className="section-divider" />
+        <PhilosophySection />
         <div className="section-divider" />
         <TeamSection />
         <div className="section-divider" />

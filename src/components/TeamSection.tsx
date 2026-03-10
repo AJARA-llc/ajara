@@ -13,10 +13,11 @@ export default function TeamSection() {
             Team
           </p>
           <h2 className="font-serif text-3xl sm:text-4xl font-semibold text-snow mb-4">
-            仲間
+            少数精鋭 × AI
           </h2>
           <p className="text-slate-400 mb-16 max-w-lg">
-            人間とAIエージェントが協働する、小さくて強いチーム。
+            経験豊富なエンジニアがAIエージェントを活用し、
+            少人数でも高い生産性と品質を実現します。
           </p>
         </FadeInSection>
 
@@ -53,30 +54,21 @@ export default function TeamSection() {
           </FadeInSection>
         </div>
 
-        {/* AI Agents */}
+        {/* AI as Infrastructure */}
         <FadeInSection delay={0.3}>
-          <div className="glass p-8 text-center group transition-all duration-300 hover:translate-y-[-4px]">
-            <div className="w-16 h-16 rounded-full bg-gradient-to-br from-accent/20 to-accent/5 mx-auto mb-5 flex items-center justify-center">
-              <span className="text-xl font-serif text-accent">智</span>
-            </div>
-            <h3 className="font-sans text-lg font-medium text-snow mb-2">
-              AI Agents — AEGIS
+          <div className="glass p-8 transition-all duration-300">
+            <h3 className="font-sans text-lg font-medium text-snow mb-4 text-center">
+              開発基盤 — AEGIS
             </h3>
-            <p className="text-slate-400 text-sm leading-relaxed max-w-md mx-auto">
-              24のAIエージェントが分析・設計・実装・品質管理を担当。
-              戯れを誠にする加速装置。
+            <p className="text-slate-400 text-sm leading-relaxed text-center max-w-md mx-auto mb-6">
+              24のAIエージェントによる分析・設計・実装・品質管理の自動化基盤。
+              少人数でも大規模な開発を可能にする、私たちの競争優位の源泉です。
             </p>
-          </div>
-        </FadeInSection>
-
-        <FadeInSection delay={0.3}>
-          <div className="mt-16 glass p-8">
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 text-center">
+            <div className="grid grid-cols-3 gap-6 text-center">
               {[
                 { label: "AI Agents", value: "24" },
-                { label: "Organizations", value: "6" },
-                { label: "Philosophy", value: "EDO" },
-                { label: "Technology", value: "AI" },
+                { label: "組織ユニット", value: "6" },
+                { label: "対応工程", value: "全工程" },
               ].map((stat) => (
                 <div key={stat.label}>
                   <p className="text-2xl sm:text-3xl font-bold text-accent mb-1 font-sans">

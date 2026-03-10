@@ -37,7 +37,9 @@ export default function HeroSection() {
           transition={{ duration: 1, delay: 0.6 }}
           className="font-serif text-4xl sm:text-5xl md:text-7xl font-semibold text-snow leading-tight mb-6"
         >
-          戯が誠になるわいな
+          AIで、ビジネスの
+          <br />
+          次の一手を共創する
         </motion.h1>
 
         <motion.p
@@ -46,7 +48,7 @@ export default function HeroSection() {
           transition={{ duration: 0.8, delay: 1.0 }}
           className="text-slate-400 text-lg sm:text-xl font-sans mb-4"
         >
-          Where Play Becomes Product
+          実験的アプローチ × AI技術で、貴社の課題を解決する
         </motion.p>
 
         <motion.p
@@ -55,9 +57,9 @@ export default function HeroSection() {
           transition={{ duration: 0.8, delay: 1.4 }}
           className="text-slate-500 text-sm max-w-xl mx-auto mb-12 leading-relaxed"
         >
-          遊び心や発想から生まれたアイデアを AI とテクノロジーによって実験し、
+          仮説検証型の開発手法とマルチAIエージェント技術を武器に、
           <br className="hidden sm:inline" />
-          社会に価値あるプロダクトへと育てていく。
+          貴社のDX・AI活用を戦略から実装まで一気通貫で支援します。
         </motion.p>
 
         <motion.div
@@ -67,16 +69,16 @@ export default function HeroSection() {
           className="flex flex-col sm:flex-row items-center justify-center gap-4"
         >
           <a
-            href="#philosophy"
+            href="#services"
             className="bg-accent hover:bg-accent-light text-navy-dark font-medium px-8 py-3 rounded-full transition-all duration-300 hover:shadow-lg hover:shadow-accent/20 hover:scale-105"
           >
-            私たちについて
+            サービスを見る
           </a>
           <a
             href="#contact"
             className="border border-white/10 hover:border-accent/40 text-snow font-medium px-8 py-3 rounded-full transition-all duration-300 hover:bg-white/5"
           >
-            お問い合わせ
+            無料相談する
           </a>
         </motion.div>
       </div>

@@ -2,12 +2,13 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "株式会社AJARA | 戯が誠になるわいな — Where Play Becomes Product",
+  title: "株式会社AJARA | AIで、ビジネスの次の一手を共創する",
   description:
-    "株式会社AJARAは、遊び心や発想から生まれたアイデアをAIとテクノロジーによって実験し、社会に価値あるプロダクトへと育てていく会社です。",
+    "株式会社AJARAは、AIエージェントシステム開発・AI戦略コンサルティング・ラピッドプロトタイピングを通じて、クライアントの課題解決を支援する会社です。",
   openGraph: {
-    title: "株式会社AJARA | 戯が誠になるわいな",
-    description: "Where Play Becomes Product — AIとテクノロジーで戯れから価値を生む",
+    title: "株式会社AJARA | AIで、ビジネスの次の一手を共創する",
+    description:
+      "仮説検証型のアプローチとマルチAIエージェント技術で、貴社のDX・AI活用を戦略から実装まで支援します。",
     type: "website",
     locale: "ja_JP",
   },

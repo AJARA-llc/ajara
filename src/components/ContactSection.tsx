@@ -20,11 +20,11 @@ export default function ContactSection() {
             Contact
           </p>
           <h2 className="font-serif text-3xl sm:text-4xl font-semibold text-snow mb-4">
-            次の戯れを、一緒に。
+            まずは、お気軽にご相談ください
           </h2>
           <p className="text-slate-400 mb-16 max-w-lg">
-            プロダクト開発のご相談、協業のお問い合わせ、
-            または一緒に戯れてみたい方はお気軽にどうぞ。
+            AI活用の検討段階でも構いません。
+            貴社の課題をお聞かせいただければ、最適なアプローチをご提案します。
           </p>
         </FadeInSection>
 
@@ -34,10 +34,25 @@ export default function ContactSection() {
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
                   <label
+                    htmlFor="company"
+                    className="block text-sm text-slate-400 mb-2"
+                  >
+                    会社名
+                  </label>
+                  <input
+                    type="text"
+                    id="company"
+                    name="company"
+                    className="w-full bg-white/[0.03] border border-white/10 rounded-lg px-4 py-3 text-snow placeholder-slate-600 focus:outline-none focus:border-accent/40 transition-colors"
+                    placeholder="株式会社○○"
+                  />
+                </div>
+                <div>
+                  <label
                     htmlFor="name"
                     className="block text-sm text-slate-400 mb-2"
                   >
-                    お名前
+                    お名前 <span className="text-accent/60">*</span>
                   </label>
                   <input
                     type="text"
@@ -53,7 +68,7 @@ export default function ContactSection() {
                     htmlFor="email"
                     className="block text-sm text-slate-400 mb-2"
                   >
-                    メールアドレス
+                    メールアドレス <span className="text-accent/60">*</span>
                   </label>
                   <input
                     type="email"
@@ -66,10 +81,40 @@ export default function ContactSection() {
                 </div>
                 <div>
                   <label
+                    htmlFor="inquiry-type"
+                    className="block text-sm text-slate-400 mb-2"
+                  >
+                    ご相談内容 <span className="text-accent/60">*</span>
+                  </label>
+                  <select
+                    id="inquiry-type"
+                    name="inquiry-type"
+                    required
+                    className="w-full bg-white/[0.03] border border-white/10 rounded-lg px-4 py-3 text-snow focus:outline-none focus:border-accent/40 transition-colors appearance-none"
+                  >
+                    <option value="" className="bg-navy-dark text-slate-400">
+                      選択してください
+                    </option>
+                    <option value="agent-dev" className="bg-navy-dark">
+                      AIエージェントシステム開発
+                    </option>
+                    <option value="consulting" className="bg-navy-dark">
+                      AI戦略コンサルティング
+                    </option>
+                    <option value="prototype" className="bg-navy-dark">
+                      ラピッドプロトタイピング
+                    </option>
+                    <option value="other" className="bg-navy-dark">
+                      その他のご相談
+                    </option>
+                  </select>
+                </div>
+                <div>
+                  <label
                     htmlFor="message"
                     className="block text-sm text-slate-400 mb-2"
                   >
-                    メッセージ
+                    メッセージ <span className="text-accent/60">*</span>
                   </label>
                   <textarea
                     id="message"
@@ -77,14 +122,14 @@ export default function ContactSection() {
                     rows={4}
                     required
                     className="w-full bg-white/[0.03] border border-white/10 rounded-lg px-4 py-3 text-snow placeholder-slate-600 focus:outline-none focus:border-accent/40 transition-colors resize-none"
-                    placeholder="お気軽にお書きください"
+                    placeholder="現在の課題や検討されている内容をお聞かせください"
                   />
                 </div>
                 <button
                   type="submit"
                   className="w-full bg-accent hover:bg-accent-light text-navy-dark font-medium py-3 rounded-lg transition-all duration-300 hover:shadow-lg hover:shadow-accent/20"
                 >
-                  送信する
+                  無料相談を申し込む
                 </button>
               </form>
             ) : (
@@ -109,7 +154,7 @@ export default function ContactSection() {
                   ありがとうございます
                 </h3>
                 <p className="text-slate-400 text-sm">
-                  お問い合わせを受け付けました。折り返しご連絡いたします。
+                  お問い合わせを受け付けました。2営業日以内にご連絡いたします。
                 </p>
               </motion.div>
             )}
@@ -131,10 +176,10 @@ export default function ContactSection() {
               </div>
               <div className="glass p-6 transition-all duration-300">
                 <h3 className="text-sm text-accent tracking-wider uppercase mb-3">
-                  Work Style
+                  対応体制
                 </h3>
                 <p className="text-slate-400 text-sm leading-relaxed">
-                  生成AIエージェント組織とともに小規模でプロダクト開発を行っています。
+                  AIエージェント組織を活用した少数精鋭チームで開発を行っています。
                   リモートファースト、非同期コミュニケーション。
                 </p>
               </div>
