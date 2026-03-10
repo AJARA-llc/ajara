@@ -37,9 +37,7 @@ export default function HeroSection() {
           transition={{ duration: 1, delay: 0.6 }}
           className="font-serif text-4xl sm:text-5xl md:text-7xl font-semibold text-snow leading-tight mb-6"
         >
-          AIで、ビジネスの
-          <br />
-          次の一手を共創する
+          戯が誠になるわいな
         </motion.h1>
 
         <motion.p
@@ -48,7 +46,7 @@ export default function HeroSection() {
           transition={{ duration: 0.8, delay: 1.0 }}
           className="text-slate-400 text-lg sm:text-xl font-sans mb-4"
         >
-          実験的アプローチ × AI技術で、貴社の課題を解決する
+          Where Play Becomes Product
         </motion.p>
 
         <motion.p
@@ -57,9 +55,9 @@ export default function HeroSection() {
           transition={{ duration: 0.8, delay: 1.4 }}
           className="text-slate-500 text-sm max-w-xl mx-auto mb-12 leading-relaxed"
         >
-          仮説検証型の開発手法とマルチAIエージェント技術を武器に、
+          遊び心や発想から生まれたアイデアを AI とテクノロジーによって実験し、
           <br className="hidden sm:inline" />
-          貴社のDX・AI活用を戦略から実装まで一気通貫で支援します。
+          社会に価値あるプロダクトへと育てていく。
         </motion.p>
 
         <motion.div

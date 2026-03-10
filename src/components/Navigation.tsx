@@ -6,7 +6,7 @@ import { motion, AnimatePresence } from "framer-motion";
 const navItems = [
   { href: "#services", label: "サービス" },
   { href: "#process", label: "開発プロセス" },
-  { href: "#case-study", label: "実績" },
+  { href: "#achievements", label: "実績" },
   { href: "#philosophy", label: "私たちについて" },
   { href: "#team", label: "チーム" },
   { href: "#contact", label: "お問い合わせ" },
