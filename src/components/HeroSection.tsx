@@ -23,7 +23,7 @@ export default function HeroSection() {
         >
           <Image
             src="/images/logo-full.png"
-            alt="株式会社 AJARA"
+            alt="合同会社 AJARA"
             width={240}
             height={240}
             className="mx-auto w-40 sm:w-48 md:w-56 h-auto rounded-2xl"

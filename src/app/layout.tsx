@@ -2,11 +2,11 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "株式会社AJARA | AIで、ビジネスの次の一手を共創する",
+  title: "合同会社AJARA | AIで、ビジネスの次の一手を共創する",
   description:
-    "株式会社AJARAは、AIエージェントシステム開発・AI戦略コンサルティング・ラピッドプロトタイピングを通じて、クライアントの課題解決を支援する会社です。",
+    "合同会社AJARAは、AIエージェントシステム開発・AI戦略コンサルティング・ラピッドプロトタイピングを通じて、クライアントの課題解決を支援する会社です。",
   openGraph: {
-    title: "株式会社AJARA | AIで、ビジネスの次の一手を共創する",
+    title: "合同会社AJARA | AIで、ビジネスの次の一手を共創する",
     description:
       "仮説検証型のアプローチとマルチAIエージェント技術で、貴社のDX・AI活用を戦略から実装まで支援します。",
     type: "website",

@@ -8,7 +8,7 @@ export default function Footer() {
           <div className="flex flex-col sm:flex-row items-center justify-between gap-6">
             <div className="text-center sm:text-left">
               <p className="font-serif text-lg text-snow mb-1">
-                株式会社 AJARA
+                合同会社 AJARA
               </p>
               <p className="text-slate-600 text-xs">
                 戯が誠になるわいな — Where Play Becomes Product
@@ -20,7 +20,7 @@ export default function Footer() {
                 This site was conceived in play and built with AI.
               </p>
               <p className="text-slate-600 text-xs mt-1">
-                &copy; {new Date().getFullYear()} AJARA Inc. All rights
+                &copy; {new Date().getFullYear()} AJARA LLC. All rights
                 reserved.
               </p>
             </div>
