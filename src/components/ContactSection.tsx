@@ -172,7 +172,14 @@ export default function ContactSection() {
                 <h3 className="text-sm text-accent tracking-wider uppercase mb-3">
                   Location
                 </h3>
-                <p className="text-snow">Tokyo, Japan</p>
+                <p className="text-snow">渋谷オフィス</p>
+                <p className="text-slate-400 text-sm mt-1 leading-relaxed">
+                  〒150-0043
+                  <br />
+                  東京都渋谷区道玄坂1丁目10番8号
+                  <br />
+                  渋谷道玄坂東急ビル2F−C
+                </p>
               </div>
               <div className="glass p-6 transition-all duration-300">
                 <h3 className="text-sm text-accent tracking-wider uppercase mb-3">
