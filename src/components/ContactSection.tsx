@@ -4,12 +4,40 @@ import { useState, FormEvent } from "react";
 import { motion } from "framer-motion";
 import FadeInSection from "./FadeInSection";
 
+const FORMSPREE_ID = process.env.NEXT_PUBLIC_FORMSPREE_ID ?? "";
+
 export default function ContactSection() {
   const [submitted, setSubmitted] = useState(false);
+  const [error, setError] = useState(false);
+  const [loading, setLoading] = useState(false);
 
-  const handleSubmit = (e: FormEvent) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setSubmitted(true);
+    if (!FORMSPREE_ID) return;
+
+    setLoading(true);
+    setError(false);
+
+    const form = e.currentTarget;
+    const data = new FormData(form);
+
+    try {
+      const res = await fetch(`https://formspree.io/f/${FORMSPREE_ID}`, {
+        method: "POST",
+        body: data,
+        headers: { Accept: "application/json" },
+      });
+
+      if (res.ok) {
+        setSubmitted(true);
+      } else {
+        setError(true);
+      }
+    } catch {
+      setError(true);
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -122,11 +150,17 @@ export default function ContactSection() {
                     placeholder="現在の課題や検討されている内容をお聞かせください"
                   />
                 </div>
+                {error && (
+                  <p className="text-red-400 text-sm">
+                    送信に失敗しました。時間をおいて再度お試しいただくか、直接メールにてご連絡ください。
+                  </p>
+                )}
                 <button
                   type="submit"
-                  className="w-full bg-accent hover:bg-accent-light text-navy-dark font-medium py-3 rounded-lg transition-all duration-300 hover:shadow-lg hover:shadow-accent/20"
+                  disabled={loading || !FORMSPREE_ID}
+                  className="w-full bg-accent hover:bg-accent-light text-navy-dark font-medium py-3 rounded-lg transition-all duration-300 hover:shadow-lg hover:shadow-accent/20 disabled:opacity-50 disabled:cursor-not-allowed"
                 >
-                  無料相談を申し込む
+                  {loading ? "送信中..." : "無料相談を申し込む"}
                 </button>
               </form>
             ) : (
