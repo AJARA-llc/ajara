@@ -98,9 +98,6 @@ export default function ContactSection() {
                     <option value="agent-dev" className="bg-navy-dark">
                       AIエージェントシステム開発
                     </option>
-                    <option value="consulting" className="bg-navy-dark">
-                      AI戦略コンサルティング
-                    </option>
                     <option value="prototype" className="bg-navy-dark">
                       ラピッドプロトタイピング
                     </option>
