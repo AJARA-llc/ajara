@@ -7,15 +7,15 @@ const achievements = [
   {
     category: "自社サービス",
     title: "Hintl",
-    subtitle: "Language Learning Service",
+    subtitle: "AI-Powered Health Evidence Platform",
     description:
-      "言語学習を新しい体験へ。AIを活用したヒント型の外国語学習サービスです。答えをすぐに教えるのではなく、適切なヒントを提示することで、記憶の定着と自走する学習力を育みます。",
+      "PubMedの査読済み論文をAIが分析し、エビデンスに基づいた信頼性の高い健康情報を届けるプラットフォーム。第一弾は「腸活」をテーマに、AIアドバイザーへの相談・診断クイズ・匿名コミュニティなど多機能を展開中。",
     metrics: [
-      { value: "AI", label: "Hint Engine" },
-      { value: "多言語", label: "対応言語" },
-      { value: "Hintl", label: "サービス名" },
+      { value: "PubMed", label: "論文データベース" },
+      { value: "Claude AI", label: "分析エンジン" },
+      { value: "腸活", label: "第一弾テーマ" },
     ],
-    tags: ["Language Learning", "AI-Powered", "EdTech", "Hint-Based Learning"],
+    tags: ["Evidence-Based", "Health Tech", "AI-Powered", "Claude API", "コミュニティ"],
     gradient: "from-accent/20 to-transparent",
     href: "https://hintl.net",
   },
