@@ -1,10 +1,17 @@
 import type { Metadata } from "next";
 import "./globals.css";
 
+const basePath = process.env.NODE_ENV === "production" ? "/ajara" : "";
+
 export const metadata: Metadata = {
   title: "合同会社AJARA | AIで、ビジネスの次の一手を共創する",
   description:
     "合同会社AJARAは、AIエージェントシステム開発・AI戦略コンサルティング・ラピッドプロトタイピングを通じて、クライアントの課題解決を支援する会社です。",
+  icons: {
+    icon: [{ url: `${basePath}/images/logo-full.png`, type: "image/png" }],
+    shortcut: `${basePath}/images/logo-full.png`,
+    apple: `${basePath}/images/logo-full.png`,
+  },
   openGraph: {
     title: "合同会社AJARA | AIで、ビジネスの次の一手を共創する",
     description:
