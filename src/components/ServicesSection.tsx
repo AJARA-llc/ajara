@@ -71,7 +71,7 @@ export default function ServicesSection() {
             Services
           </p>
           <h2 className="font-serif text-3xl sm:text-4xl font-semibold text-snow text-center mb-4">
-            貴社の課題を、AIで解決する
+            貴社の課題を、AIと共に解決する
           </h2>
           <p className="text-slate-400 text-center mb-16 max-w-2xl mx-auto">
             実験的なアプローチと最新のAI技術を組み合わせ、
