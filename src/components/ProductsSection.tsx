@@ -22,15 +22,15 @@ const achievements = [
   {
     category: "自社開発",
     title: "AEGIS",
-    subtitle: "AI Agent Organizational Framework",
+    subtitle: "Autonomous Enterprise Governance & Intelligence System",
     description:
-      "CEO・CTO・CFOなど24のAIエージェントが連携する多層型意思決定システム。分析・設計・実装・品質管理を自律的に実行し、プロダクト開発を加速します。私たち自身の開発プロセスで日常的に運用中です。",
+      "50以上のAIエージェントが6つの組織ユニットで連携する自律型ガバナンスシステム。戦略立案・実装・品質管理・セキュリティ審査まで全工程をAIが自律実行します。私たち自身の開発プロセスで日常的に運用中です。",
     metrics: [
-      { value: "24", label: "AI Agents" },
+      { value: "50+", label: "AI Agents" },
       { value: "6", label: "組織ユニット" },
-      { value: "4", label: "対応工程" },
+      { value: "全工程", label: "対応範囲" },
     ],
-    tags: ["Multi-Agent System", "Autonomous Decision Making", "Quality Assurance", "Strategic Analysis"],
+    tags: ["Multi-Agent System", "Autonomous Governance", "Constitutional AI", "Self-Operated"],
     gradient: "from-slate-400/15 to-transparent",
     href: undefined,
   },
