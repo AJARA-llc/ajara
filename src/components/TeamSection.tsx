@@ -29,12 +29,15 @@ export default function TeamSection() {
                 <span className="text-2xl font-serif text-accent">平</span>
               </div>
               <p className="text-accent text-xs tracking-[0.2em] uppercase mb-2">
-                CEO
+                共同代表
               </p>
               <h3 className="font-sans text-lg font-medium text-snow mb-2">
                 Takuya Hirata
               </h3>
-              <p className="text-slate-500 text-sm font-serif">平田 拓也</p>
+              <p className="text-slate-500 text-sm font-serif mb-4">平田 拓也</p>
+              <p className="text-slate-500 text-xs leading-relaxed text-left">
+                AEGIS OS開発を主導し、そのシステムを駆使した自社サービスの発想・開発・運用まで一貫して担当。
+              </p>
             </div>
           </FadeInSection>
 
@@ -44,12 +47,15 @@ export default function TeamSection() {
                 <span className="text-2xl font-serif text-accent">本</span>
               </div>
               <p className="text-accent text-xs tracking-[0.2em] uppercase mb-2">
-                COO
+                共同代表
               </p>
               <h3 className="font-sans text-lg font-medium text-snow mb-2">
                 Keisuke Motoishi
               </h3>
-              <p className="text-slate-500 text-sm font-serif">本石 啓介</p>
+              <p className="text-slate-500 text-sm font-serif mb-4">本石 啓介</p>
+              <p className="text-slate-500 text-xs leading-relaxed text-left">
+                リアルの現場に根ざした営業・マーケティングを統括。パートナーシップと事業成長を牽引。
+              </p>
             </div>
           </FadeInSection>
         </div>

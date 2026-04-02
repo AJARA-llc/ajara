@@ -13,6 +13,9 @@ export default function Footer() {
               <p className="text-slate-600 text-xs">
                 戯が誠になるわいな — Where Play Becomes Product
               </p>
+              <p className="text-slate-700 text-xs mt-1">
+                設立: 2026年4月1日
+              </p>
             </div>
 
             <div className="text-center sm:text-right">

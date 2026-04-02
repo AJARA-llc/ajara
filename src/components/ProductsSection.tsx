@@ -5,6 +5,21 @@ import FadeInSection from "./FadeInSection";
 
 const achievements = [
   {
+    category: "自社サービス",
+    title: "Hintl",
+    subtitle: "Language Learning Service",
+    description:
+      "言語学習を新しい体験へ。AIを活用したヒント型の外国語学習サービスです。答えをすぐに教えるのではなく、適切なヒントを提示することで、記憶の定着と自走する学習力を育みます。",
+    metrics: [
+      { value: "AI", label: "Hint Engine" },
+      { value: "多言語", label: "対応言語" },
+      { value: "Hintl", label: "サービス名" },
+    ],
+    tags: ["Language Learning", "AI-Powered", "EdTech", "Hint-Based Learning"],
+    gradient: "from-accent/20 to-transparent",
+    href: "https://hintl.net",
+  },
+  {
     category: "自社開発",
     title: "AEGIS",
     subtitle: "AI Agent Organizational Framework",
@@ -16,7 +31,8 @@ const achievements = [
       { value: "4", label: "対応工程" },
     ],
     tags: ["Multi-Agent System", "Autonomous Decision Making", "Quality Assurance", "Strategic Analysis"],
-    gradient: "from-accent/20 to-transparent",
+    gradient: "from-slate-400/15 to-transparent",
+    href: undefined,
   },
   {
     category: "開発手法",
@@ -31,6 +47,15 @@ const achievements = [
     ],
     tags: ["Remote-First", "AI-Augmented", "Hypothesis-Driven", "Async Communication"],
     gradient: "from-slate-500/10 to-transparent",
+    href: undefined,
+  },
+];
+
+const supporters = [
+  {
+    name: "熱海市",
+    type: "自治体",
+    description: "地域活性化・デジタル推進の取り組みをサポート。",
   },
 ];
 
@@ -40,13 +65,13 @@ export default function ProductsSection() {
       <div className="max-w-5xl mx-auto">
         <FadeInSection>
           <p className="text-accent text-sm tracking-[0.2em] uppercase mb-6 font-sans">
-            Achievements
+            Products & Achievements
           </p>
           <h2 className="font-serif text-3xl sm:text-4xl font-semibold text-snow mb-4">
-            実績
+            プロダクト・実績
           </h2>
           <p className="text-slate-400 mb-16 max-w-2xl">
-            自ら課題に向き合い、解決するためのシステムと手法を構築しています。
+            自ら課題に向き合い、解決するためのサービスとシステムを構築しています。
             この実践が、クライアントへの提供価値の基盤です。
           </p>
         </FadeInSection>
@@ -68,9 +93,24 @@ export default function ProductsSection() {
                     <span className="inline-block text-xs text-accent/80 border border-accent/20 rounded-full px-3 py-1 mb-4">
                       {item.category}
                     </span>
-                    <h3 className="font-sans text-2xl sm:text-3xl font-bold text-snow">
-                      {item.title}
-                    </h3>
+                    <div className="flex items-center gap-3">
+                      <h3 className="font-sans text-2xl sm:text-3xl font-bold text-snow">
+                        {item.title}
+                      </h3>
+                      {item.href && (
+                        <a
+                          href={item.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-accent/60 hover:text-accent transition-colors"
+                          aria-label={`${item.title} サイトへ`}
+                        >
+                          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                            <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3" />
+                          </svg>
+                        </a>
+                      )}
+                    </div>
                     <p className="text-slate-500 text-sm mt-1">
                       {item.subtitle}
                     </p>
@@ -108,6 +148,37 @@ export default function ProductsSection() {
             </FadeInSection>
           ))}
         </div>
+
+        <FadeInSection delay={0.25}>
+          <div className="mt-16 mb-8">
+            <p className="text-accent text-sm tracking-[0.2em] uppercase mb-6 font-sans">
+              Supported Partners
+            </p>
+            <h3 className="font-serif text-2xl sm:text-3xl font-semibold text-snow mb-4">
+              サポート企業・自治体
+            </h3>
+            <p className="text-slate-400 mb-8 max-w-2xl text-sm">
+              私たちの技術と伴走型サポートで、地域・企業のデジタル変革を支援しています。
+            </p>
+            <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
+              {supporters.map((s) => (
+                <div key={s.name} className="glass p-6 group transition-all duration-300 hover:translate-y-[-2px]">
+                  <span className="inline-block text-xs text-accent/70 border border-accent/20 rounded-full px-3 py-1 mb-3">
+                    {s.type}
+                  </span>
+                  <h4 className="font-sans text-lg font-medium text-snow mb-2">{s.name}</h4>
+                  <p className="text-slate-500 text-sm leading-relaxed">{s.description}</p>
+                </div>
+              ))}
+              <div className="glass p-6 border-dashed border-white/10 flex flex-col items-center justify-center text-center min-h-[120px]">
+                <p className="text-slate-600 text-sm">掲載希望の方は</p>
+                <a href="#contact" className="text-accent/70 hover:text-accent text-sm mt-1 transition-colors">
+                  お問い合わせください →
+                </a>
+              </div>
+            </div>
+          </div>
+        </FadeInSection>
 
         <FadeInSection delay={0.3}>
           <div className="glass p-8 mt-8">
