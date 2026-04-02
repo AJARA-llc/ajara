@@ -4,8 +4,6 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import HeroCanvas from "./HeroCanvas";
 
-const basePath = process.env.NODE_ENV === "production" ? "/ajara" : "";
-
 export default function HeroSection() {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
@@ -24,7 +22,7 @@ export default function HeroSection() {
           className="mb-8"
         >
           <Image
-            src={`${basePath}/images/logo-full.png`}
+            src="/images/logo-full.png"
             alt="合同会社 AJARA"
             width={240}
             height={240}
