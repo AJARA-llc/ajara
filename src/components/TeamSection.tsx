@@ -67,12 +67,12 @@ export default function TeamSection() {
               開発基盤 — AEGIS
             </h3>
             <p className="text-slate-400 text-sm leading-relaxed text-center max-w-md mx-auto mb-6">
-              24のAIエージェントによる分析・設計・実装・品質管理の自動化基盤。
+              50以上のAIエージェントによる分析・設計・実装・品質管理の自動化基盤。
               少人数でも大規模な開発を可能にする、私たちの競争優位の源泉です。
             </p>
             <div className="grid grid-cols-3 gap-6 text-center">
               {[
-                { label: "AI Agents", value: "24" },
+                { label: "AI Agents", value: "50+" },
                 { label: "組織ユニット", value: "6" },
                 { label: "対応工程", value: "全工程" },
               ].map((stat) => (

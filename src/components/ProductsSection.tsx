@@ -39,10 +39,10 @@ const achievements = [
     title: "少数精鋭 × AI開発",
     subtitle: "AI-Augmented Development Methodology",
     description:
-      "2人のエンジニアとAIエージェント組織が協働し、通常の大規模チームに匹敵する開発を実現。仮説検証型のアプローチとAIによる分析・コードレビュー・品質管理の自動化で、スピードと品質を両立しています。",
+      "1人のエンジニアとAIエージェント組織が協働し、通常の大規模チームに匹敵する開発を実現。仮説検証型のアプローチとAIによる分析・コードレビュー・品質管理の自動化で、スピードと品質を両立しています。",
     metrics: [
-      { value: "2人", label: "エンジニア" },
-      { value: "24", label: "AIエージェント" },
+      { value: "1人", label: "エンジニア" },
+      { value: "50+", label: "AIエージェント" },
       { value: "全工程", label: "AI活用範囲" },
     ],
     tags: ["Remote-First", "AI-Augmented", "Hypothesis-Driven", "Async Communication"],
@@ -51,13 +51,7 @@ const achievements = [
   },
 ];
 
-const supporters = [
-  {
-    name: "熱海市",
-    type: "自治体",
-    description: "地域活性化・デジタル推進の取り組みをサポート。",
-  },
-];
+const supporters: { name: string; type: string; description: string }[] = [];
 
 export default function ProductsSection() {
   return (
@@ -149,36 +143,38 @@ export default function ProductsSection() {
           ))}
         </div>
 
-        <FadeInSection delay={0.25}>
-          <div className="mt-16 mb-8">
-            <p className="text-accent text-sm tracking-[0.2em] uppercase mb-6 font-sans">
-              Supported Partners
-            </p>
-            <h3 className="font-serif text-2xl sm:text-3xl font-semibold text-snow mb-4">
-              サポート企業・自治体
-            </h3>
-            <p className="text-slate-400 mb-8 max-w-2xl text-sm">
-              私たちの技術と伴走型サポートで、地域・企業のデジタル変革を支援しています。
-            </p>
-            <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
-              {supporters.map((s) => (
-                <div key={s.name} className="glass p-6 group transition-all duration-300 hover:translate-y-[-2px]">
-                  <span className="inline-block text-xs text-accent/70 border border-accent/20 rounded-full px-3 py-1 mb-3">
-                    {s.type}
-                  </span>
-                  <h4 className="font-sans text-lg font-medium text-snow mb-2">{s.name}</h4>
-                  <p className="text-slate-500 text-sm leading-relaxed">{s.description}</p>
+        {supporters.length > 0 && (
+          <FadeInSection delay={0.25}>
+            <div className="mt-16 mb-8">
+              <p className="text-accent text-sm tracking-[0.2em] uppercase mb-6 font-sans">
+                Supported Partners
+              </p>
+              <h3 className="font-serif text-2xl sm:text-3xl font-semibold text-snow mb-4">
+                サポート企業・自治体
+              </h3>
+              <p className="text-slate-400 mb-8 max-w-2xl text-sm">
+                私たちの技術と伴走型サポートで、地域・企業のデジタル変革を支援しています。
+              </p>
+              <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
+                {supporters.map((s) => (
+                  <div key={s.name} className="glass p-6 group transition-all duration-300 hover:translate-y-[-2px]">
+                    <span className="inline-block text-xs text-accent/70 border border-accent/20 rounded-full px-3 py-1 mb-3">
+                      {s.type}
+                    </span>
+                    <h4 className="font-sans text-lg font-medium text-snow mb-2">{s.name}</h4>
+                    <p className="text-slate-500 text-sm leading-relaxed">{s.description}</p>
+                  </div>
+                ))}
+                <div className="glass p-6 border-dashed border-white/10 flex flex-col items-center justify-center text-center min-h-[120px]">
+                  <p className="text-slate-600 text-sm">掲載希望の方は</p>
+                  <a href="#contact" className="text-accent/70 hover:text-accent text-sm mt-1 transition-colors">
+                    お問い合わせください →
+                  </a>
                 </div>
-              ))}
-              <div className="glass p-6 border-dashed border-white/10 flex flex-col items-center justify-center text-center min-h-[120px]">
-                <p className="text-slate-600 text-sm">掲載希望の方は</p>
-                <a href="#contact" className="text-accent/70 hover:text-accent text-sm mt-1 transition-colors">
-                  お問い合わせください →
-                </a>
               </div>
             </div>
-          </div>
-        </FadeInSection>
+          </FadeInSection>
+        )}
 
         <FadeInSection delay={0.3}>
           <div className="glass p-8 mt-8">
