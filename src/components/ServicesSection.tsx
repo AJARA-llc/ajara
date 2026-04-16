@@ -41,6 +41,51 @@ const services = [
       "アイデアを最短で形にします。仮説検証型のアプローチで、小さく素早くプロトタイプを構築し、市場フィードバックをもとに改善を繰り返します。",
     features: ["MVP開発・仮説検証", "ユーザーフィードバック分析", "反復的な改善サイクル"],
   },
+  {
+    icon: (
+      <svg
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="#E8600A"
+        strokeWidth="2"
+      >
+        <path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z" />
+        <polyline points="7.5 4.21 12 6.81 16.5 4.21" />
+        <polyline points="7.5 19.79 7.5 14.6 3 12" />
+        <polyline points="21 12 16.5 14.6 16.5 19.79" />
+        <line x1="3.27" y1="6.96" x2="12" y2="12.01" />
+        <line x1="12" y1="22.08" x2="12" y2="12" />
+      </svg>
+    ),
+    title: "サービス構築・導入支援",
+    subtitle: "Service Implementation",
+    description:
+      "AIツール・システムの選定から設計・構築・運用定着まで一貫して支援します。既存業務に溶け込む形でデジタル変革を推進し、組織全体の生産性向上を実現します。",
+    features: ["要件定義・システム設計", "スモールスタート導入", "運用・保守サポート"],
+  },
+  {
+    icon: (
+      <svg
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="#E8600A"
+        strokeWidth="2"
+      >
+        <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" />
+        <circle cx="9" cy="7" r="4" />
+        <path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75" />
+      </svg>
+    ),
+    title: "AIコンサルティング・リスキリング",
+    subtitle: "AI Consulting & Reskilling",
+    description:
+      "AI活用戦略の立案から、社員がAIを使いこなせるようになるための研修・ワークショップまで提供します。組織の「AI活用力」を根本から底上げします。",
+    features: ["AI活用戦略コンサルティング", "社内研修・ワークショップ", "個別スキルアッププログラム"],
+  },
 ];
 
 export default function ServicesSection() {
@@ -60,7 +105,7 @@ export default function ServicesSection() {
           </p>
         </FadeInSection>
 
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {services.map((service, i) => (
             <FadeInSection key={service.subtitle} delay={i * 0.1}>
               <div className="glass p-8 h-full group transition-all duration-300 hover:translate-y-[-4px]">

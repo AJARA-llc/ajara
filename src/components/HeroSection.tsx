@@ -24,9 +24,9 @@ export default function HeroSection() {
           <Image
             src="/images/logo-full.png"
             alt="合同会社 AJARA"
-            width={240}
-            height={240}
-            className="mx-auto w-40 sm:w-48 md:w-56 h-auto rounded-2xl"
+            width={320}
+            height={320}
+            className="mx-auto w-56 sm:w-72 md:w-80 h-auto rounded-2xl"
             priority
           />
         </motion.div>
@@ -35,9 +35,9 @@ export default function HeroSection() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.6 }}
-          className="font-serif text-4xl sm:text-5xl md:text-7xl font-semibold text-snow leading-tight mb-6"
+          className="font-serif text-3xl sm:text-4xl md:text-5xl font-semibold text-snow leading-tight mb-6"
         >
-          戯が誠になるわいな
+          ItoB — Idea-to-Business
         </motion.h1>
 
         <motion.p
@@ -55,9 +55,9 @@ export default function HeroSection() {
           transition={{ duration: 0.8, delay: 1.4 }}
           className="text-slate-500 text-sm max-w-xl mx-auto mb-12 leading-relaxed"
         >
-          遊び心や発想から生まれたアイデアを AI とテクノロジーによって実験し、
+          社会を変えるのは、アイデアだ。その発想を、AI とテクノロジーによって検証し、
           <br className="hidden sm:inline" />
-          社会に価値あるプロダクトへと育てていく。
+          事業としてプロダクトへ。
         </motion.p>
 
         <motion.div
@@ -67,14 +67,8 @@ export default function HeroSection() {
           className="flex flex-col sm:flex-row items-center justify-center gap-4"
         >
           <a
-            href="#services"
-            className="bg-accent hover:bg-accent-light text-navy-dark font-medium px-8 py-3 rounded-full transition-all duration-300 hover:shadow-lg hover:shadow-accent/20 hover:scale-105"
-          >
-            サービスを見る
-          </a>
-          <a
             href="#contact"
-            className="border border-white/10 hover:border-accent/40 text-snow font-medium px-8 py-3 rounded-full transition-all duration-300 hover:bg-white/5"
+            className="bg-accent hover:bg-accent-light text-navy-dark font-medium px-8 py-3 rounded-full transition-all duration-300 hover:shadow-lg hover:shadow-accent/20 hover:scale-105"
           >
             無料相談する
           </a>
