@@ -115,10 +115,10 @@ export default function ProductsSection() {
                   {item.description}
                 </p>
 
-                <div className="grid grid-cols-3 gap-6 mb-8">
+                <div className="grid grid-cols-3 gap-3 sm:gap-6 mb-8">
                   {item.metrics.map((metric) => (
                     <div key={metric.label}>
-                      <p className="text-2xl font-bold text-accent mb-1 font-sans">
+                      <p className="text-lg sm:text-2xl font-bold text-accent mb-1 font-sans break-words">
                         {metric.value}
                       </p>
                       <p className="text-slate-500 text-xs tracking-wider uppercase">
