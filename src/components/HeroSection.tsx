@@ -55,9 +55,9 @@ export default function HeroSection() {
           transition={{ duration: 0.8, delay: 1.4 }}
           className="text-slate-500 text-sm max-w-xl mx-auto mb-12 leading-relaxed"
         >
-          社会を変えるのは、アイデアだ。その発想を、AI とテクノロジーによって検証し、
-          <br className="hidden sm:inline" />
-          事業としてプロダクトへ。
+          社会を変えるのは、アイデアだ。
+          <br />
+          その発想を、AI とテクノロジーによって検証し、事業としてプロダクトへ。
         </motion.p>
 
         <motion.div

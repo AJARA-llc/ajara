@@ -36,7 +36,7 @@ export default function TeamSection() {
               </h3>
               <p className="text-slate-500 text-sm font-serif mb-4">平田 拓也</p>
               <p className="text-slate-500 text-xs leading-relaxed text-left">
-                AEGIS OS開発を主導し、そのシステムを駆使した自社サービスの発想・開発・運用まで一貫して担当。
+                AEGIS OSS開発を主導し、そのシステムを駆使した自社サービスの発想・開発・運用まで一貫して担当。
               </p>
             </div>
           </FadeInSection>
