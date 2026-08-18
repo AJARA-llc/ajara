@@ -21,7 +21,7 @@ const products = [
       "アフィリエイト報酬の自動管理",
       "AI 時代の発見エンジン対応設計",
     ],
-    link: "https://hintl.jp",
+    link: "https://hintl.net",
     gradient: "from-blue-900/20 to-cyan-900/10",
   },
   {

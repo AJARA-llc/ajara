@@ -246,7 +246,7 @@ export default function ArticleCareerDecisionPsychology() {
               6 つの質問に答えるだけで、あなたに合ったアドバイザーを無料で提案します。
             </p>
             <a
-              href="https://hintl.jp"
+              href="https://hintl.net"
               target="_blank"
               rel="noreferrer"
               style={{
@@ -261,7 +261,7 @@ export default function ArticleCareerDecisionPsychology() {
                 boxShadow: "0 4px 20px rgba(0,102,255,0.35)",
               }}
             >
-              hintl.jp で今すぐ試す
+              hintl.net で今すぐ試す
             </a>
           </div>
 

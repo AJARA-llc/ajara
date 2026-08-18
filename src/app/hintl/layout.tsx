@@ -1,22 +1,23 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "hintl | AIライフコーチング — エビデンスベースの人生相談",
+  title: "hintl | エビデンスで選ぶ — 研究に基づく無料診断メディア",
   description:
-    "月980円で専任AIアドバイザーが伴走するライフコーチング。キャリア・お金・人間関係・メンタルなど20+ジャンルに対応。3メッセージ無料体験あり。",
+    "健康・美容などの選択を『広告ではなく公開研究』から比較。論文数と研究間の一貫性からエビデンスを100点満点で可視化し、1分の無料診断で研究報告のある選択肢を確認できます。利用は無料。",
   openGraph: {
-    title: "hintl | AIライフコーチング",
-    description: "月980円で専任AIアドバイザーが伴走。エビデンスベースのライフコーチング。3メッセージ無料。",
+    title: "hintl | エビデンスで選ぶ意思決定エンジン",
+    description:
+      "広告ではなく公開研究から比較。エビデンスを100点満点で可視化し、1分の無料診断で研究報告のある選択肢を確認できます。利用は無料。",
     type: "website",
     locale: "ja_JP",
     url: "https://ajara.co.jp/hintl",
     siteName: "合同会社AJARA",
-    images: [{ url: "/images/ogp.png", width: 1200, height: 630, alt: "hintl AIライフコーチング" }],
+    images: [{ url: "/images/ogp.png", width: 1200, height: 630, alt: "hintl エビデンスで選ぶ意思決定エンジン" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "hintl | AIライフコーチング",
-    description: "月980円で専任AIアドバイザーが伴走するライフコーチング。20+ジャンル対応。",
+    title: "hintl | エビデンスで選ぶ意思決定エンジン",
+    description: "広告ではなく公開研究から比較。エビデンスを100点満点で可視化する無料診断メディア。",
     images: ["/images/ogp.png"],
   },
 };
@@ -25,24 +26,24 @@ const jsonLd = {
   "@context": "https://schema.org",
   "@graph": [
     {
-      "@type": "SoftwareApplication",
+      "@type": "WebApplication",
       "name": "hintl",
-      "description": "AI × エビデンスのパーソナルライフコーチングプラットフォーム。キャリア・お金・人間関係・メンタル・睡眠・美容など20以上のジャンルに対応。",
-      "url": "https://hintl.jp",
-      "applicationCategory": "LifestyleApplication",
+      "description": "健康・美容などの選択を公開研究から比較できるエビデンスベースの意思決定エンジン。論文数と研究間の一貫性からエビデンスを100点満点で可視化し、1分の無料診断で研究報告のある選択肢を確認できる。睡眠・メンタル・栄養・脳・集中・美容・仕事など複数領域に対応。",
+      "url": "https://hintl.net",
+      "applicationCategory": "HealthApplication",
       "operatingSystem": "Web",
       "offers": {
         "@type": "Offer",
-        "price": "980",
+        "price": "0",
         "priceCurrency": "JPY",
-        "description": "¥980/月/ジャンル。AIアドバイザー 1 名指名込み。",
+        "description": "診断・情報閲覧は無料。",
       },
       "author": { "@id": "https://ajara.co.jp/#organization" },
       "brand": { "@type": "Brand", "name": "hintl" },
     },
     {
       "@type": "WebPage",
-      "name": "hintl | AIライフコーチング — エビデンスベースの人生相談",
+      "name": "hintl | エビデンスで選ぶ — 研究に基づく無料診断メディア",
       "url": "https://ajara.co.jp/hintl",
       "breadcrumb": {
         "@type": "BreadcrumbList",
@@ -60,31 +61,31 @@ const jsonLd = {
           "name": "hintl はどんなサービスですか？",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "キャリア・お金・人間関係・メンタル・睡眠・美容など20以上のジャンルで、AI × エビデンスに基づく人生コーチングを提供するプラットフォームです。「どう生きるか」を一緒に考えるパーソナルアドバイザーが、いつでも伴走します。",
+            "text": "健康・美容などの選択を「広告ではなく公開研究」から比較できる、エビデンスベースの意思決定エンジンです。論文数と研究間の一貫性からエビデンスを100点満点で可視化し、1分の無料診断で研究報告のある選択肢を確認できます。",
           },
         },
         {
           "@type": "Question",
-          "name": "無料で試せますか？",
+          "name": "料金はかかりますか？",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "はい。登録後、各アドバイザーに対して 3 メッセージまで無料でやり取りできます。使い心地を確かめてから有料プランへの移行をご検討ください。",
+            "text": "いいえ。診断も、エビデンス情報の閲覧も無料でご利用いただけます。",
           },
         },
         {
           "@type": "Question",
-          "name": "料金はどのくらいですか？",
+          "name": "エビデンススコアはどう決まりますか？",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "¥980/月/ジャンルでご利用いただけます。AIアドバイザー 1 名まで指名込みのシンプルな料金体系です。複数ジャンルを利用する場合はジャンルごとの契約となります。",
+            "text": "各テーマについて公開されている研究を集め、論文の数と、研究どうしの結論の一貫性をもとに100点満点で算出します。あわせて信頼度も表示し、どれだけ確からしいかが分かるようにしています。",
           },
         },
         {
           "@type": "Question",
-          "name": "医療相談や法律相談もできますか？",
+          "name": "医療相談や診断はできますか？",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "hintl は医療・法律の専門的な診断や代替を行うサービスではなく、日々の意思決定や行動変容をサポートするライフコーチングサービスです。医療・法律に関わる深刻なお悩みは、必ず専門家にご相談ください。",
+            "text": "hintl は研究に基づく情報を提供するサービスであり、医療行為・診断・治療や、特定の効果を保証するものではありません。健康上の判断は必ず専門家にご相談ください。",
           },
         },
         {
@@ -92,7 +93,7 @@ const jsonLd = {
           "name": "AJARA との関係は？",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "hintl は AJARA が開発・運営するプロダクトです。AIエンジンの設計・エビデンスデータベースの構築・プラットフォーム開発まで、AJARA が一貫して手がけています。",
+            "text": "hintl は合同会社AJARA が開発・運営するプロダクトです。エビデンスデータベースの構築からプラットフォーム開発まで、AJARA が一貫して手がけています。",
           },
         },
       ],

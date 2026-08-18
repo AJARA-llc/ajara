@@ -37,7 +37,7 @@ export default function HeroSection() {
           transition={{ duration: 0.6, delay: 0.5 }}
           className="text-accent text-xs tracking-[0.25em] uppercase font-sans mb-4"
         >
-          AI SaaS · ライフコーチング · 映像制作
+          AI SaaS · エビデンス診断 · 映像制作
         </motion.p>
 
         <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl font-semibold text-snow leading-tight mb-6">

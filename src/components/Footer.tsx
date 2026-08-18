@@ -1,4 +1,12 @@
+import Link from "next/link";
 import FadeInSection from "./FadeInSection";
+
+const legalLinks = [
+  { href: "/legal/tokushoho", label: "特定商取引法に基づく表記" },
+  { href: "/legal/privacy", label: "プライバシーポリシー" },
+  { href: "/legal/terms", label: "利用規約" },
+  { href: "/legal/subsidy", label: "助成金に関する表示" },
+];
 
 export default function Footer() {
   return (
@@ -30,6 +38,18 @@ export default function Footer() {
                 reserved.
               </p>
             </div>
+          </div>
+
+          <div className="mt-10 pt-6 border-t border-white/5 flex flex-wrap justify-center sm:justify-start gap-x-6 gap-y-2">
+            {legalLinks.map((l) => (
+              <Link
+                key={l.href}
+                href={l.href}
+                className="text-slate-600 hover:text-slate-400 text-xs transition-colors"
+              >
+                {l.label}
+              </Link>
+            ))}
           </div>
         </FadeInSection>
       </div>

@@ -6,6 +6,7 @@ import { motion, AnimatePresence } from "framer-motion";
 const serviceLinks = [
   { href: "/hintl", label: "hintl" },
   { href: "/aioru", label: "aioru" },
+  { href: "/reskilling", label: "AI研修" },
   { href: "/creative", label: "映像制作" },
 ];
 

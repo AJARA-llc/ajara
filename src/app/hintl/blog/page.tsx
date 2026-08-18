@@ -139,7 +139,7 @@ export default function HintlBlogPage() {
               6 つの質問で、あなたに合ったアドバイザーを無料で提案します。
             </p>
             <a
-              href="https://hintl.jp"
+              href="https://hintl.net"
               target="_blank"
               rel="noreferrer"
               style={{
@@ -154,7 +154,7 @@ export default function HintlBlogPage() {
                 boxShadow: "0 4px 20px rgba(0,102,255,0.35)",
               }}
             >
-              hintl.jp で無料で試す
+              hintl.net で無料で試す
             </a>
           </div>
         </div>

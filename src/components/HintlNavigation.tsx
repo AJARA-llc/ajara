@@ -81,7 +81,7 @@ export default function HintlNavigation() {
 
         {/* CTA */}
         <a
-          href="https://hintl.jp"
+          href="https://hintl.net"
           target="_blank"
           rel="noopener noreferrer"
           className="hidden md:inline-block"
@@ -130,7 +130,7 @@ export default function HintlNavigation() {
                 </a>
               ))}
               <a
-                href="https://hintl.jp"
+                href="https://hintl.net"
                 target="_blank"
                 rel="noopener noreferrer"
                 style={{

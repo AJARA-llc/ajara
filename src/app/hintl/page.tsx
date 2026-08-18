@@ -15,8 +15,8 @@ const ACCENT = "#0066ff";
 
 const FEATURES = [
   {
-    title: "AI × エビデンス",
-    desc: "感覚や経験則ではなく、エビデンスに基づいた回答を提供。「なぜそうするのか」が理解できるアドバイスです。",
+    title: "広告ではなく、研究から",
+    desc: "成分・習慣・製品などの選択肢を、広告や口コミではなく、公開されている研究をもとに整理します。",
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.7} strokeLinecap="round" strokeLinejoin="round" style={{ width: 24, height: 24 }}>
         <path d="M12 2a10 10 0 1 0 0 20A10 10 0 0 0 12 2z"/>
@@ -25,8 +25,8 @@ const FEATURES = [
     ),
   },
   {
-    title: "20以上のジャンル",
-    desc: "キャリア・お金・恋愛・メンタル・睡眠・美容など、人生の悩みを幅広くカバー。あなたの課題に特化したアドバイザーが伴走します。",
+    title: "エビデンスを100点で可視化",
+    desc: "論文の数と研究間の一貫性からエビデンススコアを算出。どれだけ確からしいかを、信頼度とともに一目で確認できます。",
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.7} strokeLinecap="round" strokeLinejoin="round" style={{ width: 24, height: 24 }}>
         <rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/>
@@ -35,8 +35,8 @@ const FEATURES = [
     ),
   },
   {
-    title: "パーソナライズ診断",
-    desc: "6 つの質問に答えるだけで、あなたに最適なアドバイザーを無料で提案。迷わずすぐに始められます。",
+    title: "1分の無料診断",
+    desc: "簡単な質問に答えるだけで、あなたに関連する領域と、研究報告のある選択肢を無料で提示します。",
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.7} strokeLinecap="round" strokeLinejoin="round" style={{ width: 24, height: 24 }}>
         <circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/>
@@ -44,8 +44,8 @@ const FEATURES = [
     ),
   },
   {
-    title: "手軽な料金設計",
-    desc: "¥980/月/ジャンル。AIアドバイザー 1 名指名込みのシンプルプラン。まず 3 メッセージを無料で試せます。",
+    title: "利用は完全無料",
+    desc: "診断も、エビデンス情報の閲覧も無料。まずは気になる領域から確かめてみてください。",
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.7} strokeLinecap="round" strokeLinejoin="round" style={{ width: 24, height: 24 }}>
         <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/>
@@ -56,37 +56,36 @@ const FEATURES = [
 ];
 
 const GENRES = [
-  "キャリア・転職", "お金・節約", "投資", "恋愛・人間関係",
-  "メンタルヘルス", "ストレス・疲労回復", "育児・子育て", "人生設計",
-  "睡眠改善", "ダイエット・食事", "美容・スキンケア", "腸活",
+  "睡眠", "メンタル", "栄養", "脳・集中",
+  "美容", "仕事・働き方", "お金・節約", "疲労回復",
 ];
 
 const STEPS = [
-  { num: "01", title: "AI 診断を受ける", desc: "6 つの質問に答えるだけ。あなたに合ったアドバイザーを無料で提案します。" },
-  { num: "02", title: "アドバイザーを指名", desc: "提案された中から気に入ったアドバイザーを選び、チャットを開始。" },
-  { num: "03", title: "毎日の相談へ", desc: "テキストで気軽に相談。回答はエビデンスをベースに、あなた向けにパーソナライズされます。" },
+  { num: "01", title: "気になる領域を選ぶ", desc: "睡眠・メンタル・栄養など、いま知りたいテーマを選びます。" },
+  { num: "02", title: "1分の無料診断を受ける", desc: "簡単な質問に答えると、あなたに関連する選択肢が絞り込まれます。" },
+  { num: "03", title: "エビデンスで確かめる", desc: "各選択肢のエビデンススコアと研究の裏付けを見て、自分に合うものを選べます。" },
 ];
 
 const FAQS = [
   {
     q: "hintl はどんなサービスですか？",
-    a: "キャリア・お金・人間関係・メンタル・睡眠・美容など20以上のジャンルで、AI × エビデンスに基づく人生コーチングを提供するプラットフォームです。「どう生きるか」を一緒に考えるパーソナルアドバイザーが、いつでも伴走します。",
+    a: "健康・美容などの選択を「広告ではなく公開研究」から比較できる、エビデンスベースの意思決定エンジンです。論文数と研究間の一貫性からエビデンスを100点満点で可視化し、1分の無料診断で研究報告のある選択肢を確認できます。",
   },
   {
-    q: "無料で試せますか？",
-    a: "はい。登録後、各アドバイザーに対して 3 メッセージまで無料でやり取りできます。使い心地を確かめてから有料プランへの移行をご検討ください。",
+    q: "料金はかかりますか？",
+    a: "いいえ。診断も、エビデンス情報の閲覧も無料でご利用いただけます。",
   },
   {
-    q: "料金はどのくらいですか？",
-    a: "¥980/月/ジャンルでご利用いただけます。AIアドバイザー 1 名まで指名込みのシンプルな料金体系です。複数ジャンルを利用する場合はジャンルごとの契約となります。",
+    q: "エビデンススコアはどう決まりますか？",
+    a: "各テーマについて公開されている研究を集め、論文の数と、研究どうしの結論の一貫性をもとに100点満点で算出します。あわせて信頼度も表示し、どれだけ確からしいかが分かるようにしています。",
   },
   {
-    q: "医療相談や法律相談もできますか？",
-    a: "hintl は医療・法律の専門的な診断や代替を行うサービスではなく、日々の意思決定や行動変容をサポートするライフコーチングサービスです。医療・法律に関わる深刻なお悩みは、必ず専門家にご相談ください。",
+    q: "医療相談や診断はできますか？",
+    a: "hintl は研究に基づく情報を提供するサービスであり、医療行為・診断・治療や、特定の効果を保証するものではありません。健康上の判断は必ず専門家にご相談ください。",
   },
   {
     q: "AJARA との関係は？",
-    a: "hintl は AJARA が開発・運営するプロダクトです。AI エンジンの設計・エビデンスデータベースの構築・プラットフォーム開発まで、AJARA が一貫して手がけています。",
+    a: "hintl は合同会社AJARA が開発・運営するプロダクトです。エビデンスデータベースの構築からプラットフォーム開発まで、AJARA が一貫して手がけています。",
   },
 ];
 
@@ -197,7 +196,7 @@ export default function HintlPage() {
         />
         <div style={{ maxWidth: "760px", margin: "0 auto", position: "relative" }}>
           <p style={{ fontSize: "11px", letterSpacing: "0.2em", textTransform: "uppercase", color: "#8A97C0", marginBottom: "20px" }}>
-            AJARA Product — ライフコーチング
+            AJARA Product — エビデンスで選ぶ
           </p>
 
           <div style={{ marginBottom: "28px", display: "flex", justifyContent: "center" }}>
@@ -229,13 +228,42 @@ export default function HintlPage() {
           </h1>
 
           <p style={{ fontSize: "18px", color: MUTED, lineHeight: 1.7, marginBottom: "40px", maxWidth: "520px", margin: "0 auto 40px" }}>
-            AI × エビデンスで、あなたの人生を伴走する<br />
-            パーソナルコーチングプラットフォーム。
+            健康・美容の情報を、広告ではなく公開研究から比較。<br />
+            エビデンスを100点満点で可視化する意思決定エンジン。
           </p>
+
+          {/* Evidence score — 表示イメージ */}
+          <div
+            style={{
+              maxWidth: "380px",
+              margin: "0 auto 36px",
+              background: "#ffffff",
+              border: "1px solid rgba(0,102,255,0.14)",
+              borderRadius: "18px",
+              padding: "20px 22px",
+              boxShadow: "0 8px 30px rgba(0,102,255,0.06)",
+              textAlign: "left",
+            }}
+          >
+            <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: "10px" }}>
+              <span style={{ fontSize: "12px", color: "#8A97C0" }}>エビデンススコア（表示イメージ）</span>
+              <span style={{ fontSize: "11px", color: "#00a37a", fontWeight: 600 }}>信頼度：高</span>
+            </div>
+            <div style={{ display: "flex", alignItems: "baseline", gap: "6px", marginBottom: "12px" }}>
+              <span style={{ fontSize: "34px", fontWeight: 800, background: BRAND, WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", lineHeight: 1 }}>82</span>
+              <span style={{ fontSize: "14px", color: "#8A97C0" }}>/ 100</span>
+            </div>
+            <div style={{ height: "8px", borderRadius: "999px", background: "rgba(0,102,255,0.1)", overflow: "hidden" }}>
+              <div style={{ width: "82%", height: "100%", background: BRAND, borderRadius: "999px" }} />
+            </div>
+            <p style={{ fontSize: "11px", color: "#8A97C0", marginTop: "10px", lineHeight: 1.6 }}>
+              論文数と研究間の一貫性から算出。数値は例示です。
+            </p>
+          </div>
 
           <div style={{ display: "flex", flexWrap: "wrap", alignItems: "center", justifyContent: "center", gap: "16px", marginBottom: "60px" }}>
             <a
-              href="https://hintl.jp"
+              href="https://hintl.net"
               target="_blank"
               rel="noreferrer"
               style={{
@@ -261,9 +289,9 @@ export default function HintlPage() {
 
           <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "48px" }}>
             {[
-              { value: "20+", label: "対応ジャンル" },
-              { value: "¥980〜", label: "/月/ジャンル" },
-              { value: "3通", label: "無料メッセージ" },
+              { value: "100点", label: "エビデンススコア" },
+              { value: "1分", label: "無料診断" },
+              { value: "¥0", label: "利用料金" },
             ].map((stat) => (
               <div key={stat.label} style={{ textAlign: "center" }}>
                 <p style={{ fontSize: "28px", fontWeight: 800, background: BRAND, WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", marginBottom: "4px" }}>
@@ -284,7 +312,7 @@ export default function HintlPage() {
             <h2 style={{ fontSize: "clamp(24px,3vw,34px)", fontWeight: 800, color: TEXT, letterSpacing: "-0.5px", marginBottom: "12px" }}>
               hintl が選ばれる理由
             </h2>
-            <p style={{ fontSize: "15px", color: MUTED }}>感覚ではなく根拠のあるアドバイスを、手軽に・継続的に。</p>
+            <p style={{ fontSize: "15px", color: MUTED }}>宣伝や体験談ではなく、公開研究の裏付けで選べるように。</p>
           </div>
 
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", gap: "20px" }}>
@@ -326,10 +354,10 @@ export default function HintlPage() {
         <div style={{ maxWidth: "800px", margin: "0 auto", textAlign: "center" }}>
           <p style={{ fontSize: "11px", letterSpacing: "0.2em", textTransform: "uppercase", color: "#8A97C0", marginBottom: "10px" }}>Genres</p>
           <h2 style={{ fontSize: "clamp(24px,3vw,34px)", fontWeight: 800, color: TEXT, letterSpacing: "-0.5px", marginBottom: "12px" }}>
-            あなたの悩みに、専門の AI を。
+            気になる領域から、研究で確かめる。
           </h2>
           <p style={{ fontSize: "15px", color: MUTED, marginBottom: "40px" }}>
-            20 以上のジャンルから、今の自分に合ったアドバイザーを選べます。
+            暮らしに関わる複数の領域で、研究報告のある選択肢を確認できます。
           </p>
           <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", gap: "10px" }}>
             {GENRES.map((genre) => (
@@ -399,10 +427,10 @@ export default function HintlPage() {
             AJARA Column
           </p>
           <h2 style={{ fontSize: "clamp(22px,3vw,30px)", fontWeight: 700, color: "#1B2340", textAlign: "center", marginBottom: "8px", letterSpacing: "-0.5px" }}>
-            なぜ今、「エビデンスベースのAIコーチング」が求められるのか
+            なぜ今、「エビデンスで選ぶ」ことが必要なのか
           </h2>
           <p style={{ fontSize: "12px", color: "#8A97C0", textAlign: "center", marginBottom: "40px" }}>
-            2025年 — AJARA編集部
+            AJARA編集部
           </p>
 
           <div
@@ -420,26 +448,25 @@ export default function HintlPage() {
             }}
           >
             <p>
-              人生の岐路に立つ時、誰もが「正解」を探します。転職すべきか、投資を始めるべきか、
-              ダイエット法はどれが正しいのか——情報は溢れていますが、「根拠あるアドバイス」は意外と少ないのが現実です。
+              サプリ、睡眠法、スキンケア——健康や美容の選択肢は溢れていますが、そのほとんどは
+              広告や体験談として語られます。「本当に効くのか」を確かめようとしても、根拠にたどり着くのは簡単ではありません。
             </p>
             <p>
-              問題は情報の量ではなく、<strong style={{ color: "#1B2340" }}>「信頼性」と「パーソナライズ」</strong>の欠如です。
-              SNS を流れる体験談や感覚論は、あなたの状況に当てはまらないことが多く、
-              専門家へのアクセスはコストや時間の壁がある。
+              問題は情報の量ではなく、<strong style={{ color: "#1B2340" }}>「何が、どれだけ確からしいか」</strong>が見えないことです。
+              宣伝の強さと、研究の裏付けの強さは、必ずしも一致しません。
             </p>
             <p>
-              hintl が採用するのは、心理学・医学・行動経済学の学術研究に裏打ちされたエビデンスベースのアプローチです。
-              認知行動療法（CBT）・行動変容ステージモデル・プロスペクト理論——各ジャンルの専門知識を AI に統合し、
-              「なぜそうするのか」が理解できるアドバイスを継続的に届けます。
+              hintl は、公開されている研究をもとに、選択肢のエビデンスを
+              <strong style={{ color: "#1B2340" }}>100点満点のスコア</strong>で可視化します。論文の数と、研究どうしの結論の一貫性から算出し、
+              信頼度もあわせて提示。広告ではなく研究から、落ち着いて選べる状態をつくります。
             </p>
             <p>
-              AJARA が開発した <strong style={{ color: "#1B2340" }}>hintl</strong> は、このアプローチを ¥980/月という手軽な価格で実現するパーソナルコーチングプラットフォームです。
-              まず 3 メッセージ無料でお試しいただけます。
+              合同会社AJARA が開発・運営する <strong style={{ color: "#1B2340" }}>hintl</strong> は、
+              1分の無料診断から研究報告のある選択肢を確認できる意思決定エンジンです。利用はすべて無料です。
             </p>
             <div style={{ paddingTop: "16px", borderTop: "1px solid rgba(0,102,255,0.1)", display: "flex", justifyContent: "center" }}>
               <a
-                href="https://hintl.jp"
+                href="https://hintl.net"
                 target="_blank"
                 rel="noreferrer"
                 style={{
@@ -456,7 +483,7 @@ export default function HintlPage() {
                   boxShadow: "0 2px 12px rgba(0,102,255,0.3)",
                 }}
               >
-                hintl で今すぐ試す
+                hintl でエビデンスを見る
                 <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
                   <path d="M5 12h14M12 5l7 7-7 7" />
                 </svg>
@@ -607,15 +634,15 @@ export default function HintlPage() {
             style={{ height: "72px", width: "auto", objectFit: "contain", margin: "0 auto 20px" }}
           />
           <h2 style={{ fontSize: "clamp(20px,2.5vw,26px)", fontWeight: 700, color: TEXT, letterSpacing: "-0.3px", marginBottom: "12px" }}>
-            まず、3 メッセージ試してみる。
+            まず、1分の無料診断から。
           </h2>
           <p style={{ fontSize: "14px", color: MUTED, lineHeight: 1.7, marginBottom: "32px" }}>
-            登録後すぐに試せます。6 つの質問に答えるだけで、<br />
-            あなたに合ったアドバイザーを無料で提案します。
+            気になる領域を選んで質問に答えるだけ。<br />
+            研究報告のある選択肢を、無料で確認できます。
           </p>
           <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "12px" }} className="sm:flex-row sm:justify-center">
             <a
-              href="https://hintl.jp"
+              href="https://hintl.net"
               target="_blank"
               rel="noreferrer"
               style={{
@@ -630,7 +657,7 @@ export default function HintlPage() {
                 boxShadow: "0 4px 20px rgba(0,102,255,0.3)",
               }}
             >
-              hintl.jp でいますぐ試す
+              hintl でいますぐ試す
             </a>
             <a
               href="mailto:contact@ajara.co.jp"

@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://ajara.co.jp"),
   title: "合同会社AJARA | AIで、ビジネスの次の一手を共創する",
   description:
-    "合同会社AJARAは、AI検索最適化（AIO）コンサルティング・AIライフコーチング（hintl）・AI映像制作の3事業を展開。ChatGPT・Perplexity・Geminiで引用される企業へ。",
+    "合同会社AJARAは、AI検索最適化（AIO）コンサルティング・法人向けAI研修（リスキリング）・AIライフコーチング（hintl）・AI映像制作の4事業を展開。ChatGPT・Perplexity・Geminiで引用される企業へ。",
   alternates: {
     canonical: "https://ajara.co.jp",
   },
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "合同会社AJARA | AIで、ビジネスの次の一手を共創する",
     description:
-      "AI検索最適化（AIO）コンサルティング・AIライフコーチング・AI映像制作。アイデアをAIとテクノロジーで事業へ。",
+      "AI検索最適化（AIO）コンサルティング・法人向けAI研修（リスキリング）・AIライフコーチング・AI映像制作。アイデアをAIとテクノロジーで事業へ。",
     type: "website",
     locale: "ja_JP",
     url: "https://ajara.co.jp",
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "合同会社AJARA | AIで、ビジネスの次の一手を共創する",
-    description: "AI検索最適化（AIO）コンサルティング・AIライフコーチング・AI映像制作。",
+    description: "AI検索最適化（AIO）コンサルティング・法人向けAI研修（リスキリング）・AIライフコーチング・AI映像制作。",
     images: ["/images/ogp.png"],
   },
 };
@@ -48,7 +48,7 @@ const schemaOrg = {
     "width": 800,
     "height": 200,
   },
-  "description": "AI検索最適化（AIO）コンサルティング・AIライフコーチング（hintl）・AI映像制作の3事業を展開する合同会社。ChatGPT・Perplexity・Google AI Overviewなど生成AI検索で引用される企業づくりを支援。",
+  "description": "AI検索最適化（AIO）コンサルティング・法人向けAI研修（リスキリング）・AIライフコーチング（hintl）・AI映像制作の4事業を展開する合同会社。ChatGPT・Perplexity・Google AI Overviewなど生成AI検索で引用される企業づくりを支援。",
   "foundingDate": "2024",
   "address": {
     "@type": "PostalAddress",
@@ -62,10 +62,13 @@ const schemaOrg = {
     "生成AI検索",
     "構造化データ・スキーママークアップ",
     "E-E-A-T",
+    "法人向けAI研修・リスキリング",
+    "生成AI活用研修",
+    "AI導入コンサルティング",
     "AIライフコーチング",
     "AI映像制作",
   ],
-  "sameAs": ["https://aioru.net", "https://hintl.jp"],
+  "sameAs": ["https://aioru.net", "https://hintl.net"],
   "contactPoint": {
     "@type": "ContactPoint",
     "contactType": "customer service",
@@ -90,9 +93,18 @@ const schemaOrg = {
         "@type": "Offer",
         "itemOffered": {
           "@type": "Service",
-          "name": "AIライフコーチング（hintl）",
+          "name": "法人向けAI研修・リスキリング",
+          "url": "https://ajara.co.jp/#services",
+          "description": "中小企業向けに、生成AI活用の実践研修とAI導入の現場伴走を提供。各種リスキリング助成金の対象要件を満たす設計で、現場で使えるまで支援します",
+        },
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "hintl（エビデンスベースの意思決定エンジン）",
           "url": "https://ajara.co.jp/hintl",
-          "description": "月980円で専任AIアドバイザーが伴走するキャリア・お金・メンタルなど20+ジャンルのライフコーチングサービス",
+          "description": "健康・美容などの選択を公開研究から比較し、エビデンスを100点満点で可視化する無料の意思決定エンジン。1分の無料診断で研究報告のある選択肢を確認できる。",
         },
       },
       {
@@ -143,7 +155,7 @@ const schemaWebPage = {
   "@id": "https://ajara.co.jp/#webpage",
   "url": "https://ajara.co.jp",
   "name": "合同会社AJARA | AIで、ビジネスの次の一手を共創する",
-  "description": "AI検索最適化（AIO）コンサルティング・AIライフコーチング（hintl）・AI映像制作の3事業を展開する合同会社AJARA。",
+  "description": "AI検索最適化（AIO）コンサルティング・法人向けAI研修（リスキリング）・AIライフコーチング（hintl）・AI映像制作の4事業を展開する合同会社AJARA。",
   "isPartOf": { "@id": "https://ajara.co.jp/#website" },
   "about": { "@id": "https://ajara.co.jp/#organization" },
   "inLanguage": "ja",
@@ -229,7 +241,7 @@ const schemaFaq = {
       "name": "合同会社AJARAはどのような会社ですか？",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "合同会社AJARAは、AI検索最適化（AIO）コンサルティング・AIライフコーチング（hintl）・AI映像制作の3事業を展開する会社です。ChatGPT・Perplexity・Google AI Overviewなど生成AI検索で引用される企業づくりを支援しています。",
+        "text": "合同会社AJARAは、AI検索最適化（AIO）コンサルティング・法人向けAI研修（リスキリング）・AIライフコーチング（hintl）・AI映像制作の4事業を展開する会社です。法人向けAI研修では、中小企業の生成AI活用を実践研修と現場伴走で支援し、各種リスキリング助成金の対象要件を満たす設計でご提供します。",
       },
     },
     {
