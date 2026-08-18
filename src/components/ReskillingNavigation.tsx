@@ -5,10 +5,10 @@ import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 
 const navLinks = [
-  { href: "#services", label: "サービス" },
-  { href: "#process", label: "進め方" },
+  { href: "#curriculum", label: "学べること" },
+  { href: "#services", label: "研修メニュー" },
   { href: "#subsidy", label: "助成金" },
-  { href: "#pricing", label: "料金" },
+  { href: "#faq", label: "FAQ" },
 ];
 
 export default function ReskillingNavigation() {
@@ -67,7 +67,7 @@ export default function ReskillingNavigation() {
           href="#contact"
           className="hidden md:inline-block shrink-0 bg-accent hover:bg-accent-light text-navy-dark font-medium px-5 py-2 rounded-full text-sm transition-all duration-300 hover:shadow-lg hover:shadow-accent/20 hover:scale-105"
         >
-          無料診断を相談する
+          無料相談する
         </a>
 
         {/* Mobile toggle */}
@@ -109,7 +109,7 @@ export default function ReskillingNavigation() {
                   onClick={() => setMobileOpen(false)}
                   className="block text-center bg-accent text-navy-dark font-medium px-5 py-2.5 rounded-full text-sm"
                 >
-                  無料診断を相談する
+                  無料相談する
                 </a>
               </li>
             </ul>

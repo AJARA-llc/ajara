@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "法人向けAI研修・リスキリング — 生成AI活用の実践研修と導入伴走 | AJARA",
   description:
-    "中小企業向けの生成AI活用研修と導入伴走。汎用講座で終わらせず、御社の業務・ツールの中で成果が測れる形までAIを定着させます。各種リスキリング助成金の対象要件を満たす設計。無料診断から。",
+    "中小企業向けの、生成AIを実務で使えるようにする法人研修。ChatGPTなどを使い、基礎から実際の業務での使い方まで少人数で丁寧に。定着まで伴走します。各種リスキリング助成金の対象要件を満たす設計。無料相談から。",
   openGraph: {
     title: "法人向けAI研修・リスキリング | AJARA",
     description:
@@ -30,7 +30,7 @@ const jsonLd = {
       "@type": "ProfessionalService",
       "name": "AJARA 法人向けAI研修・リスキリング",
       "description":
-        "中小企業向けに、生成AI活用の実践研修とAI導入の現場伴走を提供。汎用的なプロンプト講座で終わらせず、顧客の実業務・実ツールの中でワークフローを構築し、成果が測れる形まで定着を支援。各種リスキリング助成金の対象要件を満たす設計。",
+        "中小企業向けに、ChatGPTなどの生成AIを実務で使えるようにする法人研修を提供。基礎研修から、実際の業務を題材にしたハンズオン、社内定着までの伴走までを行う。各種リスキリング助成金の対象要件を満たす設計。",
       "url": "https://ajara.co.jp/reskilling",
       "provider": { "@id": "https://ajara.co.jp/#organization" },
       "serviceType": "法人向けAI研修・リスキリング・AI導入コンサルティング",
@@ -42,12 +42,12 @@ const jsonLd = {
         "itemListElement": [
           {
             "@type": "Offer",
-            "itemOffered": { "@type": "Service", "name": "AI活用 無料診断（60分）" },
+            "itemOffered": { "@type": "Service", "name": "AI活用 無料相談（60分）" },
             "priceSpecification": { "@type": "PriceSpecification", "price": "0", "priceCurrency": "JPY" },
           },
           {
             "@type": "Offer",
-            "itemOffered": { "@type": "Service", "name": "パイロット研修（半日・単一部門）" },
+            "itemOffered": { "@type": "Service", "name": "体験研修（半日・単一部門）" },
             "priceSpecification": { "@type": "PriceSpecification", "minPrice": "180000", "priceCurrency": "JPY" },
           },
           {
@@ -57,12 +57,12 @@ const jsonLd = {
           },
           {
             "@type": "Offer",
-            "itemOffered": { "@type": "Service", "name": "AI導入伴走コンサル（月額顧問・3ヶ月〜）" },
+            "itemOffered": { "@type": "Service", "name": "AI導入サポート（月額・3ヶ月〜）" },
             "priceSpecification": { "@type": "PriceSpecification", "minPrice": "200000", "priceCurrency": "JPY" },
           },
           {
             "@type": "Offer",
-            "itemOffered": { "@type": "Service", "name": "業種特化カリキュラム開発（一括）" },
+            "itemOffered": { "@type": "Service", "name": "業種別カリキュラム（一括）" },
             "priceSpecification": { "@type": "PriceSpecification", "minPrice": "300000", "priceCurrency": "JPY" },
           },
         ],

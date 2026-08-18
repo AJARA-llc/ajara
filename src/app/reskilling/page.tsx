@@ -8,69 +8,106 @@ import Footer from "@/components/Footer";
 import ScrollProgress from "@/components/ScrollProgress";
 
 const problems = [
-  { n: "01", title: "研修がやりっぱなし", desc: "座学で終わり、翌週には誰も使っていない。定着の仕組みがない。" },
-  { n: "02", title: "効果が測れない", desc: "満足度アンケート止まりで、業務が速く・楽になったのか分からない。" },
-  { n: "03", title: "汎用講座が刺さらない", desc: "「AIの基本」は聞いたが、自社のあの業務にどう使うかが結びつかない。" },
-  { n: "04", title: "始め方が分からない", desc: "社内にDX人材がいない。何から手をつければいいか判断できない。" },
+  { n: "01", title: "導入したのに使われていない", desc: "ツールは契約したのに、社員が日々の仕事で使っていない。" },
+  { n: "02", title: "どの業務に使えばいいか分からない", desc: "「AIが便利」とは聞くが、自社のどの業務に使えばいいのか判断できない。" },
+  { n: "03", title: "研修しても定着しない", desc: "一度研修をしたが、翌週には誰も使わず元に戻ってしまった。" },
+  { n: "04", title: "社内に詳しい人がいない", desc: "AIにくわしい社員がいないため、何から手をつければいいか分からない。" },
+];
+
+// 研修で実際に「できるようになること」を具体的に。
+const skills = [
+  "メール・議事録・報告書の下書きと要約",
+  "企画書・資料のたたき台づくり",
+  "長い資料やデータの要約・整理",
+  "問い合わせ・接客対応の文章作成",
+  "自社の業務で使える「プロンプト」の作り方",
+  "情報漏えい・著作権など、安全に使うための注意点",
 ];
 
 const services = [
   {
     title: "生成AI 基礎研修",
-    subtitle: "Literacy Workshop",
-    description: "全社リテラシーの底上げ。特定ツールに依存しない、実務で使える基礎を半日で。",
-    items: ["半日・〜20名", "ツール非依存の実務基礎", "現場の業務例で解説"],
+    subtitle: "はじめての社員向け・半日",
+    description: "全社員向けの入門研修。生成AIとは何か、何が得意で何が苦手か、安全な使い方までを、実際の業務例でわかりやすく学びます。",
+    items: ["半日・〜20名", "はじめての方でもOK", "身近な業務例で解説"],
     price: "¥150,000〜",
     priceNote: "半日",
   },
   {
     title: "実践ハンズオン研修",
-    subtitle: "Hands-on Training",
-    description: "御社の実ツール内でワークフローを構築。現場がそのまま使える状態にします。",
-    items: ["1日・実務ハンズオン", "御社ツール内で構築", "成果指標を設定"],
+    subtitle: "手を動かして学ぶ・1日",
+    description: "御社の実際の業務を題材に、パソコンで手を動かしながら学ぶ研修。終わったその日から使える状態を目指します。",
+    items: ["1日・実践形式", "御社のツールで練習", "使えるプロンプトを作成"],
     price: "¥350,000〜",
     priceNote: "1日",
   },
   {
-    title: "AI導入伴走コンサル",
-    subtitle: "Adoption Partner",
-    description: "隔週チェックインで定着と内製化を支援。研修で終わらせず、使われ続ける状態へ。",
-    items: ["月額顧問・3ヶ月〜", "隔週チェックイン", "内製化サポート"],
+    title: "AI導入サポート",
+    subtitle: "定着まで伴走・月額",
+    description: "研修して終わり、にしません。定着するまで隔週でサポートし、社内で使われ続ける状態をつくります。",
+    items: ["月額・3ヶ月〜", "隔週でサポート", "社内定着まで伴走"],
     price: "¥200,000〜",
     priceNote: "月額",
   },
   {
-    title: "業種特化カリキュラム開発",
-    subtitle: "Custom Curriculum",
-    description: "士業・建設・製造など、御社業種の実務に合わせたカリキュラムを設計します。",
-    items: ["一括・業種特化", "実業務に合わせて設計", "再現性のある教材化"],
+    title: "業種別カリキュラム",
+    subtitle: "御社の業種に合わせて・一括",
+    description: "士業・建設・製造など、御社の業種の実際の仕事に合わせて研修内容を設計します。",
+    items: ["一括・業種特化", "実務に合わせて設計", "教材としても残せる"],
     price: "¥300,000〜",
     priceNote: "一括",
   },
 ];
 
 const reasons = [
-  { title: "現場伴走", desc: "研修イベントで終わらせず、実際に使われるまで隔週で伴走。最大の不安「ROI不明」に正面から答えます。" },
-  { title: "実運用に踏み込む", desc: "汎用プロンプトでなく、御社のツール・テンプレートの中でワークフローを構築します。" },
-  { title: "助成金対応の設計", desc: "研修を各種リスキリング助成金の対象要件を満たす設計でご提供し、申請に使える資料をお渡しします。" },
-  { title: "ツール非依存", desc: "特定サービスに縛られない原理と複数ツールを扱うため、値上げや仕様変更に強い体制になります。" },
+  { title: "「使えるようになる」まで伴走", desc: "研修イベントで終わらせず、実際に社内で使われるまで隔週でサポートします。" },
+  { title: "実際の業務で練習する", desc: "一般論ではなく、御社の実際の仕事を題材に学ぶので、そのまま現場で使えます。" },
+  { title: "助成金に対応した設計", desc: "各種リスキリング助成金の対象要件を満たす形でご提供し、申請に使える書類もお渡しします。" },
+  { title: "特定のツールに縛られない", desc: "ChatGPTなど複数のツールを扱うので、値上げや仕様変更があっても困りません。" },
 ];
 
 const process = [
-  { step: "01", title: "無料診断（60分）", desc: "現状をヒアリングし、「どの業務にAIを向けるか」を1つご提示します。" },
-  { step: "02", title: "パイロット研修（半日）", desc: "単一部門・成功指標1つで実施。効果を測れる形で最初の一歩を。" },
-  { step: "03", title: "実践ハンズオン（1日）", desc: "御社ツール内でのワークフロー構築。現場が使える状態にします。" },
-  { step: "04", title: "導入伴走（月額顧問）", desc: "隔週で定着と内製化を支援。使われ続ける状態を作ります。" },
+  { step: "01", title: "無料相談（60分）", desc: "オンラインで現状をうかがい、「どの業務にAIを使うか」を一緒に決めます。" },
+  { step: "02", title: "体験研修（半日）", desc: "まず1つの部門で試します。効果を見てから広げられるので安心です。" },
+  { step: "03", title: "実践研修（1日）", desc: "御社のツールを使い、実際の仕事に使える形まで身につけます。" },
+  { step: "04", title: "定着サポート（月額）", desc: "隔週で伴走し、社内で使われ続ける状態をつくります。" },
 ];
 
 const pricing = [
-  { label: "AI活用 無料診断（60分）", price: "無料" },
-  { label: "パイロット研修（半日・単一部門）", price: "¥180,000〜" },
+  { label: "AI活用 無料相談（60分）", price: "無料" },
+  { label: "体験研修（半日・単一部門）", price: "¥180,000〜" },
   { label: "生成AI 基礎研修（半日・〜20名）", price: "¥150,000〜" },
   { label: "実践ハンズオン研修（1日）", price: "¥350,000〜" },
-  { label: "AI導入伴走コンサル（月額・3ヶ月〜）", price: "¥200,000〜" },
-  { label: "業種特化カリキュラム開発（一括）", price: "¥300,000〜" },
-  { label: "オンライン席単価（小規模コホート）", price: "¥20,000〜 / 人" },
+  { label: "AI導入サポート（月額・3ヶ月〜）", price: "¥200,000〜" },
+  { label: "業種別カリキュラム（一括）", price: "¥300,000〜" },
+  { label: "オンライン席単価（少人数）", price: "¥20,000〜 / 人" },
+];
+
+const faqs = [
+  {
+    q: "生成AIを触ったことがない社員でも大丈夫ですか？",
+    a: "はい。「そもそも生成AIとは何か」という基礎から始めるので、はじめての方でも問題ありません。",
+  },
+  {
+    q: "何人から依頼できますか？",
+    a: "数名の部門単位からご相談いただけます。まずは1部門からのスモールスタートをおすすめしています。",
+  },
+  {
+    q: "オンラインでもできますか？",
+    a: "はい。全国どこでもオンラインで対応します。対面をご希望の場合もご相談ください。",
+  },
+  {
+    q: "どのAIツールを使いますか？",
+    a: "特定のツールに縛らず、御社が使える環境に合わせます。ChatGPTなど、実務でよく使われるものを中心に扱います。",
+  },
+  {
+    q: "「無料相談」では何をしますか？",
+    a: "オンラインで60分、御社の現状をうかがい、「どの業務にAIを使うと効果が出そうか」をご提案します。何かの診断ツールに答えていただく形式ではありません。",
+  },
+  {
+    q: "助成金は必ずもらえますか？",
+    a: "いいえ。助成金を受け取るのは御社（雇用主）で、支給されるかどうかは御社の申請内容と労働局・自治体の審査で決まります。当社が受給を保証するものではありません（詳しくは「助成金に関する表示」をご覧ください）。",
+  },
 ];
 
 const CONTACT_EMAIL = "contact@ajara.co.jp";
@@ -124,11 +161,9 @@ export default function ReskillingPage() {
               transition={{ duration: 1, delay: 0.4 }}
               className="font-serif text-4xl sm:text-5xl md:text-6xl font-semibold text-snow leading-tight mb-6"
             >
-              「導入したのに、
+              社員が、生成AIを
               <br />
-              使いこなせない」を
-              <br />
-              <span className="text-accent">終わらせる。</span>
+              <span className="text-accent">仕事で使える</span>ようになる研修。
             </motion.h1>
             <motion.p
               initial={{ opacity: 0, y: 20 }}
@@ -136,7 +171,7 @@ export default function ReskillingPage() {
               transition={{ duration: 0.8, delay: 0.8 }}
               className="text-slate-400 text-lg sm:text-xl mb-4"
             >
-              中小企業のための、生成AI活用研修と導入伴走。
+              ChatGPTなどの生成AIを、御社の毎日の業務で実際に使えるようにする、法人向けの研修です。
             </motion.p>
             <motion.p
               initial={{ opacity: 0 }}
@@ -144,8 +179,8 @@ export default function ReskillingPage() {
               transition={{ duration: 0.8, delay: 1.1 }}
               className="text-slate-500 text-sm max-w-xl mx-auto mb-12 leading-relaxed"
             >
-              汎用的な「使い方」講座では終わらせません。御社の実業務・実ツールの中で、
-              成果が測れる形までAIを定着させます。各種リスキリング助成金の対象要件を満たす設計。
+              「使い方」の座学で終わらせません。基礎から、実際の業務での使い方まで、少人数で丁寧に。
+              各種リスキリング助成金の対象要件を満たす設計です。
             </motion.p>
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -157,13 +192,13 @@ export default function ReskillingPage() {
                 href="#contact"
                 className="bg-accent hover:bg-accent-light text-navy-dark font-medium px-8 py-3 rounded-full transition-all duration-300 hover:shadow-lg hover:shadow-accent/20 hover:scale-105"
               >
-                まず無料診断（60分）
+                まず無料相談（オンライン・60分）
               </a>
               <a
-                href="#services"
+                href="#curriculum"
                 className="text-slate-400 hover:text-snow text-sm transition-colors underline underline-offset-4"
               >
-                サービスを見る →
+                研修内容を見る →
               </a>
             </motion.div>
           </div>
@@ -194,10 +229,10 @@ export default function ReskillingPage() {
                 Challenge
               </p>
               <h2 className="font-serif text-3xl sm:text-4xl font-semibold text-snow text-center mb-4">
-                ツールは契約した。でも、業務は変わっていない。
+                こんなお悩みはありませんか？
               </h2>
               <p className="text-slate-400 text-center mb-16 max-w-xl mx-auto">
-                多くの中小企業は「アクセスはあるのに、どの業務に向ければいいか分からない」段階で止まっています。
+                多くの中小企業が、「ツールはあるのに、どう使えばいいか分からない」段階で止まっています。
               </p>
             </FadeInSection>
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -216,23 +251,58 @@ export default function ReskillingPage() {
 
         <div className="section-divider" />
 
+        {/* What you learn */}
+        <section id="curriculum" className="py-32 px-6">
+          <div className="max-w-3xl mx-auto">
+            <FadeInSection>
+              <p className="text-accent text-sm tracking-[0.2em] uppercase mb-6 font-sans text-center">
+                Curriculum
+              </p>
+              <h2 className="font-serif text-3xl sm:text-4xl font-semibold text-snow text-center mb-4">
+                研修で「できるようになる」こと
+              </h2>
+              <p className="text-slate-400 text-center mb-12 max-w-xl mx-auto">
+                生成AIを、こんな身近な仕事に使えるようになります。
+              </p>
+            </FadeInSection>
+            <FadeInSection delay={0.1}>
+              <div className="glass p-8">
+                <ul className="grid sm:grid-cols-2 gap-x-8 gap-y-4">
+                  {skills.map((s) => (
+                    <li key={s} className="flex items-start gap-3 text-slate-300 text-sm leading-relaxed">
+                      <span className="text-accent mt-0.5 flex-shrink-0">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                          <path d="M20 6L9 17l-5-5" />
+                        </svg>
+                      </span>
+                      {s}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </FadeInSection>
+          </div>
+        </section>
+
+        <div className="section-divider" />
+
         {/* Services */}
         <section id="services" className="py-32 px-6">
           <div className="max-w-6xl mx-auto">
             <FadeInSection>
               <p className="text-accent text-sm tracking-[0.2em] uppercase mb-6 font-sans text-center">
-                Services
+                Menu
               </p>
               <h2 className="font-serif text-3xl sm:text-4xl font-semibold text-snow text-center mb-4">
-                研修ではなく、「使えるようになる」を納品する
+                研修メニュー
               </h2>
               <p className="text-slate-400 text-center mb-16 max-w-xl mx-auto">
-                入口の研修から、定着までの伴走まで。段階に合わせてご提供します。
+                入門の研修から、定着までのサポートまで。段階に合わせて選べます。
               </p>
             </FadeInSection>
             <div className="grid md:grid-cols-2 gap-8">
               {services.map((svc, i) => (
-                <FadeInSection key={svc.subtitle} delay={i * 0.1}>
+                <FadeInSection key={svc.title} delay={i * 0.1}>
                   <div className="glass p-8 h-full hover:border-accent/30 transition-all duration-300">
                     <h3 className="font-serif text-xl text-snow mb-1">{svc.title}</h3>
                     <p className="text-accent/60 text-xs tracking-wider mb-4">{svc.subtitle}</p>
@@ -266,7 +336,7 @@ export default function ReskillingPage() {
                 Why AJARA
               </p>
               <h2 className="font-serif text-3xl sm:text-4xl font-semibold text-snow text-center mb-16">
-                大手ベンダーでも、格安ギグでもない選択肢
+                AJARAが選ばれる理由
               </h2>
             </FadeInSection>
             <div className="grid sm:grid-cols-2 gap-6">
@@ -295,10 +365,10 @@ export default function ReskillingPage() {
                 Process
               </p>
               <h2 className="font-serif text-3xl sm:text-4xl font-semibold text-snow text-center mb-4">
-                小さく始めて、成果を見てから広げる
+                はじめかた
               </h2>
               <p className="text-slate-400 text-center mb-16 max-w-xl mx-auto">
-                いきなり全社導入は提案しません。単一部門・成功指標1つのパイロットから。
+                いきなり全社導入はしません。まず1部門・目標1つの小さなスタートから。
               </p>
             </FadeInSection>
             <div className="relative">
@@ -332,7 +402,7 @@ export default function ReskillingPage() {
                 Subsidy
               </p>
               <h2 className="font-serif text-3xl sm:text-4xl font-semibold text-snow text-center mb-4">
-                研修費の負担を、制度で下げられる場合があります
+                研修費は、助成金で下げられる場合があります
               </h2>
               <p className="text-slate-400 text-center mb-12 max-w-xl mx-auto text-sm">
                 御社が対象となり得る制度の一例：東京都 DXリスキリング助成金（経費3/4）、
@@ -364,6 +434,17 @@ export default function ReskillingPage() {
                   計画届は訓練開始の原則1ヶ月前までの提出が必要です。助成率・上限は制度改正で変わる場合があります。
                   申請手続きは御社の顧問社労士または労働局・財団の窓口をご利用ください。
                 </p>
+                <div className="mt-4 flex flex-wrap gap-x-5 gap-y-2">
+                  <a href="/legal/subsidy" className="text-accent hover:text-accent-light text-xs transition-colors underline underline-offset-4">
+                    助成金に関する表示 →
+                  </a>
+                  <a href="/legal/tokushoho" className="text-slate-500 hover:text-snow text-xs transition-colors underline underline-offset-4">
+                    特定商取引法に基づく表記
+                  </a>
+                  <a href="/legal/terms" className="text-slate-500 hover:text-snow text-xs transition-colors underline underline-offset-4">
+                    利用規約
+                  </a>
+                </div>
               </div>
             </FadeInSection>
           </div>
@@ -394,9 +475,35 @@ export default function ReskillingPage() {
                 </ul>
               </div>
               <p className="text-slate-500 text-xs text-center mt-6">
-                ※ 表示価格は税抜・参考価格です。規模・要件により変動します。
+                ※ 表示価格は税抜・参考価格です。規模・ご要望により変わります。
               </p>
             </FadeInSection>
+          </div>
+        </section>
+
+        <div className="section-divider" />
+
+        {/* FAQ */}
+        <section id="faq" className="py-32 px-6">
+          <div className="max-w-2xl mx-auto">
+            <FadeInSection>
+              <p className="text-accent text-sm tracking-[0.2em] uppercase mb-6 font-sans text-center">
+                FAQ
+              </p>
+              <h2 className="font-serif text-3xl sm:text-4xl font-semibold text-snow text-center mb-12">
+                よくある質問
+              </h2>
+            </FadeInSection>
+            <dl className="flex flex-col gap-4">
+              {faqs.map((faq, i) => (
+                <FadeInSection key={faq.q} delay={i * 0.05}>
+                  <div className="glass p-6">
+                    <dt className="text-snow font-medium mb-2">{faq.q}</dt>
+                    <dd className="text-slate-400 text-sm leading-relaxed">{faq.a}</dd>
+                  </div>
+                </FadeInSection>
+              ))}
+            </dl>
           </div>
         </section>
 
@@ -414,17 +521,6 @@ export default function ReskillingPage() {
                   助成金の支給可否は受給企業（雇用主）の申請内容と労働局・自治体等の審査により決まります。当社が支給を保証するものではありません。
                   制度の要件・助成率・上限は改正される場合があるため、最新の内容は厚生労働省・各労働局・各自治体の公式情報および御社の顧問社労士にてご確認ください。
                 </p>
-                <div className="mt-4 flex flex-wrap gap-x-5 gap-y-2">
-                  <a href="/legal/subsidy" className="text-accent hover:text-accent-light text-xs transition-colors underline underline-offset-4">
-                    助成金に関する表示 →
-                  </a>
-                  <a href="/legal/tokushoho" className="text-slate-500 hover:text-snow text-xs transition-colors underline underline-offset-4">
-                    特定商取引法に基づく表記
-                  </a>
-                  <a href="/legal/terms" className="text-slate-500 hover:text-snow text-xs transition-colors underline underline-offset-4">
-                    利用規約
-                  </a>
-                </div>
               </div>
             </FadeInSection>
           </div>
@@ -440,10 +536,10 @@ export default function ReskillingPage() {
                 Contact
               </p>
               <h2 className="font-serif text-3xl sm:text-4xl font-semibold text-snow mb-4">
-                まずは無料診断から
+                まずは無料相談から
               </h2>
               <p className="text-slate-400 mb-16 max-w-lg">
-                売り込みではなく、まず現状を一緒に整理します。60分で、御社の「AIで変えられる業務」を1つ見つけます。オンライン可。
+                売り込みではありません。オンラインで60分、御社の現状をうかがい、「AIで変えられそうな業務」を一緒に1つ見つけます。
               </p>
             </FadeInSection>
 
@@ -548,7 +644,7 @@ export default function ReskillingPage() {
                     <ul className="space-y-2 text-slate-400 text-sm">
                       <li className="flex items-center gap-2">
                         <span className="w-1.5 h-1.5 rounded-full bg-accent/60 flex-shrink-0" />
-                        単一部門・数名からご相談可能
+                        数名・単一部門からご相談可能
                       </li>
                       <li className="flex items-center gap-2">
                         <span className="w-1.5 h-1.5 rounded-full bg-accent/60 flex-shrink-0" />
