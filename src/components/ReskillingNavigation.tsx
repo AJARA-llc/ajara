@@ -6,7 +6,7 @@ import Link from "next/link";
 
 const navLinks = [
   { href: "#curriculum", label: "学べること" },
-  { href: "#services", label: "研修メニュー" },
+  { href: "#courses", label: "コース" },
   { href: "#subsidy", label: "助成金" },
   { href: "#faq", label: "FAQ" },
 ];

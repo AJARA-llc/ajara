@@ -47,13 +47,18 @@ const jsonLd = {
           },
           {
             "@type": "Offer",
-            "itemOffered": { "@type": "Service", "name": "体験研修（半日・単一部門）" },
-            "priceSpecification": { "@type": "PriceSpecification", "minPrice": "180000", "priceCurrency": "JPY" },
+            "itemOffered": { "@type": "Service", "name": "生成AI 基礎コース（12時間・60分×12コマ）" },
+            "priceSpecification": { "@type": "PriceSpecification", "price": "400000", "priceCurrency": "JPY" },
           },
           {
             "@type": "Offer",
-            "itemOffered": { "@type": "Service", "name": "実践ハンズオン研修（1日）" },
-            "priceSpecification": { "@type": "PriceSpecification", "minPrice": "350000", "priceCurrency": "JPY" },
+            "itemOffered": { "@type": "Service", "name": "生成AI 実践・応用コース（12時間・60分×12コマ）" },
+            "priceSpecification": { "@type": "PriceSpecification", "price": "400000", "priceCurrency": "JPY" },
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": { "@type": "Service", "name": "生成AI 業務定着・運用コース（12時間・60分×12コマ）" },
+            "priceSpecification": { "@type": "PriceSpecification", "price": "400000", "priceCurrency": "JPY" },
           },
           {
             "@type": "Offer",

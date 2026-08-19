@@ -6,6 +6,8 @@ import ReskillingNavigation from "@/components/ReskillingNavigation";
 import FadeInSection from "@/components/FadeInSection";
 import Footer from "@/components/Footer";
 import ScrollProgress from "@/components/ScrollProgress";
+import Link from "next/link";
+import { COURSES } from "@/data/reskillingCourses";
 
 const problems = [
   { n: "01", title: "導入したのに使われていない", desc: "ツールは契約したのに、社員が日々の仕事で使っていない。" },
@@ -24,36 +26,18 @@ const skills = [
   "情報漏えい・著作権など、安全に使うための注意点",
 ];
 
-const services = [
-  {
-    title: "生成AI 基礎研修",
-    subtitle: "はじめての社員向け・半日",
-    description: "全社員向けの入門研修。生成AIとは何か、何が得意で何が苦手か、安全な使い方までを、実際の業務例でわかりやすく学びます。",
-    items: ["半日・〜20名", "はじめての方でもOK", "身近な業務例で解説"],
-    price: "¥150,000〜",
-    priceNote: "半日",
-  },
-  {
-    title: "実践ハンズオン研修",
-    subtitle: "手を動かして学ぶ・1日",
-    description: "御社の実際の業務を題材に、パソコンで手を動かしながら学ぶ研修。終わったその日から使える状態を目指します。",
-    items: ["1日・実践形式", "御社のツールで練習", "使えるプロンプトを作成"],
-    price: "¥350,000〜",
-    priceNote: "1日",
-  },
+const options = [
   {
     title: "AI導入サポート",
     subtitle: "定着まで伴走・月額",
-    description: "研修して終わり、にしません。定着するまで隔週でサポートし、社内で使われ続ける状態をつくります。",
-    items: ["月額・3ヶ月〜", "隔週でサポート", "社内定着まで伴走"],
+    description: "研修のあと、社内で使われ続けるまで隔週でサポート。導入して終わり、にしないための伴走オプションです。",
     price: "¥200,000〜",
-    priceNote: "月額",
+    priceNote: "月額・3ヶ月〜",
   },
   {
-    title: "業種別カリキュラム",
+    title: "業種別カリキュラム開発",
     subtitle: "御社の業種に合わせて・一括",
-    description: "士業・建設・製造など、御社の業種の実際の仕事に合わせて研修内容を設計します。",
-    items: ["一括・業種特化", "実務に合わせて設計", "教材としても残せる"],
+    description: "士業・建設・製造など、御社の業種の実際の仕事に合わせてカリキュラムを設計します。",
     price: "¥300,000〜",
     priceNote: "一括",
   },
@@ -75,12 +59,11 @@ const process = [
 
 const pricing = [
   { label: "AI活用 無料相談（60分）", price: "無料" },
-  { label: "体験研修（半日・単一部門）", price: "¥180,000〜" },
-  { label: "生成AI 基礎研修（半日・〜20名）", price: "¥150,000〜" },
-  { label: "実践ハンズオン研修（1日）", price: "¥350,000〜" },
+  { label: "生成AI 基礎コース（12時間）", price: "¥400,000 / 人" },
+  { label: "生成AI 実践・応用コース（12時間）", price: "¥400,000 / 人" },
+  { label: "生成AI 業務定着・運用コース（12時間）", price: "¥400,000 / 人" },
   { label: "AI導入サポート（月額・3ヶ月〜）", price: "¥200,000〜" },
-  { label: "業種別カリキュラム（一括）", price: "¥300,000〜" },
-  { label: "オンライン席単価（少人数）", price: "¥20,000〜 / 人" },
+  { label: "業種別カリキュラム開発（一括）", price: "¥300,000〜" },
 ];
 
 const faqs = [
@@ -195,10 +178,10 @@ export default function ReskillingPage() {
                 まず無料相談（オンライン・60分）
               </a>
               <a
-                href="#curriculum"
+                href="#courses"
                 className="text-slate-400 hover:text-snow text-sm transition-colors underline underline-offset-4"
               >
-                研修内容を見る →
+                コースを見る →
               </a>
             </motion.div>
           </div>
@@ -286,43 +269,72 @@ export default function ReskillingPage() {
 
         <div className="section-divider" />
 
-        {/* Services */}
-        <section id="services" className="py-32 px-6">
-          <div className="max-w-6xl mx-auto">
+        {/* Courses */}
+        <section id="courses" className="py-32 px-6">
+          <div className="max-w-5xl mx-auto">
             <FadeInSection>
               <p className="text-accent text-sm tracking-[0.2em] uppercase mb-6 font-sans text-center">
-                Menu
+                Courses
               </p>
               <h2 className="font-serif text-3xl sm:text-4xl font-semibold text-snow text-center mb-4">
-                研修メニュー
+                3つの生成AIコース
               </h2>
               <p className="text-slate-400 text-center mb-16 max-w-xl mx-auto">
-                入門の研修から、定着までのサポートまで。段階に合わせて選べます。
+                基礎 → 実践 → 運用の3段階。各コース12時間（60分×12コマ）で、
+                リスキリング助成金の対象要件（OFF-JT 10時間以上）を満たす設計です。
               </p>
             </FadeInSection>
-            <div className="grid md:grid-cols-2 gap-8">
-              {services.map((svc, i) => (
-                <FadeInSection key={svc.title} delay={i * 0.1}>
-                  <div className="glass p-8 h-full hover:border-accent/30 transition-all duration-300">
-                    <h3 className="font-serif text-xl text-snow mb-1">{svc.title}</h3>
-                    <p className="text-accent/60 text-xs tracking-wider mb-4">{svc.subtitle}</p>
-                    <p className="text-slate-400 text-sm leading-relaxed mb-6">{svc.description}</p>
-                    <ul className="space-y-2 mb-6">
-                      {svc.items.map((item) => (
-                        <li key={item} className="flex items-center gap-2 text-sm text-slate-400">
-                          <span className="w-1.5 h-1.5 rounded-full bg-accent/60 flex-shrink-0" />
-                          {item}
-                        </li>
-                      ))}
-                    </ul>
-                    <div className="pt-4 border-t border-white/5">
-                      <span className="text-accent font-medium text-sm">{svc.price}</span>
-                      <span className="text-slate-500 text-xs ml-2">({svc.priceNote})</span>
+            <div className="space-y-6">
+              {COURSES.map((c, i) => (
+                <FadeInSection key={c.slug} delay={i * 0.08}>
+                  <Link
+                    href={`/reskilling/${c.slug}`}
+                    className="glass p-6 sm:p-8 flex flex-col sm:flex-row sm:items-center gap-5 hover:border-accent/30 transition-all duration-300 group"
+                  >
+                    <div className="flex-shrink-0 flex sm:flex-col items-center sm:items-start gap-3 sm:gap-1 sm:w-28">
+                      <span className="text-accent/70 font-mono font-bold text-xs">{c.step}</span>
+                      <span className="text-slate-500 text-xs">{c.hours}・全12コマ</span>
                     </div>
-                  </div>
+                    <div className="flex-1 min-w-0">
+                      <h3 className="font-serif text-xl text-snow mb-1">{c.title}</h3>
+                      <p className="text-slate-400 text-sm leading-relaxed">{c.short}</p>
+                    </div>
+                    <div className="flex-shrink-0 flex items-center justify-between sm:flex-col sm:items-end gap-4 sm:gap-1">
+                      <span className="text-accent font-medium text-sm whitespace-nowrap">
+                        {c.price}
+                        <span className="text-slate-500 text-xs ml-1">/ 人</span>
+                      </span>
+                      <span className="inline-flex items-center gap-1 text-accent text-sm group-hover:gap-2 transition-all">
+                        カリキュラムを見る
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                          <path d="M5 12h14M12 5l7 7-7 7" />
+                        </svg>
+                      </span>
+                    </div>
+                  </Link>
                 </FadeInSection>
               ))}
             </div>
+
+            {/* Options */}
+            <FadeInSection delay={0.3}>
+              <p className="text-slate-500 text-xs tracking-[0.15em] uppercase mt-16 mb-6 text-center">
+                オプション
+              </p>
+              <div className="grid sm:grid-cols-2 gap-6">
+                {options.map((o) => (
+                  <div key={o.title} className="glass p-6 h-full">
+                    <h3 className="text-snow font-medium mb-1">{o.title}</h3>
+                    <p className="text-accent/60 text-xs tracking-wider mb-3">{o.subtitle}</p>
+                    <p className="text-slate-400 text-sm leading-relaxed mb-4">{o.description}</p>
+                    <div className="pt-3 border-t border-white/5">
+                      <span className="text-accent font-medium text-sm">{o.price}</span>
+                      <span className="text-slate-500 text-xs ml-2">({o.priceNote})</span>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </FadeInSection>
           </div>
         </section>
 
@@ -412,19 +424,19 @@ export default function ReskillingPage() {
 
             <FadeInSection delay={0.1}>
               <div className="glass p-8">
-                <p className="text-slate-500 text-xs tracking-[0.15em] uppercase mb-4">試算例（研修費30万円／10名・中小企業の場合）</p>
+                <p className="text-slate-500 text-xs tracking-[0.15em] uppercase mb-4">試算例（1コース ¥400,000／1名・中小企業の場合）</p>
                 <ul className="divide-y divide-white/5 mb-6">
                   <li className="flex items-center justify-between py-3 first:pt-0">
-                    <span className="text-slate-400 text-sm">研修費（御社お支払い）</span>
-                    <span className="text-snow text-sm">¥300,000</span>
+                    <span className="text-slate-400 text-sm">受講料（御社お支払い）</span>
+                    <span className="text-snow text-sm">¥400,000</span>
                   </li>
                   <li className="flex items-center justify-between py-3">
                     <span className="text-slate-400 text-sm">経費助成（75%）</span>
-                    <span className="text-snow text-sm">− ¥225,000</span>
+                    <span className="text-snow text-sm">− ¥300,000</span>
                   </li>
                   <li className="flex items-center justify-between py-3 last:pb-0">
                     <span className="text-accent font-medium text-sm">経費の実質負担（25%）</span>
-                    <span className="text-accent font-medium text-sm">約 ¥75,000</span>
+                    <span className="text-accent font-medium text-sm">約 ¥100,000</span>
                   </li>
                 </ul>
                 <p className="text-slate-500 text-xs leading-relaxed border-l-2 border-accent/30 pl-4">
