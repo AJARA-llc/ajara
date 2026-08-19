@@ -22,7 +22,7 @@ export default function PrivacyPage() {
           <br />
           代表社員：平田 拓也
           <br />
-          所在地：〒<Fill>登記上の本店所在地</Fill>
+          所在地：〒150-0043 東京都渋谷区道玄坂1丁目10番8号 渋谷道玄坂東急ビル2F−C
           <br />
           連絡先：contact@ajara.co.jp
         </p>

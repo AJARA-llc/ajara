@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import LegalChrome, { LegalSection, Fill } from "@/components/LegalChrome";
+import LegalChrome, { LegalSection } from "@/components/LegalChrome";
 
 export const metadata: Metadata = {
   title: "利用規約 | 合同会社AJARA",
@@ -100,7 +100,7 @@ export default function TermsPage() {
       <LegalSection heading="第13条（準拠法および管轄）">
         <p>
           本規約は日本法に準拠します。本サービスに関して当社とお客様との間に紛争が生じた場合は、
-          <Fill>当社本店所在地を管轄する地方裁判所</Fill>を第一審の専属的合意管轄裁判所とします。
+          東京地方裁判所を第一審の専属的合意管轄裁判所とします。
         </p>
       </LegalSection>
     </LegalChrome>
