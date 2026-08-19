@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "法人向けAI研修・リスキリング — 生成AI活用の実践研修と導入伴走 | AJARA",
+  title: "法人向けAI研修・リスキリング（助成金対象）— 生成AI 12時間コース | AJARA",
   description:
     "中小企業向けの、生成AIを実務で使えるようにする法人研修。ChatGPTなどを使い、基礎から実際の業務での使い方まで少人数で丁寧に。定着まで伴走します。各種リスキリング助成金の対象要件を満たす設計。無料相談から。",
   openGraph: {
@@ -60,22 +60,12 @@ const jsonLd = {
             "itemOffered": { "@type": "Service", "name": "生成AI 業務定着・運用コース（12時間・60分×12コマ）" },
             "priceSpecification": { "@type": "PriceSpecification", "price": "400000", "priceCurrency": "JPY" },
           },
-          {
-            "@type": "Offer",
-            "itemOffered": { "@type": "Service", "name": "AI導入サポート（月額・3ヶ月〜）" },
-            "priceSpecification": { "@type": "PriceSpecification", "minPrice": "200000", "priceCurrency": "JPY" },
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": { "@type": "Service", "name": "業種別カリキュラム（一括）" },
-            "priceSpecification": { "@type": "PriceSpecification", "minPrice": "300000", "priceCurrency": "JPY" },
-          },
         ],
       },
     },
     {
       "@type": "WebPage",
-      "name": "法人向けAI研修・リスキリング — 生成AI活用の実践研修と導入伴走 | AJARA",
+      "name": "法人向けAI研修・リスキリング（助成金対象）— 生成AI 12時間コース | AJARA",
       "url": "https://ajara.co.jp/reskilling",
       "description":
         "中小企業向けの生成AI活用研修と導入伴走。各種リスキリング助成金の対象要件を満たす設計。",
@@ -103,7 +93,7 @@ const jsonLd = {
           "name": "どのくらいの規模から相談できますか？",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "単一部門・数名からご相談いただけます。いきなり全社導入ではなく、成功指標を1つ決めた半日のパイロット研修から始め、効果を確認してから広げる進め方を推奨しています。",
+            "text": "単一部門・数名からご相談いただけます。いきなり全社導入ではなく、まず1部門でコースを受講し、効果を確認してから対象を広げる進め方を推奨しています。",
           },
         },
         {

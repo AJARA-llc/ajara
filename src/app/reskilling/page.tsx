@@ -26,23 +26,6 @@ const skills = [
   "情報漏えい・著作権など、安全に使うための注意点",
 ];
 
-const options = [
-  {
-    title: "AI導入サポート",
-    subtitle: "定着まで伴走・月額",
-    description: "研修のあと、社内で使われ続けるまで隔週でサポート。導入して終わり、にしないための伴走オプションです。",
-    price: "¥200,000〜",
-    priceNote: "月額・3ヶ月〜",
-  },
-  {
-    title: "業種別カリキュラム開発",
-    subtitle: "御社の業種に合わせて・一括",
-    description: "士業・建設・製造など、御社の業種の実際の仕事に合わせてカリキュラムを設計します。",
-    price: "¥300,000〜",
-    priceNote: "一括",
-  },
-];
-
 const reasons = [
   { title: "「使えるようになる」まで伴走", desc: "研修イベントで終わらせず、実際に社内で使われるまで隔週でサポートします。" },
   { title: "実際の業務で練習する", desc: "一般論ではなく、御社の実際の仕事を題材に学ぶので、そのまま現場で使えます。" },
@@ -51,10 +34,10 @@ const reasons = [
 ];
 
 const process = [
-  { step: "01", title: "無料相談（60分）", desc: "オンラインで現状をうかがい、「どの業務にAIを使うか」を一緒に決めます。" },
-  { step: "02", title: "体験研修（半日）", desc: "まず1つの部門で試します。効果を見てから広げられるので安心です。" },
-  { step: "03", title: "実践研修（1日）", desc: "御社のツールを使い、実際の仕事に使える形まで身につけます。" },
-  { step: "04", title: "定着サポート（月額）", desc: "隔週で伴走し、社内で使われ続ける状態をつくります。" },
+  { step: "01", title: "無料相談（60分）", desc: "オンラインで現状をうかがい、御社に合うコースと対象の部署・人数を一緒に決めます。" },
+  { step: "02", title: "お申し込み・計画届", desc: "受講内容を確定します。助成金を使う場合は、訓練開始の原則1ヶ月前までに計画届を提出します（顧問社労士と連携可）。" },
+  { step: "03", title: "コース受講（12時間）", desc: "60分×12コマのカリキュラムを、オンラインまたは対面で受講します。" },
+  { step: "04", title: "修了・申請サポート", desc: "受講者名簿・カリキュラム・実施記録など、助成金申請に必要な資料をお渡しします。" },
 ];
 
 const pricing = [
@@ -62,8 +45,6 @@ const pricing = [
   { label: "生成AI 基礎コース（12時間）", price: "¥400,000 / 人" },
   { label: "生成AI 実践・応用コース（12時間）", price: "¥400,000 / 人" },
   { label: "生成AI 業務定着・運用コース（12時間）", price: "¥400,000 / 人" },
-  { label: "AI導入サポート（月額・3ヶ月〜）", price: "¥200,000〜" },
-  { label: "業種別カリキュラム開発（一括）", price: "¥300,000〜" },
 ];
 
 const faqs = [
@@ -315,26 +296,6 @@ export default function ReskillingPage() {
                 </FadeInSection>
               ))}
             </div>
-
-            {/* Options */}
-            <FadeInSection delay={0.3}>
-              <p className="text-slate-500 text-xs tracking-[0.15em] uppercase mt-16 mb-6 text-center">
-                オプション
-              </p>
-              <div className="grid sm:grid-cols-2 gap-6">
-                {options.map((o) => (
-                  <div key={o.title} className="glass p-6 h-full">
-                    <h3 className="text-snow font-medium mb-1">{o.title}</h3>
-                    <p className="text-accent/60 text-xs tracking-wider mb-3">{o.subtitle}</p>
-                    <p className="text-slate-400 text-sm leading-relaxed mb-4">{o.description}</p>
-                    <div className="pt-3 border-t border-white/5">
-                      <span className="text-accent font-medium text-sm">{o.price}</span>
-                      <span className="text-slate-500 text-xs ml-2">({o.priceNote})</span>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </FadeInSection>
           </div>
         </section>
 
