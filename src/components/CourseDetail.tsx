@@ -42,7 +42,7 @@ export default function CourseDetail({ course }: { course: Course }) {
             <div className="flex flex-wrap gap-3 mb-2">
               {[
                 { label: "研修時間", value: `${course.hours}（${course.sessions}）` },
-                { label: "形式", value: "オンライン／対面" },
+                { label: "形式", value: "eラーニング／オンライン／対面" },
                 { label: "受講料", value: `${course.price}（${course.priceNote}）` },
               ].map((m) => (
                 <div key={m.label} className="glass px-4 py-3">

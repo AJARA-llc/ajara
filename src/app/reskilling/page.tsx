@@ -36,7 +36,7 @@ const reasons = [
 const process = [
   { step: "01", title: "無料相談（60分）", desc: "オンラインで現状をうかがい、御社に合うコースと対象の部署・人数を一緒に決めます。" },
   { step: "02", title: "お申し込み・計画届", desc: "受講内容を確定します。助成金を使う場合は、訓練開始の原則1ヶ月前までに計画届を提出します（顧問社労士と連携可）。" },
-  { step: "03", title: "コース受講（12時間）", desc: "60分×12コマのカリキュラムを、オンラインまたは対面で受講します。" },
+  { step: "03", title: "コース受講（12時間）", desc: "60分×12コマのカリキュラムを、eラーニング・オンライン・対面のいずれかで受講します。" },
   { step: "04", title: "修了・申請サポート", desc: "受講者名簿・カリキュラム・実施記録など、助成金申請に必要な資料をお渡しします。" },
 ];
 
@@ -378,7 +378,7 @@ export default function ReskillingPage() {
                 学習の提供方法
               </h2>
               <p className="text-slate-400 text-center mb-12 max-w-xl mx-auto">
-                講師が実施するライブ形式で、受講記録もきちんと残します。
+                eラーニング（動画教育）とLMSでの進捗管理を基本に、講師派遣・オンライン研修にも対応します。
               </p>
             </FadeInSection>
             <FadeInSection delay={0.1}>
@@ -386,36 +386,40 @@ export default function ReskillingPage() {
                 <div>
                   <h3 className="text-snow font-medium mb-2">提供形態</h3>
                   <p>
-                    各コースは、<strong className="text-slate-200">オンライン（Web会議ツール：Zoom）または対面（講師派遣）</strong>の講師実施型で提供します。受講者と講師で日程を調整し、少人数で丁寧に進めます。
+                    各学習コンテンツは、<strong className="text-slate-200">eラーニング（動画教育）</strong>にて提供します。受講者の学習状況は、<strong className="text-slate-200">LMS（学習進捗管理システム）</strong>にて、学習日時・学習時間・進捗状況をすべて管理いたします。
                   </p>
+                  <p className="mt-3">
+                    eラーニングに加え、研修会場等への<strong className="text-slate-200">講師派遣</strong>、<strong className="text-slate-200">オンライン（Web会議ツール：Zoom）</strong>による研修実施にも対応しております。
+                  </p>
+                  <p className="text-slate-500 text-xs mt-2">※ 研修会場等にて受講を希望される場合は、会場等にかかる費用および講師の交通費等をご負担いただきます。</p>
                 </div>
                 <div>
-                  <h3 className="text-snow font-medium mb-2">受講記録の管理</h3>
-                  <p>
-                    受講者の<strong className="text-slate-200">学習日時・学習時間・進捗（受講状況）</strong>を、出席記録・日程表（スクーリング表）・実施記録として管理し、<strong className="text-slate-200">助成金申請に必要な受講記録一式</strong>をお渡しします。
-                  </p>
-                </div>
-                <div>
-                  <h3 className="text-snow font-medium mb-2">受講の流れ</h3>
+                  <h3 className="text-snow font-medium mb-2">受講の流れ（eラーニング以外での受講の場合）</h3>
                   <ol className="list-decimal pl-5 space-y-1">
-                    <li>受講希望のコースでお申し込み</li>
-                    <li>受講方法（オンライン／対面）をご指定</li>
-                    <li>受講者と講師で日程を調整</li>
-                    <li>日程表（スクーリング表）を作成し確定</li>
+                    <li>受講希望の研修コースにてお申し込みいただく</li>
+                    <li>研修会場・オンライン等の受講方法をご指定いただく</li>
+                    <li>受講者様と講師の間で日程を調整</li>
+                    <li>日程表（スクーリング表）を作成し決定</li>
                   </ol>
-                  <p className="text-slate-500 text-xs mt-2">※ オンライン受講の場合は、招待メールを受講者へお送りします。</p>
+                  <p className="text-slate-500 text-xs mt-2">※ オンライン受講の場合は、招待メールを受講者様に送信いたします。</p>
+                  <p className="mt-3">詳しくは、弊社の研修サポート係までお問い合わせください。</p>
                 </div>
                 <div>
-                  <h3 className="text-snow font-medium mb-2">お申し込み・お問い合わせ</h3>
+                  <h3 className="text-snow font-medium mb-2">お申し込み</h3>
                   <p>
-                    お申し込み・ご相談は{" "}
-                    <a href="mailto:contact@ajara.co.jp" className="text-accent underline underline-offset-4">contact@ajara.co.jp</a>{" "}
-                    へ。お申し込み確定時に、申込書・業務委託契約書を取り交わします。
+                    下記より「申込書」および「業務委託契約書」をダウンロードのうえ、必要事項をご記入ください。お申し込みは、必要事項をご記入の上、E-mail：
+                    <a href="mailto:contact@ajara.co.jp" className="text-accent underline underline-offset-4">contact@ajara.co.jp</a>
+                    {" "}宛に送付をお願いいたします。不明点がある場合はお気軽にお問い合わせください。
                   </p>
+                  <div className="flex flex-col sm:flex-row gap-3 mt-4">
+                    <a href="/forms/ai-reskilling-application.pdf" className="bg-accent hover:bg-accent-light text-navy-dark font-medium px-6 py-2.5 rounded-full text-center text-sm transition-colors">
+                      申込書ダウンロード
+                    </a>
+                    <a href="/forms/ai-reskilling-agreement.pdf" className="glass px-6 py-2.5 rounded-full text-snow text-center text-sm hover:border-accent/30 transition-all">
+                      業務委託契約書ダウンロード
+                    </a>
+                  </div>
                 </div>
-                <p className="text-slate-500 text-xs leading-relaxed border-l-2 border-accent/30 pl-4">
-                  ※ 対面（研修会場等）での受講を希望される場合は、会場にかかる費用および講師の交通費等を別途ご負担いただきます。
-                </p>
               </div>
             </FadeInSection>
           </div>
