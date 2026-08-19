@@ -81,12 +81,17 @@ export default function CourseDetail({ course }: { course: Course }) {
               </div>
               <ol className="space-y-2">
                 {course.modules.map((m, i) => (
-                  <li key={m} className="glass px-5 py-3.5 flex items-center gap-4">
-                    <span className="text-accent/70 font-mono font-bold text-xs w-8 flex-shrink-0">
+                  <li key={m.title} className="glass px-5 py-4 flex gap-4">
+                    <span className="text-accent/70 font-mono font-bold text-xs w-8 flex-shrink-0 pt-0.5">
                       {String(i + 1).padStart(2, "0")}
                     </span>
-                    <span className="text-slate-300 text-sm leading-snug">{m}</span>
-                    <span className="text-slate-600 text-[11px] ml-auto flex-shrink-0 hidden sm:block">60分</span>
+                    <div className="flex-1 min-w-0">
+                      <div className="flex items-start justify-between gap-3">
+                        <h3 className="text-slate-200 text-sm font-medium leading-snug">{m.title}</h3>
+                        <span className="text-slate-600 text-[11px] flex-shrink-0 hidden sm:block pt-0.5">60分</span>
+                      </div>
+                      <p className="text-slate-500 text-xs leading-relaxed mt-1.5">{m.detail}</p>
+                    </div>
                   </li>
                 ))}
               </ol>
