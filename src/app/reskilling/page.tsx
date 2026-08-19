@@ -412,10 +412,10 @@ export default function ReskillingPage() {
                     {" "}宛に送付をお願いいたします。不明点がある場合はお気軽にお問い合わせください。
                   </p>
                   <div className="flex flex-col sm:flex-row gap-3 mt-4">
-                    <a href="/forms/ai-reskilling-application.pdf" className="bg-accent hover:bg-accent-light text-navy-dark font-medium px-6 py-2.5 rounded-full text-center text-sm transition-colors">
+                    <a href="/forms/ai-reskilling-application.pdf?v=20260819" className="bg-accent hover:bg-accent-light text-navy-dark font-medium px-6 py-2.5 rounded-full text-center text-sm transition-colors">
                       申込書ダウンロード
                     </a>
-                    <a href="/forms/ai-reskilling-agreement.pdf" className="glass px-6 py-2.5 rounded-full text-snow text-center text-sm hover:border-accent/30 transition-all">
+                    <a href="/forms/ai-reskilling-agreement.pdf?v=20260819" className="glass px-6 py-2.5 rounded-full text-snow text-center text-sm hover:border-accent/30 transition-all">
                       業務委託契約書ダウンロード
                     </a>
                   </div>
