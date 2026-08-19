@@ -367,6 +367,62 @@ export default function ReskillingPage() {
 
         <div className="section-divider" />
 
+        {/* Delivery */}
+        <section id="delivery" className="py-32 px-6">
+          <div className="max-w-3xl mx-auto">
+            <FadeInSection>
+              <p className="text-accent text-sm tracking-[0.2em] uppercase mb-6 font-sans text-center">
+                Delivery
+              </p>
+              <h2 className="font-serif text-3xl sm:text-4xl font-semibold text-snow text-center mb-4">
+                学習の提供方法
+              </h2>
+              <p className="text-slate-400 text-center mb-12 max-w-xl mx-auto">
+                講師が実施するライブ形式で、受講記録もきちんと残します。
+              </p>
+            </FadeInSection>
+            <FadeInSection delay={0.1}>
+              <div className="glass p-8 space-y-6 text-slate-400 text-sm leading-[1.9]">
+                <div>
+                  <h3 className="text-snow font-medium mb-2">提供形態</h3>
+                  <p>
+                    各コースは、<strong className="text-slate-200">オンライン（Web会議ツール：Zoom）または対面（講師派遣）</strong>の講師実施型で提供します。受講者と講師で日程を調整し、少人数で丁寧に進めます。
+                  </p>
+                </div>
+                <div>
+                  <h3 className="text-snow font-medium mb-2">受講記録の管理</h3>
+                  <p>
+                    受講者の<strong className="text-slate-200">学習日時・学習時間・進捗（受講状況）</strong>を、出席記録・日程表（スクーリング表）・実施記録として管理し、<strong className="text-slate-200">助成金申請に必要な受講記録一式</strong>をお渡しします。
+                  </p>
+                </div>
+                <div>
+                  <h3 className="text-snow font-medium mb-2">受講の流れ</h3>
+                  <ol className="list-decimal pl-5 space-y-1">
+                    <li>受講希望のコースでお申し込み</li>
+                    <li>受講方法（オンライン／対面）をご指定</li>
+                    <li>受講者と講師で日程を調整</li>
+                    <li>日程表（スクーリング表）を作成し確定</li>
+                  </ol>
+                  <p className="text-slate-500 text-xs mt-2">※ オンライン受講の場合は、招待メールを受講者へお送りします。</p>
+                </div>
+                <div>
+                  <h3 className="text-snow font-medium mb-2">お申し込み・お問い合わせ</h3>
+                  <p>
+                    お申し込み・ご相談は{" "}
+                    <a href="mailto:contact@ajara.co.jp" className="text-accent underline underline-offset-4">contact@ajara.co.jp</a>{" "}
+                    へ。お申し込み確定時に、申込書・業務委託契約書を取り交わします。
+                  </p>
+                </div>
+                <p className="text-slate-500 text-xs leading-relaxed border-l-2 border-accent/30 pl-4">
+                  ※ 対面（研修会場等）での受講を希望される場合は、会場にかかる費用および講師の交通費等を別途ご負担いただきます。
+                </p>
+              </div>
+            </FadeInSection>
+          </div>
+        </section>
+
+        <div className="section-divider" />
+
         {/* Subsidy */}
         <section id="subsidy" className="py-32 px-6">
           <div className="max-w-3xl mx-auto">

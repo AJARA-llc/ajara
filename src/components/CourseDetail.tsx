@@ -53,6 +53,42 @@ export default function CourseDetail({ course }: { course: Course }) {
             </div>
           </FadeInSection>
 
+          {/* Skills & Effects */}
+          <FadeInSection delay={0.05}>
+            <section className="mt-14 grid sm:grid-cols-2 gap-4">
+              <div className="glass p-6">
+                <p className="text-accent text-xs tracking-[0.15em] uppercase mb-4">習得できるスキル</p>
+                <ul className="space-y-2.5">
+                  {course.skills.map((s) => (
+                    <li key={s} className="flex items-start gap-2.5 text-slate-300 text-sm leading-relaxed">
+                      <span className="text-accent mt-0.5 flex-shrink-0">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                          <path d="M20 6L9 17l-5-5" />
+                        </svg>
+                      </span>
+                      {s}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div className="glass p-6">
+                <p className="text-accent text-xs tracking-[0.15em] uppercase mb-4">生まれる効果</p>
+                <ul className="space-y-2.5">
+                  {course.effects.map((e) => (
+                    <li key={e} className="flex items-start gap-2.5 text-slate-300 text-sm leading-relaxed">
+                      <span className="text-accent mt-0.5 flex-shrink-0">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                          <path d="M13 7l5 5-5 5M6 12h12" />
+                        </svg>
+                      </span>
+                      {e}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </section>
+          </FadeInSection>
+
           {/* Audience */}
           <FadeInSection delay={0.05}>
             <section className="mt-14">
