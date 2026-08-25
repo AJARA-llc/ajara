@@ -21,13 +21,18 @@ export const metadata: Metadata = {
   },
 };
 
-// 発表日は未定（operator確定待ち）。確定したら DATELINE を実際の日付に置き換える。
-const DATELINE = "2026年【　】月【　】日";
+// 正式リリース日: 2026年9月1日（operator確定 2026-08-25）。プレスリリース原稿:
+// aegis/workspace/content/hintl_promo/press_release_v1.md 参照。
+// FLIP TO PAST TENSE ON 2026-09-01: DATELINE の「（予定）」を削除し、
+// 本文中の「開始する予定です」「リリース予定です」を過去形（開始しました/リリースしました）に、
+// バッジ文言「正式リリース予定」を「正式リリース済み」等へ更新すること。
+const DATELINE = "2026年9月1日（予定）";
 
 const facts: [string, string][] = [
   ["サービス名", "hintl（ヒントル）"],
   ["種別", "エビデンスベースの意思決定エンジン（無料診断メディア）"],
-  ["提供領域", "睡眠 / メンタル / 栄養 / 脳・集中 / 美容 / 仕事・働き方 ほか"],
+  ["正式リリース日", "2026年9月1日（予定）"],
+  ["提供領域", "睡眠 / メンタル / 栄養 / 脳・集中 / 仕事 / 美容"],
   ["利用料金", "無料（診断・情報閲覧）"],
   ["URL", "https://hintl.net"],
   ["提供・運営", "合同会社AJARA"],
@@ -59,7 +64,7 @@ export default function HintlLaunchNews() {
               <span className="mx-2 text-slate-700">|</span>
               合同会社AJARA
               <span className="ml-3 inline-block text-[11px] px-2 py-0.5 rounded-full border border-accent/20 text-accent/70">
-                発表日は確定次第更新します
+                正式リリース予定
               </span>
             </p>
             <h1 className="font-serif text-3xl sm:text-4xl font-semibold text-snow leading-tight mb-8">
@@ -74,13 +79,19 @@ export default function HintlLaunchNews() {
               <p>
                 合同会社AJARA（本社：日本、代表社員：平田拓也）は、健康・美容をはじめとする日々の選択を
                 <strong className="text-snow">「広告ではなく、公開されている研究」から比較</strong>
-                できる、エビデンスベースの意思決定エンジン「hintl（ヒントル）」の提供を開始します。
+                できる、エビデンスベースの意思決定エンジン「hintl（ヒントル）」を
+                <strong className="text-snow">2026年9月1日に正式リリースする予定</strong>
+                です。
               </p>
               <p>
-                hintlは、論文の数と研究間の一貫性からエビデンスを
-                <strong className="text-snow">100点満点のスコアで可視化</strong>
-                し、<strong className="text-snow">1分の無料診断</strong>
-                を通じて、研究報告のある選択肢をどなたでも確認できるサービスです。何がどれだけ確からしいのかを、宣伝や体験談ではなく、公開研究の裏付けとともに提示します。
+                hintlは、全記事を「結論→どんな研究？→専門的には」の
+                <strong className="text-snow">3層構造</strong>
+                で構成し、RCT・メタ分析などの専門用語には
+                <strong className="text-snow">タップで表示されるやさしい説明</strong>
+                を付けています。研究の裏付けの強さは「効果あり/なし」ではなく
+                <strong className="text-snow">どれくらい確からしいか</strong>
+                で正直に提示し、<strong className="text-snow">1分の無料診断</strong>
+                を通じて、研究報告のある選択肢をどなたでも確認できます。
               </p>
             </div>
           </FadeInSection>
@@ -103,12 +114,16 @@ export default function HintlLaunchNews() {
               <div className="space-y-5">
                 {[
                   {
-                    t: "広告ではなく研究から比較",
-                    d: "成分・習慣・製品などの選択肢を、広告や口コミではなく、公開されている研究をもとに整理します。",
+                    t: "全記事を3層構造で構成",
+                    d: "「結論」→「どんな研究？」→「専門的には」の順で、専門用語を知らなくても読み通せる構成にしています。",
                   },
                   {
-                    t: "エビデンスを100点満点で可視化",
-                    d: "論文数と研究間の一貫性から算出したエビデンススコアと信頼度を提示し、どれだけ確からしいかを一目で確認できます。",
+                    t: "専門用語のワンタップ解説",
+                    d: "RCT・メタ分析・プラセボなど、研究用語にはタップで表示されるやさしい説明を付けています。",
+                  },
+                  {
+                    t: "「効果あり/なし」ではなく「どれくらい確からしいか」",
+                    d: "研究の裏付けの強さをスコアで表示し、裏付けが弱い場合も正直にそのまま表示します。",
                   },
                   {
                     t: "1分の無料診断",
@@ -116,7 +131,7 @@ export default function HintlLaunchNews() {
                   },
                   {
                     t: "複数領域をカバー",
-                    d: "睡眠・メンタル・栄養・脳・集中・美容・仕事など、暮らしに関わる複数の領域に対応します。",
+                    d: "睡眠・メンタル・栄養・脳・集中・仕事・美容など、暮らしに関わる複数の領域に対応します。",
                   },
                 ].map((f) => (
                   <div key={f.t} className="flex gap-4">

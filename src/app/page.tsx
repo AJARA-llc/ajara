@@ -51,6 +51,7 @@ export default function Home() {
         <HeroSection />
 
         {/* News / お知らせ */}
+        {/* FLIP TO PAST TENSE ON 2026-09-01: change "正式リリース予定" below to "正式リリース" (past). */}
         <section className="px-6 pt-6 pb-2 relative z-10">
           <div className="max-w-6xl mx-auto">
             <FadeInSection>
@@ -62,7 +63,7 @@ export default function Home() {
                   NEWS
                 </span>
                 <span className="text-slate-300 text-sm leading-snug flex-1 min-w-0 truncate">
-                  エビデンスベースの意思決定エンジン「hintl」提供開始のお知らせ
+                  エビデンスベースの意思決定エンジン「hintl」、2026年9月1日 正式リリース予定
                 </span>
                 <span className="text-accent shrink-0 inline-flex items-center gap-1 text-sm group-hover:gap-2 transition-all">
                   <span className="hidden sm:inline">詳しく</span>

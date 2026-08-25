@@ -15,18 +15,26 @@ const ACCENT = "#0066ff";
 
 const FEATURES = [
   {
-    title: "広告ではなく、研究から",
-    desc: "成分・習慣・製品などの選択肢を、広告や口コミではなく、公開されている研究をもとに整理します。",
+    title: "全記事を3層構造で構成",
+    desc: "「結論」→「どんな研究？」→「専門的には」の順で、専門用語を知らなくても読み通せる構成にしています。",
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.7} strokeLinecap="round" strokeLinejoin="round" style={{ width: 24, height: 24 }}>
-        <path d="M12 2a10 10 0 1 0 0 20A10 10 0 0 0 12 2z"/>
-        <path d="M12 8v4l3 3"/>
+        <rect x="4" y="4" width="16" height="4" rx="1"/><rect x="4" y="10" width="16" height="4" rx="1"/><rect x="4" y="16" width="16" height="4" rx="1"/>
       </svg>
     ),
   },
   {
-    title: "エビデンスを100点で可視化",
-    desc: "論文の数と研究間の一貫性からエビデンススコアを算出。どれだけ確からしいかを、信頼度とともに一目で確認できます。",
+    title: "専門用語のワンタップ解説",
+    desc: "RCT・メタ分析・プラセボなど、研究用語にはタップで表示されるやさしい説明を付けています。",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.7} strokeLinecap="round" strokeLinejoin="round" style={{ width: 24, height: 24 }}>
+        <circle cx="12" cy="12" r="10"/><path d="M9.5 9a2.5 2.5 0 0 1 5 0c0 1.7-2.5 2-2.5 3.5"/><circle cx="12" cy="16.5" r="0.6" fill="currentColor" stroke="none"/>
+      </svg>
+    ),
+  },
+  {
+    title: "「効果あり/なし」ではなく「どれくらい確からしいか」",
+    desc: "研究の裏付けの強さをスコアで表示し、裏付けが弱い場合も正直にそのまま表示します。",
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.7} strokeLinecap="round" strokeLinejoin="round" style={{ width: 24, height: 24 }}>
         <rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/>
@@ -35,8 +43,8 @@ const FEATURES = [
     ),
   },
   {
-    title: "1分の無料診断",
-    desc: "簡単な質問に答えるだけで、あなたに関連する領域と、研究報告のある選択肢を無料で提示します。",
+    title: "無料のセルフチェック診断",
+    desc: "睡眠・メンタル・栄養など6ジャンルで、自分のタイプと関連する研究情報がわかる無料診断です（医療上の診断ではありません）。",
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.7} strokeLinecap="round" strokeLinejoin="round" style={{ width: 24, height: 24 }}>
         <circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/>
@@ -44,8 +52,8 @@ const FEATURES = [
     ),
   },
   {
-    title: "利用は完全無料",
-    desc: "診断も、エビデンス情報の閲覧も無料。まずは気になる領域から確かめてみてください。",
+    title: "AI検索時代に対応した情報設計",
+    desc: "研究の要点・スコア・引用元を構造化データとして整理しており、生成AIの検索・要約でも参照されやすい設計です。",
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.7} strokeLinecap="round" strokeLinejoin="round" style={{ width: 24, height: 24 }}>
         <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/>
@@ -56,8 +64,7 @@ const FEATURES = [
 ];
 
 const GENRES = [
-  "睡眠", "メンタル", "栄養", "脳・集中",
-  "美容", "仕事・働き方", "お金・節約", "疲労回復",
+  "睡眠", "メンタル", "栄養", "脳・集中", "仕事", "美容",
 ];
 
 const STEPS = [
@@ -69,7 +76,7 @@ const STEPS = [
 const FAQS = [
   {
     q: "hintl はどんなサービスですか？",
-    a: "健康・美容などの選択を「広告ではなく公開研究」から比較できる、エビデンスベースの意思決定エンジンです。論文数と研究間の一貫性からエビデンスを100点満点で可視化し、1分の無料診断で研究報告のある選択肢を確認できます。",
+    a: "健康・美容などの選択を「広告ではなく公開研究」から比較できる、エビデンスベースの意思決定エンジンです。全記事を「結論→どんな研究？→専門的には」の3層構造で構成し、研究用語にはタップで表示されるやさしい説明を付けています。1分の無料診断で研究報告のある選択肢を確認できます。2026年9月1日に正式リリース予定です。",
   },
   {
     q: "料金はかかりますか？",
@@ -173,10 +180,44 @@ export default function HintlPage() {
     <div style={{ background: "#ffffff", color: TEXT, minHeight: "100vh", fontFamily: font }}>
       <HintlNavigation />
 
+      {/* ── Launch Announcement Band ────────────────────────────── */}
+      <div
+        style={{
+          marginTop: "64px",
+          padding: "10px 24px",
+          textAlign: "center",
+          background: BRAND_SOFT,
+          borderBottom: "1px solid rgba(0,102,255,0.15)",
+        }}
+      >
+        <p style={{ fontSize: "13px", color: TEXT, margin: 0, lineHeight: 1.6 }}>
+          <span
+            style={{
+              display: "inline-block",
+              padding: "2px 10px",
+              borderRadius: "999px",
+              background: BRAND,
+              color: "#ffffff",
+              fontWeight: 700,
+              fontSize: "10px",
+              letterSpacing: "0.05em",
+              marginRight: "8px",
+              verticalAlign: "middle",
+            }}
+          >
+            NEWS
+          </span>
+          hintl は <strong>2026年9月1日</strong> に正式リリース予定です。
+          <Link href="/news/hintl-launch" style={{ marginLeft: "8px", color: ACCENT, textDecoration: "underline", textUnderlineOffset: "3px" }}>
+            詳しく見る →
+          </Link>
+        </p>
+      </div>
+
       {/* ── Hero ─────────────────────────────────────────────── */}
       <section
         style={{
-          paddingTop: "120px",
+          paddingTop: "72px",
           paddingBottom: "100px",
           textAlign: "center",
           position: "relative",
