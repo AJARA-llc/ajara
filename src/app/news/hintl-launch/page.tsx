@@ -21,15 +21,15 @@ export const metadata: Metadata = {
   },
 };
 
-// 正式リリース日: 2026年8月28日（operator確定 2026-08-28、9/1計画から前倒し）。
+// 正式リリース日: 2026年9月1日（operator確定 2026-09-01: PR配信と同日に9/1へ再統一）。
 // プレスリリース原稿: aegis/workspace/content/hintl_promo/press_release_v1.md 参照。
 // FLIPPED TO PAST TENSE 2026-08-28: DATELINE を確定日に、本文・バッジを過去形へ反転済み。
-const DATELINE = "2026年8月28日";
+const DATELINE = "2026年9月1日";
 
 const facts: [string, string][] = [
   ["サービス名", "hintl（ヒントル）"],
   ["種別", "エビデンスベースの意思決定エンジン（無料診断メディア）"],
-  ["正式リリース日", "2026年8月28日"],
+  ["正式リリース日", "2026年9月1日"],
   ["提供領域", "睡眠 / メンタル / 栄養 / 脳・集中 / 仕事 / 美容"],
   ["利用料金", "無料（診断・情報閲覧）"],
   ["URL", "https://hintl.net"],
@@ -78,7 +78,7 @@ export default function HintlLaunchNews() {
                 合同会社AJARA（本社：日本、代表社員：平田拓也）は、健康・美容をはじめとする日々の選択を
                 <strong className="text-snow">「広告ではなく、公開されている研究」から比較</strong>
                 できる、エビデンスベースの意思決定エンジン「hintl（ヒントル）」を
-                <strong className="text-snow">2026年8月28日に正式リリースしました</strong>。
+                <strong className="text-snow">2026年9月1日に正式リリースしました</strong>。
               </p>
               <p>
                 hintlは、全記事を「結論→どんな研究？→専門的には」の
@@ -125,6 +125,10 @@ export default function HintlLaunchNews() {
                   {
                     t: "1分の無料診断",
                     d: "簡単な質問に答えるだけで、あなたに関連する領域と、研究報告のある選択肢を無料で確認できます。",
+                  },
+                  {
+                    t: "研究情報にもとづく「AIに相談する」機能",
+                    d: "かんたんな質問でわかる自分のタイプに合わせてAIが話し方を変え、サイト内に整理された研究情報だけを根拠に答えます。会員登録なしでも1回無料で試せます（医療上の診断や治療のアドバイスは行いません）。",
                   },
                   {
                     t: "複数領域をカバー",

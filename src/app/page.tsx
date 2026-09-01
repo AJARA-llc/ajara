@@ -63,7 +63,7 @@ export default function Home() {
                   NEWS
                 </span>
                 <span className="text-slate-300 text-sm leading-snug flex-1 min-w-0 truncate">
-                  エビデンスベースの意思決定エンジン「hintl」、2026年8月28日 正式リリースしました
+                  エビデンスベースの意思決定エンジン「hintl」、2026年9月1日 正式リリースしました
                 </span>
                 <span className="text-accent shrink-0 inline-flex items-center gap-1 text-sm group-hover:gap-2 transition-all">
                   <span className="hidden sm:inline">詳しく</span>
