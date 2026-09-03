@@ -25,6 +25,19 @@ const config: Config = {
           500: "#64748B",
           600: "#475569",
         },
+        // hintl design-system tokens (DESIGN.md — /Users/takuyahirata/Workspace/AJARA/hintl/DESIGN.md).
+        // Additive only, scoped to the /hintl route restyle (2026-09-03) — do not
+        // repurpose for other ajara.co.jp routes (they use navy/accent above).
+        ink: "#0d1b3e",
+        teal: {
+          DEFAULT: "#0d7377",
+          dark: "#0a5c5f",
+        },
+        brand: {
+          50: "#e6f4f5",
+          200: "#9fd6d8",
+        },
+        border: "#e4e7ec",
       },
       fontFamily: {
         serif: ["Noto Serif JP", "serif"],

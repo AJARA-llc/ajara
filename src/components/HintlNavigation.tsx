@@ -4,7 +4,16 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 
-const BRAND = "linear-gradient(135deg, #0066ff, #00c4b4)";
+// Restyled 2026-09-03 to match the hintl.net design system (DESIGN.md —
+// /Users/takuyahirata/Workspace/AJARA/hintl/DESIGN.md: "bright, evidence-lit
+// clinic desk"). Flat teal, ink-navy wordmark, no gradients — mirrors
+// site-header.tsx in the hintl repo. Shared by /hintl and /hintl/blog/*.
+
+const TEAL = "#0d7377";
+const INK = "#0d1b3e";
+const SLATE_500 = "#64748b";
+const SLATE_600 = "#475569";
+const BORDER = "#e4e7ec";
 
 const navLinks = [
   { href: "#features", label: "特徴" },
@@ -37,8 +46,8 @@ export default function HintlNavigation() {
         zIndex: 50,
         background: scrolled ? "rgba(255,255,255,0.96)" : "#ffffff",
         backdropFilter: scrolled ? "blur(12px)" : "none",
-        borderBottom: "1px solid rgba(0,102,255,0.1)",
-        boxShadow: scrolled ? "0 1px 20px rgba(0,102,255,0.06)" : "none",
+        borderBottom: `1px solid ${BORDER}`,
+        boxShadow: scrolled ? "0 1px 20px rgba(15,23,42,0.06)" : "none",
         transition: "all 0.3s ease",
       }}
     >
@@ -64,16 +73,16 @@ export default function HintlNavigation() {
             style={{ height: "32px", width: "auto", objectFit: "contain" }}
             priority
           />
-          <span style={{ fontSize: "18px", fontWeight: 800, letterSpacing: "-0.3px", background: BRAND, WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>
+          <span style={{ fontSize: "18px", fontWeight: 900, letterSpacing: "-0.03em", color: INK }}>
             hintl
           </span>
         </a>
 
         {/* Desktop nav */}
         <div className="hidden md:flex items-center gap-6 flex-1 justify-center">
-          <a href="/" style={{ fontSize: "13px", color: "#8A97C0", textDecoration: "none" }}>← AJARA</a>
+          <a href="/" style={{ fontSize: "13px", color: SLATE_500, textDecoration: "none" }}>← AJARA</a>
           {navLinks.map((link) => (
-            <a key={link.href} href={link.href} style={{ fontSize: "13px", color: "#4A5568", textDecoration: "none", whiteSpace: "nowrap" }}>
+            <a key={link.href} href={link.href} style={{ fontSize: "13px", color: SLATE_600, textDecoration: "none", whiteSpace: "nowrap" }}>
               {link.label}
             </a>
           ))}
@@ -84,17 +93,17 @@ export default function HintlNavigation() {
           href="https://hintl.net"
           target="_blank"
           rel="noopener noreferrer"
-          className="hidden md:inline-block"
+          className="hidden md:inline-flex hover:bg-teal-dark transition-colors"
           style={{
             flexShrink: 0,
             fontSize: "13px",
-            fontWeight: 600,
+            fontWeight: 700,
             color: "#ffffff",
-            background: BRAND,
+            background: TEAL,
             padding: "8px 20px",
             borderRadius: "999px",
             textDecoration: "none",
-            boxShadow: "0 2px 12px rgba(0,102,255,0.3)",
+            boxShadow: "0 4px 14px -4px rgba(13,115,119,0.45)",
             whiteSpace: "nowrap",
           }}
         >
@@ -105,7 +114,7 @@ export default function HintlNavigation() {
         <button
           onClick={() => setMobileOpen(!mobileOpen)}
           className="md:hidden p-2"
-          style={{ color: "#1B2340", background: "none", border: "none", cursor: "pointer" }}
+          style={{ color: INK, background: "none", border: "none", cursor: "pointer" }}
         >
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
             {mobileOpen ? <path d="M18 6L6 18M6 6l12 12" /> : <path d="M4 6h16M4 12h16M4 18h16" />}
@@ -120,12 +129,12 @@ export default function HintlNavigation() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            style={{ background: "#ffffff", borderTop: "1px solid rgba(0,102,255,0.08)" }}
+            style={{ background: "#ffffff", borderTop: `1px solid ${BORDER}` }}
           >
             <div style={{ padding: "16px 24px", display: "flex", flexDirection: "column", gap: "12px" }}>
-              <a href="/" style={{ fontSize: "14px", color: "#8A97C0", textDecoration: "none" }}>← AJARA</a>
+              <a href="/" style={{ fontSize: "14px", color: SLATE_500, textDecoration: "none" }}>← AJARA</a>
               {navLinks.map((link) => (
-                <a key={link.href} href={link.href} onClick={() => setMobileOpen(false)} style={{ fontSize: "14px", color: "#4A5568", textDecoration: "none" }}>
+                <a key={link.href} href={link.href} onClick={() => setMobileOpen(false)} style={{ fontSize: "14px", color: SLATE_600, textDecoration: "none" }}>
                   {link.label}
                 </a>
               ))}
@@ -135,14 +144,14 @@ export default function HintlNavigation() {
                 rel="noopener noreferrer"
                 style={{
                   fontSize: "14px",
-                  fontWeight: 600,
+                  fontWeight: 700,
                   color: "#ffffff",
-                  background: BRAND,
+                  background: TEAL,
                   padding: "10px 18px",
                   borderRadius: "999px",
                   textDecoration: "none",
                   textAlign: "center",
-                  boxShadow: "0 2px 12px rgba(0,102,255,0.3)",
+                  boxShadow: "0 4px 14px -4px rgba(13,115,119,0.45)",
                 }}
               >
                 hintl を試す
