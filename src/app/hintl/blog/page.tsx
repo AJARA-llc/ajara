@@ -4,6 +4,23 @@ import Image from "next/image";
 import Link from "next/link";
 import HintlNavigation from "@/components/HintlNavigation";
 
+// Restyled 2026-09-03 to match the hintl.net design system (DESIGN.md —
+// /Users/takuyahirata/Workspace/AJARA/hintl/DESIGN.md: "a bright,
+// evidence-lit clinic desk"). Flat teal (no cyan/blue gradients), ink-navy
+// type, white cards on hairline borders — mirrors the "Blog Insights" card
+// pattern already shipped on /hintl (src/app/hintl/page.tsx). Content, slugs,
+// and JSON-LD (layout.tsx) are unchanged — this is a visual re-skin only.
+
+const TEAL = "#0d7377";
+const TEAL_TINT = "#e6f4f5";
+const TEAL_TINT_BORDER = "#9fd6d8";
+const INK = "#0d1b3e";
+const SLATE_600 = "#475569";
+const SLATE_500 = "#64748b";
+const BORDER = "#e4e7ec";
+const HERO_WASH = "#f1f8f8";
+const TEAL_SHADOW = "0 8px 24px -8px rgba(13,115,119,0.35)";
+
 const ARTICLES = [
   {
     slug: "ai-coaching-science",
@@ -34,81 +51,80 @@ const ARTICLES = [
   },
 ];
 
-const BRAND = "linear-gradient(135deg, #0066ff, #00c4b4)";
-const BRAND_SOFT = "linear-gradient(135deg, rgba(0,102,255,0.1), rgba(0,196,180,0.1))";
-
 export default function HintlBlogPage() {
+  const font = '"Noto Sans JP","Hiragino Kaku Gothic ProN",sans-serif';
+
   return (
-    <div style={{ background: "#ffffff", color: "#1B2340", minHeight: "100vh", fontFamily: '-apple-system,"Inter","Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif' }}>
+    <div style={{ background: "#ffffff", color: INK, minHeight: "100vh", fontFamily: font }}>
       <HintlNavigation />
 
-      <div style={{ paddingTop: "100px", paddingBottom: "80px" }} className="px-6">
-        <div style={{ maxWidth: "860px", margin: "0 auto" }}>
+      {/* ── Header ───────────────────────────────────────────── */}
+      <section
+        style={{ textAlign: "center", backgroundImage: `linear-gradient(to bottom, ${HERO_WASH}, #ffffff)` }}
+        className="px-5 sm:px-6 pt-24 sm:pt-28 pb-10 sm:pb-14"
+      >
+        <div style={{ maxWidth: "680px", margin: "0 auto" }}>
+          <p style={{ fontSize: "12px", fontWeight: 700, letterSpacing: "0.14em", color: TEAL, marginBottom: "16px" }}>
+            AJARA COLUMN
+          </p>
+          <h1 style={{ fontSize: "clamp(26px,4vw,38px)", fontWeight: 900, color: INK, letterSpacing: "-0.01em", marginBottom: "14px" }}>
+            hintl インサイト
+          </h1>
+          <p style={{ fontSize: "15px", color: SLATE_600, lineHeight: 1.8 }}>
+            AI × エビデンスに基づくライフコーチングの研究・知見をお届けします。
+          </p>
+        </div>
+      </section>
 
-          {/* Header */}
-          <div style={{ textAlign: "center", marginBottom: "64px" }}>
-            <p style={{ fontSize: "11px", letterSpacing: "0.2em", textTransform: "uppercase", color: "#8A97C0", marginBottom: "12px" }}>
-              AJARA COLUMN
-            </p>
-            <h1 style={{ fontSize: "clamp(26px,4vw,38px)", fontWeight: 800, color: "#1B2340", letterSpacing: "-0.5px", marginBottom: "12px" }}>
-              hintl インサイト
-            </h1>
-            <p style={{ fontSize: "15px", color: "#4A5568", lineHeight: 1.7 }}>
-              AI × エビデンスに基づくライフコーチングの研究・知見をお届けします。
-            </p>
-          </div>
-
+      <div className="px-5 sm:px-6 pb-16 sm:pb-24">
+        <div style={{ maxWidth: "680px", margin: "0 auto" }}>
           {/* Articles */}
-          <div style={{ display: "flex", flexDirection: "column", gap: "24px" }}>
+          <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
             {ARTICLES.map((a) => (
-              <Link
-                key={a.slug}
-                href={`/hintl/blog/${a.slug}`}
-                style={{ textDecoration: "none" }}
-              >
+              <Link key={a.slug} href={`/hintl/blog/${a.slug}`} style={{ textDecoration: "none" }}>
                 <div
+                  className="p-5 sm:px-7 sm:py-6"
                   style={{
-                    background: "#F4F5FB",
-                    border: "1px solid rgba(0,102,255,0.12)",
-                    borderRadius: "20px",
-                    padding: "32px 36px",
+                    background: "#ffffff",
+                    border: `1px solid ${BORDER}`,
+                    borderRadius: "16px",
                     transition: "all 0.2s ease",
                     cursor: "pointer",
                   }}
                   onMouseEnter={(e) => {
-                    (e.currentTarget as HTMLDivElement).style.borderColor = "rgba(0,102,255,0.3)";
+                    (e.currentTarget as HTMLDivElement).style.borderColor = TEAL_TINT_BORDER;
                     (e.currentTarget as HTMLDivElement).style.transform = "translateY(-2px)";
-                    (e.currentTarget as HTMLDivElement).style.boxShadow = "0 8px 32px rgba(0,102,255,0.08)";
+                    (e.currentTarget as HTMLDivElement).style.boxShadow = "0 8px 24px -8px rgba(15,23,42,0.08)";
                   }}
                   onMouseLeave={(e) => {
-                    (e.currentTarget as HTMLDivElement).style.borderColor = "rgba(0,102,255,0.12)";
+                    (e.currentTarget as HTMLDivElement).style.borderColor = BORDER;
                     (e.currentTarget as HTMLDivElement).style.transform = "translateY(0)";
                     (e.currentTarget as HTMLDivElement).style.boxShadow = "none";
                   }}
                 >
-                  <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "14px" }}>
+                  <div className="flex flex-wrap items-center gap-x-3 gap-y-1" style={{ marginBottom: "14px" }}>
                     <span
                       style={{
                         fontSize: "11px",
                         fontWeight: 600,
                         padding: "3px 10px",
                         borderRadius: "999px",
-                        background: BRAND_SOFT,
-                        color: "#0066ff",
+                        background: TEAL_TINT,
+                        color: TEAL,
                       }}
                     >
                       {a.tag}
                     </span>
-                    <span style={{ fontSize: "12px", color: "#8A97C0" }}>{a.date}</span>
-                    <span style={{ fontSize: "12px", color: "#8A97C0" }}>· 読了 {a.readTime}</span>
+                    <span style={{ fontSize: "12px", color: SLATE_500 }}>{a.date}</span>
+                    <span style={{ fontSize: "12px", color: SLATE_500 }}>· 読了 {a.readTime}</span>
                   </div>
-                  <h2 style={{ fontSize: "18px", fontWeight: 700, color: "#1B2340", marginBottom: "10px", lineHeight: 1.45, letterSpacing: "-0.2px" }}>
+                  <h2 style={{ fontSize: "18px", fontWeight: 700, color: INK, marginBottom: "10px", lineHeight: 1.45, letterSpacing: "-0.01em" }}>
                     {a.title}
                   </h2>
-                  <p style={{ fontSize: "14px", color: "#4A5568", lineHeight: 1.8 }}>
+                  <p style={{ fontSize: "14px", color: SLATE_600, lineHeight: 1.8 }}>
                     {a.excerpt}
                   </p>
-                  <p style={{ fontSize: "13px", marginTop: "16px", color: "#0066ff", fontWeight: 500 }}>
+                  <p style={{ fontSize: "13px", marginTop: "16px", color: TEAL, fontWeight: 600 }}>
                     続きを読む →
                   </p>
                 </div>
@@ -118,13 +134,13 @@ export default function HintlBlogPage() {
 
           {/* CTA */}
           <div
+            className="p-8 sm:px-12 sm:py-14"
             style={{
-              marginTop: "64px",
-              borderRadius: "24px",
-              padding: "48px 40px",
+              marginTop: "56px",
+              borderRadius: "16px",
               textAlign: "center",
-              background: BRAND_SOFT,
-              border: "1px solid rgba(0,102,255,0.2)",
+              background: HERO_WASH,
+              border: `1px solid ${TEAL_TINT_BORDER}`,
             }}
           >
             <Image
@@ -132,9 +148,9 @@ export default function HintlBlogPage() {
               alt="hintl"
               width={631}
               height={797}
-              style={{ height: "80px", width: "auto", objectFit: "contain", margin: "0 auto 20px" }}
+              style={{ height: "64px", width: "auto", objectFit: "contain", margin: "0 auto 20px" }}
             />
-            <p style={{ fontSize: "15px", color: "#4A5568", marginBottom: "24px", lineHeight: 1.7 }}>
+            <p style={{ fontSize: "15px", color: SLATE_600, marginBottom: "24px", lineHeight: 1.8 }}>
               AI × エビデンスのコーチングを今すぐ体験。<br />
               6 つの質問で、あなたに合ったアドバイザーを無料で提案します。
             </p>
@@ -142,16 +158,17 @@ export default function HintlBlogPage() {
               href="https://hintl.net"
               target="_blank"
               rel="noreferrer"
+              className="hover:bg-teal-dark hover:-translate-y-0.5 active:scale-95 transition"
               style={{
                 display: "inline-block",
                 padding: "13px 36px",
                 borderRadius: "999px",
-                background: BRAND,
+                background: TEAL,
                 color: "#ffffff",
                 fontWeight: 700,
                 fontSize: "15px",
                 textDecoration: "none",
-                boxShadow: "0 4px 20px rgba(0,102,255,0.35)",
+                boxShadow: TEAL_SHADOW,
               }}
             >
               hintl.net で無料で試す

@@ -3,7 +3,27 @@ import Image from "next/image";
 import Link from "next/link";
 import HintlNavigation from "@/components/HintlNavigation";
 
-const BRAND = "linear-gradient(135deg, #0066ff, #00c4b4)";
+// Restyled 2026-09-03 to match the hintl.net design system (DESIGN.md —
+// /Users/takuyahirata/Workspace/AJARA/hintl/DESIGN.md: "a bright,
+// evidence-lit clinic desk"). Flat teal (no cyan/blue gradients), ink-navy
+// headings, article body set to hintl.net's own reading typography (17px /
+// line-height 2.0 / 24px paragraph gap) with the key-sentence highlighter
+// wash reserved for a few evidence figures. Content, references, JSON-LD and
+// metadata are unchanged — this is a visual re-skin only.
+
+const TEAL = "#0d7377";
+const TEAL_TINT = "#e6f4f5";
+const TEAL_TINT_BORDER = "#9fd6d8";
+const INK = "#0d1b3e";
+const SLATE_600 = "#475569";
+const SLATE_500 = "#64748b";
+const BORDER = "#e4e7ec";
+const HERO_WASH = "#f1f8f8";
+const TEAL_SHADOW = "0 8px 24px -8px rgba(13,115,119,0.35)";
+const HIGHLIGHT = "rgba(255,196,32,0.32)";
+
+const h2Style: React.CSSProperties = { fontSize: "20px", fontWeight: 700, color: INK, letterSpacing: "-0.01em", marginBottom: "16px", marginTop: "48px" };
+const bodyStyle: React.CSSProperties = { fontSize: "17px", color: INK, lineHeight: 2, marginBottom: "24px" };
 
 export const metadata: Metadata = {
   title: "キャリア転換の心理学——不確実な選択で後悔しないための意思決定フレームワーク | hintl インサイト",
@@ -37,49 +57,53 @@ const articleJsonLd = {
 };
 
 export default function ArticleCareerDecisionPsychology() {
+  const font = '"Noto Sans JP","Hiragino Kaku Gothic ProN",sans-serif';
+
   return (
-    <div style={{ background: "#ffffff", color: "#1B2340", minHeight: "100vh", fontFamily: '-apple-system,"Inter","Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif' }}>
+    <div style={{ background: "#ffffff", color: INK, minHeight: "100vh", fontFamily: font }}>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }} />
       <HintlNavigation />
 
-      <article style={{ paddingTop: "100px", paddingBottom: "80px" }} className="px-6">
-        <div style={{ maxWidth: "720px", margin: "0 auto" }}>
+      <article className="px-5 sm:px-6 pt-24 sm:pt-28 pb-16 sm:pb-24">
+        <div style={{ maxWidth: "42rem", margin: "0 auto" }}>
 
           {/* Back */}
-          <Link href="/hintl/blog" style={{ fontSize: "13px", color: "#8A97C0", textDecoration: "none", display: "inline-flex", alignItems: "center", gap: "4px", marginBottom: "32px" }}>
+          <Link
+            href="/hintl/blog"
+            className="hover:text-teal transition-colors"
+            style={{ fontSize: "13px", color: SLATE_500, textDecoration: "none", display: "inline-flex", alignItems: "center", gap: "4px", padding: "6px 0", marginBottom: "28px" }}
+          >
             ← hintl インサイト一覧
           </Link>
 
           {/* Meta */}
-          <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "20px" }}>
-            <span style={{ fontSize: "11px", fontWeight: 600, padding: "3px 10px", borderRadius: "999px", background: "linear-gradient(135deg, rgba(0,102,255,0.12), rgba(0,196,180,0.12))", color: "#0066ff" }}>
+          <div className="flex flex-wrap items-center gap-x-3 gap-y-1" style={{ marginBottom: "20px" }}>
+            <span style={{ fontSize: "11px", fontWeight: 600, padding: "3px 10px", borderRadius: "999px", background: TEAL_TINT, color: TEAL }}>
               キャリア × 意思決定
             </span>
-            <span style={{ fontSize: "12px", color: "#8A97C0" }}>2025年4月 · 読了 7分 · AJARA編集部</span>
+            <span style={{ fontSize: "12px", color: SLATE_500 }}>2025年4月 · 読了 7分 · AJARA編集部</span>
           </div>
 
           {/* Title */}
-          <h1 style={{ fontSize: "clamp(22px,3.5vw,32px)", fontWeight: 800, color: "#1B2340", lineHeight: 1.35, letterSpacing: "-0.5px", marginBottom: "28px" }}>
+          <h1 style={{ fontSize: "clamp(24px,3.5vw,34px)", fontWeight: 900, color: INK, lineHeight: 1.35, letterSpacing: "-0.01em", marginBottom: "28px" }}>
             キャリア転換の心理学——不確実な選択で後悔しないための意思決定フレームワーク
           </h1>
 
           {/* Lead */}
-          <p style={{ fontSize: "16px", color: "#4A5568", lineHeight: 1.9, borderLeft: "3px solid #0066ff", paddingLeft: "20px", marginBottom: "40px" }}>
+          <p style={{ fontSize: "17px", color: SLATE_600, lineHeight: 1.9, borderLeft: `3px solid ${TEAL}`, paddingLeft: "20px", marginBottom: "40px" }}>
             転職・独立・業種転換——キャリアの岐路に立つとき、人は感情と論理の間で揺れる。
             行動経済学と意思決定科学が明らかにした「意思決定の落とし穴」と、
             AI アドバイザーが提供できる客観的視点を解説する。
           </p>
 
           {/* Section 1 */}
-          <h2 style={{ fontSize: "20px", fontWeight: 700, color: "#1B2340", letterSpacing: "-0.3px", marginBottom: "16px", marginTop: "48px" }}>
-            キャリア決断を難しくする3つの認知バイアス
-          </h2>
-          <p style={{ fontSize: "15px", color: "#4A5568", lineHeight: 1.9, marginBottom: "16px" }}>
+          <h2 style={h2Style}>キャリア決断を難しくする3つの認知バイアス</h2>
+          <p style={bodyStyle}>
             Daniel Kahneman らの行動経済学研究は、人間の意思決定が「合理的な計算」ではなく、
             認知バイアスに大きく影響されることを示した。
             キャリア選択において特に影響が大きいのは以下の3つだ。
           </p>
-          <ul style={{ listStyle: "none", padding: 0, display: "flex", flexDirection: "column", gap: "16px", marginBottom: "24px" }}>
+          <ul style={{ listStyle: "none", padding: 0, display: "flex", flexDirection: "column", gap: "12px", marginBottom: "24px" }}>
             {[
               {
                 term: "現状維持バイアス（Status Quo Bias）",
@@ -94,70 +118,64 @@ export default function ArticleCareerDecisionPsychology() {
                 def: "自分の将来の行動にかかる時間・コスト・リスクを過小評価する傾向。「転職活動は3ヶ月あればできる」と見積もって半年かかる典型例がこれだ。",
               },
             ].map((item) => (
-              <li key={item.term} style={{ background: "#F4F5FB", borderRadius: "14px", padding: "20px 24px" }}>
-                <p style={{ fontSize: "15px", fontWeight: 700, color: "#1B2340", marginBottom: "6px" }}>{item.term}</p>
-                <p style={{ fontSize: "14px", color: "#4A5568", lineHeight: 1.8 }}>{item.def}</p>
+              <li key={item.term} style={{ background: "#ffffff", border: `1px solid ${BORDER}`, borderRadius: "16px", padding: "20px 24px" }}>
+                <p style={{ fontSize: "15px", fontWeight: 700, color: INK, marginBottom: "6px" }}>{item.term}</p>
+                <p style={{ fontSize: "14px", color: SLATE_600, lineHeight: 1.8 }}>{item.def}</p>
               </li>
             ))}
           </ul>
 
           {/* Callout */}
-          <div style={{ background: "linear-gradient(135deg, rgba(0,102,255,0.07), rgba(0,196,180,0.07))", border: "1px solid rgba(0,102,255,0.18)", borderRadius: "16px", padding: "24px 28px", margin: "32px 0" }}>
-            <p style={{ fontSize: "13px", fontWeight: 600, color: "#0066ff", marginBottom: "8px", textTransform: "uppercase", letterSpacing: "0.1em" }}>Key Insight</p>
-            <p style={{ fontSize: "15px", color: "#1B2340", lineHeight: 1.7 }}>
+          <div style={{ background: TEAL_TINT, border: `1px solid ${TEAL_TINT_BORDER}`, borderRadius: "16px", padding: "24px 28px", margin: "32px 0" }}>
+            <p style={{ fontSize: "13px", fontWeight: 600, color: TEAL, marginBottom: "8px", textTransform: "uppercase", letterSpacing: "0.1em" }}>Key Insight</p>
+            <p style={{ fontSize: "15px", color: INK, lineHeight: 1.7 }}>
               損失は利得の <strong>約2倍</strong> 大きく感じられる（Kahneman & Tversky, 1979）<br />
               転職への恐怖の多くは「認知バイアス」であり、感情ではなく構造的問題
             </p>
           </div>
 
           {/* Section 2 */}
-          <h2 style={{ fontSize: "20px", fontWeight: 700, color: "#1B2340", letterSpacing: "-0.3px", marginBottom: "16px", marginTop: "48px" }}>
-            後悔を最小化する意思決定フレームワーク
-          </h2>
-          <p style={{ fontSize: "15px", color: "#4A5568", lineHeight: 1.9, marginBottom: "16px" }}>
+          <h2 style={h2Style}>後悔を最小化する意思決定フレームワーク</h2>
+          <p style={bodyStyle}>
             Amazon 創業者の Jeff Bezos が使うことで知られる「後悔最小化フレームワーク（Regret Minimization Framework）」は、
             心理学的に裏付けのある意思決定手法だ。
             「80歳になった自分が振り返ったとき、今の選択を後悔するか？」という問いを軸に判断する。
           </p>
-          <p style={{ fontSize: "15px", color: "#4A5568", lineHeight: 1.9, marginBottom: "16px" }}>
+          <p style={bodyStyle}>
             心理学では、行動しなかったことへの後悔（inaction regret）は、
-            行動したことへの後悔（action regret）よりも長期的には大きいことが示されている（Gilovich & Medvec, 1995）。
+            行動したことへの後悔（action regret）よりも<mark style={{ background: HIGHLIGHT }}>長期的には大きい</mark>ことが示されている（Gilovich & Medvec, 1995）。
             つまり、「転職して失敗した」より「転職しなかった」ことへの後悔の方が、
             長い目で見ると大きくなりやすい。
           </p>
 
           {/* Section 3 */}
-          <h2 style={{ fontSize: "20px", fontWeight: 700, color: "#1B2340", letterSpacing: "-0.3px", marginBottom: "16px", marginTop: "48px" }}>
-            「インフォームド・チョイス」を支援するAIの役割
-          </h2>
-          <p style={{ fontSize: "15px", color: "#4A5568", lineHeight: 1.9, marginBottom: "16px" }}>
+          <h2 style={h2Style}>「インフォームド・チョイス」を支援するAIの役割</h2>
+          <p style={bodyStyle}>
             認知バイアスを自分ひとりで克服するのは難しい。ヒューリスティック（直感的な判断）は
             脳が自動的に行うプロセスであり、「気をつける」だけでは外せないからだ。
           </p>
-          <p style={{ fontSize: "15px", color: "#4A5568", lineHeight: 1.9, marginBottom: "16px" }}>
+          <p style={bodyStyle}>
             ここで AI アドバイザーが果たせる役割は、「外部の客観的視点」を提供することだ。
             自分の考えを言語化し、AI に問いかけてもらうことで、
             当事者が気づきにくいバイアスのパターンを可視化できる。
           </p>
-          <p style={{ fontSize: "15px", color: "#4A5568", lineHeight: 1.9, marginBottom: "16px" }}>
+          <p style={bodyStyle}>
             例えば「この選択を選んだ理由は何ですか？」「その前提は本当に正しいですか？」
             「3年後に同じ状況で選んでも後悔しませんか？」——こうした問いかけは、
             CBT の「ソクラテス的対話」技法に基づく介入だ。
           </p>
 
-          <div style={{ background: "linear-gradient(135deg, rgba(0,102,255,0.07), rgba(0,196,180,0.07))", border: "1px solid rgba(0,102,255,0.18)", borderRadius: "16px", padding: "24px 28px", margin: "32px 0" }}>
-            <p style={{ fontSize: "13px", fontWeight: 600, color: "#0066ff", marginBottom: "8px", textTransform: "uppercase", letterSpacing: "0.1em" }}>Key Data</p>
-            <p style={{ fontSize: "15px", color: "#1B2340", lineHeight: 1.7 }}>
+          <div style={{ background: TEAL_TINT, border: `1px solid ${TEAL_TINT_BORDER}`, borderRadius: "16px", padding: "24px 28px", margin: "32px 0" }}>
+            <p style={{ fontSize: "13px", fontWeight: 600, color: TEAL, marginBottom: "8px", textTransform: "uppercase", letterSpacing: "0.1em" }}>Key Data</p>
+            <p style={{ fontSize: "15px", color: INK, lineHeight: 1.7 }}>
               「行動しなかった後悔」は「行動した後悔」より長期的に<strong>大きい</strong>（Gilovich & Medvec, 1995）<br />
               時間が経つにつれて、不作為への後悔が作為への後悔を上回る
             </p>
           </div>
 
           {/* Section 4 */}
-          <h2 style={{ fontSize: "20px", fontWeight: 700, color: "#1B2340", letterSpacing: "-0.3px", marginBottom: "16px", marginTop: "48px" }}>
-            キャリア決断の前に整理すべき5つの問い
-          </h2>
-          <p style={{ fontSize: "15px", color: "#4A5568", lineHeight: 1.9, marginBottom: "16px" }}>
+          <h2 style={h2Style}>キャリア決断の前に整理すべき5つの問い</h2>
+          <p style={bodyStyle}>
             意思決定科学と積極的キャリア開発研究をもとに、
             転職・独立などの大きなキャリア決断の前に整理すべき問いを5つ挙げる。
           </p>
@@ -175,8 +193,8 @@ export default function ArticleCareerDecisionPsychology() {
                   width: "28px",
                   height: "28px",
                   borderRadius: "50%",
-                  background: "linear-gradient(135deg, rgba(0,102,255,0.12), rgba(0,196,180,0.12))",
-                  color: "#0066ff",
+                  background: TEAL_TINT,
+                  color: TEAL,
                   fontSize: "13px",
                   fontWeight: 700,
                   display: "flex",
@@ -185,29 +203,27 @@ export default function ArticleCareerDecisionPsychology() {
                 }}>
                   {i + 1}
                 </span>
-                <p style={{ fontSize: "14px", color: "#4A5568", lineHeight: 1.8, paddingTop: "4px" }}>{q}</p>
+                <p style={{ fontSize: "14px", color: SLATE_600, lineHeight: 1.8, paddingTop: "4px" }}>{q}</p>
               </li>
             ))}
           </ol>
 
           {/* Conclusion */}
-          <h2 style={{ fontSize: "20px", fontWeight: 700, color: "#1B2340", letterSpacing: "-0.3px", marginBottom: "16px", marginTop: "48px" }}>
-            まとめ
-          </h2>
-          <p style={{ fontSize: "15px", color: "#4A5568", lineHeight: 1.9, marginBottom: "16px" }}>
+          <h2 style={h2Style}>まとめ</h2>
+          <p style={bodyStyle}>
             キャリア転換が難しいのは「リスクが大きいから」だけではない。
             現状維持バイアス・損失回避・計画錯誤という認知の構造的特徴が、
             合理的な判断を歪めるからだ。
           </p>
-          <p style={{ fontSize: "15px", color: "#4A5568", lineHeight: 1.9, marginBottom: "40px" }}>
+          <p style={{ ...bodyStyle, marginBottom: "40px" }}>
             AI アドバイザーは、こうしたバイアスを外部から問い直す役割を担える。
             感情に揺れるときこそ、エビデンスベースの問いかけが行動の指針になる。
             hintl のキャリアアドバイザーは、そのための伴走者だ。
           </p>
 
           {/* References */}
-          <div style={{ borderTop: "1px solid rgba(0,102,255,0.1)", paddingTop: "24px", marginBottom: "48px" }}>
-            <p style={{ fontSize: "12px", color: "#8A97C0", marginBottom: "8px", fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.1em" }}>参考資料</p>
+          <div style={{ borderTop: `1px solid ${BORDER}`, paddingTop: "24px", marginBottom: "48px" }}>
+            <p style={{ fontSize: "12px", color: SLATE_500, marginBottom: "8px", fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.1em" }}>参考資料</p>
             <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: "6px" }}>
               {[
                 "Kahneman, D., & Tversky, A. (1979). Prospect theory: An analysis of decision under risk. Econometrica.",
@@ -217,48 +233,44 @@ export default function ArticleCareerDecisionPsychology() {
                 "Kahneman, D. (2011). Thinking, fast and slow. Farrar, Straus and Giroux.",
                 "Lent, R. W., & Brown, S. D. (2013). Social cognitive model of career self-management. Journal of Counseling Psychology.",
               ].map((ref) => (
-                <li key={ref} style={{ fontSize: "12px", color: "#8A97C0", lineHeight: 1.6 }}>· {ref}</li>
+                <li key={ref} style={{ fontSize: "12px", color: SLATE_500, lineHeight: 1.6 }}>· {ref}</li>
               ))}
             </ul>
           </div>
 
           {/* CTA */}
           <div
-            style={{
-              borderRadius: "24px",
-              padding: "48px 40px",
-              textAlign: "center",
-              background: "linear-gradient(135deg, rgba(0,102,255,0.08), rgba(0,196,180,0.08))",
-              border: "1px solid rgba(0,102,255,0.18)",
-            }}
+            className="p-8 sm:px-12 sm:py-14"
+            style={{ borderRadius: "16px", textAlign: "center", background: HERO_WASH, border: `1px solid ${TEAL_TINT_BORDER}` }}
           >
             <Image
               src="/images/hintl-logo.webp"
               alt="hintl"
               width={631}
               height={797}
-              style={{ height: "80px", width: "auto", objectFit: "contain", margin: "0 auto 16px" }}
+              style={{ height: "64px", width: "auto", objectFit: "contain", margin: "0 auto 16px" }}
             />
-            <p style={{ fontSize: "15px", color: "#4A5568", lineHeight: 1.7, marginBottom: "8px" }}>
+            <p style={{ fontSize: "15px", color: SLATE_600, lineHeight: 1.7, marginBottom: "8px" }}>
               キャリアの悩みを、エビデンスベースのAIと一緒に整理しませんか？
             </p>
-            <p style={{ fontSize: "13px", color: "#8A97C0", marginBottom: "24px" }}>
+            <p style={{ fontSize: "13px", color: SLATE_500, marginBottom: "24px" }}>
               6 つの質問に答えるだけで、あなたに合ったアドバイザーを無料で提案します。
             </p>
             <a
               href="https://hintl.net"
               target="_blank"
               rel="noreferrer"
+              className="hover:bg-teal-dark hover:-translate-y-0.5 active:scale-95 transition"
               style={{
                 display: "inline-block",
                 padding: "13px 36px",
                 borderRadius: "999px",
-                background: BRAND,
+                background: TEAL,
                 color: "#ffffff",
                 fontWeight: 700,
                 fontSize: "15px",
                 textDecoration: "none",
-                boxShadow: "0 4px 20px rgba(0,102,255,0.35)",
+                boxShadow: TEAL_SHADOW,
               }}
             >
               hintl.net で今すぐ試す
@@ -267,7 +279,7 @@ export default function ArticleCareerDecisionPsychology() {
 
           {/* Back link */}
           <div style={{ textAlign: "center", marginTop: "40px" }}>
-            <Link href="/hintl/blog" style={{ fontSize: "14px", color: "#8A97C0", textDecoration: "underline", textUnderlineOffset: "4px" }}>
+            <Link href="/hintl/blog" style={{ fontSize: "14px", color: SLATE_600, textDecoration: "underline", textUnderlineOffset: "4px" }}>
               ← 記事一覧に戻る
             </Link>
           </div>
