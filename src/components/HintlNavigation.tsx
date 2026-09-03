@@ -35,20 +35,26 @@ export default function HintlNavigation() {
 
   return (
     <motion.header
-      initial={{ y: -80, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.5, ease: "easeOut" }}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.4, ease: "easeOut" }}
       style={{
         position: "fixed",
         top: 0,
         left: 0,
         right: 0,
         zIndex: 50,
-        background: scrolled ? "rgba(255,255,255,0.96)" : "#ffffff",
-        backdropFilter: scrolled ? "blur(12px)" : "none",
+        // No backdrop-filter here — combined with position:fixed this is a
+        // known Chromium compositing bug (confirmed via Playwright repro
+        // 2026-09-03): the header's own background fails to repaint during
+        // scroll and the page's dark body background (#020617, from the
+        // shared AJARA theme) shows through as a solid black band above the
+        // header. A fully-opaque background gives the same "solid header"
+        // read without triggering the filter-composited layer.
+        background: scrolled ? "#ffffff" : "#ffffff",
         borderBottom: `1px solid ${BORDER}`,
         boxShadow: scrolled ? "0 1px 20px rgba(15,23,42,0.06)" : "none",
-        transition: "all 0.3s ease",
+        transition: "box-shadow 0.3s ease",
       }}
     >
       <div
@@ -56,12 +62,12 @@ export default function HintlNavigation() {
           maxWidth: "1100px",
           margin: "0 auto",
           padding: "0 24px",
-          height: "64px",
           display: "flex",
           alignItems: "center",
           justifyContent: "space-between",
           gap: "24px",
         }}
+        className="h-14 sm:h-16"
       >
         {/* Logo */}
         <a href="/hintl" style={{ display: "flex", alignItems: "center", gap: "10px", textDecoration: "none", flexShrink: 0 }}>
@@ -70,10 +76,11 @@ export default function HintlNavigation() {
             alt="hintl"
             width={631}
             height={797}
-            style={{ height: "32px", width: "auto", objectFit: "contain" }}
+            style={{ height: "28px", width: "auto", objectFit: "contain" }}
+            className="sm:h-8"
             priority
           />
-          <span style={{ fontSize: "18px", fontWeight: 900, letterSpacing: "-0.03em", color: INK }}>
+          <span style={{ fontWeight: 900, letterSpacing: "-0.03em", color: INK }} className="text-2xl sm:text-lg">
             hintl
           </span>
         </a>
@@ -110,10 +117,11 @@ export default function HintlNavigation() {
           hintl を試す
         </a>
 
-        {/* Mobile toggle */}
+        {/* Mobile toggle — 44px hit area (Apple HIG minimum) */}
         <button
           onClick={() => setMobileOpen(!mobileOpen)}
-          className="md:hidden p-2"
+          className="md:hidden -mr-2 inline-flex h-11 w-11 items-center justify-center"
+          aria-label={mobileOpen ? "メニューを閉じる" : "メニューを開く"}
           style={{ color: INK, background: "none", border: "none", cursor: "pointer" }}
         >
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">

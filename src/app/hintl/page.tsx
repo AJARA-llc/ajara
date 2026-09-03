@@ -229,14 +229,38 @@ export default function HintlPage() {
       {/* ── Launch Announcement Band ────────────────────────────── */}
       <div
         style={{
-          marginTop: "64px",
-          padding: "10px 24px",
           textAlign: "center",
           background: TEAL_TINT,
           borderBottom: `1px solid ${TEAL_TINT_BORDER}`,
         }}
+        className="mt-14 sm:mt-16 px-5 py-2.5 sm:px-6"
       >
-        <p style={{ fontSize: "13px", color: INK, margin: 0, lineHeight: 1.6 }}>
+        {/* Mobile: one compact line, one link */}
+        <p className="sm:hidden" style={{ fontSize: "13px", color: INK, margin: 0, lineHeight: 1.6 }}>
+          <span
+            style={{
+              display: "inline-block",
+              padding: "2px 10px",
+              borderRadius: "999px",
+              background: TEAL,
+              color: "#ffffff",
+              fontWeight: 700,
+              fontSize: "10px",
+              letterSpacing: "0.05em",
+              marginRight: "8px",
+              verticalAlign: "middle",
+            }}
+          >
+            NEWS
+          </span>
+          9/1 正式リリース。プレスリリース配信中
+          <Link href="/news/hintl-launch" style={{ marginLeft: "8px", color: TEAL, textDecoration: "underline", textUnderlineOffset: "3px" }}>
+            詳しく見る →
+          </Link>
+        </p>
+
+        {/* sm+: both full sentences */}
+        <p className="hidden sm:block" style={{ fontSize: "13px", color: INK, margin: 0, lineHeight: 1.6 }}>
           <span
             style={{
               display: "inline-block",
@@ -258,7 +282,7 @@ export default function HintlPage() {
             詳しく見る →
           </Link>
         </p>
-        <p style={{ fontSize: "12px", color: INK, margin: "6px 0 0", lineHeight: 1.6, opacity: 0.85 }}>
+        <p className="hidden sm:block" style={{ fontSize: "12px", color: INK, margin: "6px 0 0", lineHeight: 1.6, opacity: 0.85 }}>
           「答えるAIから、エビデンスで伴走するAIへ。hintl誕生」プレスリリースを配信しました（自社配信のプレスリリース）。
           <Link href="/news/hintl-press-release" style={{ marginLeft: "8px", color: TEAL, textDecoration: "underline", textUnderlineOffset: "3px" }}>
             詳しく見る →
@@ -269,14 +293,12 @@ export default function HintlPage() {
       {/* ── Hero ─────────────────────────────────────────────── */}
       <section
         style={{
-          paddingTop: "72px",
-          paddingBottom: "100px",
           textAlign: "center",
           position: "relative",
           overflow: "hidden",
           backgroundImage: `linear-gradient(to bottom, ${HERO_WASH}, #ffffff)`,
         }}
-        className="px-6"
+        className="px-5 sm:px-6 pt-12 sm:pt-[72px] pb-16 sm:pb-[100px]"
       >
         <div style={{ maxWidth: "760px", margin: "0 auto", position: "relative" }}>
           <p style={{ fontSize: "12px", fontWeight: 700, letterSpacing: "0.14em", color: TEAL, marginBottom: "20px" }}>
@@ -296,7 +318,7 @@ export default function HintlPage() {
 
           <h1
             style={{
-              fontSize: "clamp(32px,5vw,54px)",
+              fontSize: "clamp(30px,7vw,54px)",
               fontWeight: 900,
               color: INK,
               lineHeight: 1.25,
@@ -310,8 +332,17 @@ export default function HintlPage() {
             少しだけいい人生を。
           </h1>
 
-          <p style={{ fontSize: "18px", color: SLATE_600, lineHeight: 1.7, marginBottom: "40px", maxWidth: "520px", margin: "0 auto 40px" }}>
-            健康・美容の情報を、広告ではなく公開研究から比較。<br />
+          <p
+            style={{
+              fontSize: "clamp(15px,4vw,18px)",
+              color: SLATE_600,
+              lineHeight: 1.7,
+              maxWidth: "520px",
+              margin: "0 auto 32px",
+              textWrap: "pretty",
+            }}
+          >
+            健康・美容の情報を、広告ではなく公開研究から比較。
             エビデンスを100点満点で可視化する意思決定エンジン。
           </p>
 
@@ -344,12 +375,14 @@ export default function HintlPage() {
             </p>
           </div>
 
-          <div style={{ display: "flex", flexWrap: "wrap", alignItems: "center", justifyContent: "center", gap: "16px", marginBottom: "60px" }}>
+          <div
+            className="flex flex-col sm:flex-row sm:flex-wrap items-stretch sm:items-center justify-center gap-3 sm:gap-4 mb-10 sm:mb-[60px]"
+          >
             <a
               href="https://hintl.net"
               target="_blank"
               rel="noreferrer"
-              className="hover:bg-teal-dark hover:-translate-y-0.5 active:scale-95 transition"
+              className="hover:bg-teal-dark hover:-translate-y-0.5 active:scale-95 transition w-full sm:w-auto text-center"
               style={{
                 padding: "14px 36px",
                 borderRadius: "999px",
@@ -366,7 +399,12 @@ export default function HintlPage() {
             </a>
             <a
               href="#features"
-              style={{ fontSize: "14px", color: SLATE_600, textDecoration: "underline", textUnderlineOffset: "4px" }}
+              className="w-full sm:w-auto text-center rounded-full border sm:border-0 no-underline sm:underline px-9 py-3.5 sm:p-0 text-[15px] sm:text-sm font-semibold sm:font-normal"
+              style={{
+                color: SLATE_600,
+                borderColor: BORDER,
+                textUnderlineOffset: "4px",
+              }}
             >
               サービス詳細を見る →
             </a>
@@ -379,7 +417,7 @@ export default function HintlPage() {
               { value: "¥0", label: "利用料金" },
             ].map((stat) => (
               <div key={stat.label} style={{ textAlign: "center" }}>
-                <p style={{ fontSize: "28px", fontWeight: 800, color: INK, marginBottom: "4px" }}>
+                <p className="text-2xl sm:text-[28px]" style={{ fontWeight: 800, color: INK, marginBottom: "4px" }}>
                   {stat.value}
                 </p>
                 <p style={{ fontSize: "12px", color: SLATE_500 }}>{stat.label}</p>
@@ -390,7 +428,7 @@ export default function HintlPage() {
       </section>
 
       {/* ── Features ──────────────────────────────────────────── */}
-      <section id="features" style={{ padding: "80px 0", background: SURFACE }} className="px-6">
+      <section id="features" style={{ background: SURFACE }} className="px-5 sm:px-6 py-14 sm:py-20">
         <div style={{ maxWidth: "1000px", margin: "0 auto" }}>
           <div style={{ textAlign: "center", marginBottom: "56px" }}>
             <h2 style={{ fontSize: "clamp(24px,3vw,34px)", fontWeight: 900, color: INK, letterSpacing: "-0.01em", marginBottom: "12px" }}>
@@ -399,21 +437,20 @@ export default function HintlPage() {
             <p style={{ fontSize: "15px", color: SLATE_600 }}>宣伝や体験談ではなく、公開研究の裏付けで選べるように。</p>
           </div>
 
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", gap: "20px" }}>
+          <div className="grid gap-4 sm:gap-5" style={{ gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))" }}>
             {FEATURES.map((f) => (
               <div
                 key={f.title}
+                className="p-5 sm:p-7"
                 style={{
                   background: "#ffffff",
                   border: `1px solid ${BORDER}`,
                   borderRadius: "16px",
-                  padding: "28px 24px",
                 }}
               >
                 <div
+                  className="w-10 h-10 sm:w-12 sm:h-12"
                   style={{
-                    width: "48px",
-                    height: "48px",
                     borderRadius: "12px",
                     background: TEAL_TINT,
                     display: "flex",
@@ -426,7 +463,7 @@ export default function HintlPage() {
                   {f.icon}
                 </div>
                 <h3 style={{ fontSize: "16px", fontWeight: 700, color: INK, marginBottom: "8px" }}>{f.title}</h3>
-                <p style={{ fontSize: "14px", color: SLATE_600, lineHeight: 1.8 }}>{f.desc}</p>
+                <p style={{ fontSize: "15px", color: SLATE_600, lineHeight: 1.8 }}>{f.desc}</p>
               </div>
             ))}
           </div>
@@ -434,7 +471,7 @@ export default function HintlPage() {
       </section>
 
       {/* ── Genres ────────────────────────────────────────────── */}
-      <section id="genres" style={{ padding: "80px 0" }} className="px-6">
+      <section id="genres" className="px-5 sm:px-6 py-14 sm:py-20">
         <div style={{ maxWidth: "800px", margin: "0 auto", textAlign: "center" }}>
           <h2 style={{ fontSize: "clamp(24px,3vw,34px)", fontWeight: 900, color: INK, letterSpacing: "-0.01em", marginBottom: "12px" }}>
             気になる領域から、研究で確かめる。
@@ -463,29 +500,28 @@ export default function HintlPage() {
       </section>
 
       {/* ── How it works ──────────────────────────────────────── */}
-      <section id="how" style={{ padding: "80px 0", background: SURFACE }} className="px-6">
+      <section id="how" style={{ background: SURFACE }} className="px-5 sm:px-6 py-14 sm:py-20">
         <div style={{ maxWidth: "860px", margin: "0 auto" }}>
           <div style={{ textAlign: "center", marginBottom: "56px" }}>
             <h2 style={{ fontSize: "clamp(24px,3vw,34px)", fontWeight: 900, color: INK, letterSpacing: "-0.01em" }}>
               3 ステップではじめる
             </h2>
           </div>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", gap: "20px" }}>
+          <div className="grid gap-4 sm:gap-5" style={{ gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))" }}>
             {STEPS.map((step) => (
               <div
                 key={step.title}
+                className="p-5 sm:p-7"
                 style={{
                   background: "#ffffff",
                   border: `1px solid ${BORDER}`,
                   borderRadius: "16px",
-                  padding: "28px 24px",
                   textAlign: "center",
                 }}
               >
                 <div
+                  className="w-10 h-10 sm:w-12 sm:h-12"
                   style={{
-                    width: "48px",
-                    height: "48px",
                     borderRadius: "12px",
                     background: TEAL_TINT,
                     display: "flex",
@@ -498,7 +534,7 @@ export default function HintlPage() {
                   {step.icon}
                 </div>
                 <h3 style={{ fontSize: "16px", fontWeight: 700, color: INK, marginBottom: "8px" }}>{step.title}</h3>
-                <p style={{ fontSize: "14px", color: SLATE_600, lineHeight: 1.8 }}>{step.desc}</p>
+                <p style={{ fontSize: "15px", color: SLATE_600, lineHeight: 1.8 }}>{step.desc}</p>
               </div>
             ))}
           </div>
@@ -506,7 +542,7 @@ export default function HintlPage() {
       </section>
 
       {/* ── AJARA Column ──────────────────────────────────────── */}
-      <section id="column" style={{ padding: "80px 24px" }}>
+      <section id="column" className="px-5 sm:px-6 py-14 sm:py-20">
         <div style={{ maxWidth: "680px", margin: "0 auto" }}>
           <h2 style={{ fontSize: "clamp(22px,3vw,30px)", fontWeight: 700, color: INK, textAlign: "center", marginBottom: "8px", letterSpacing: "-0.01em" }}>
             なぜ今、「エビデンスで選ぶ」ことが必要なのか
@@ -516,15 +552,15 @@ export default function HintlPage() {
           </p>
 
           <div
+            className="p-5 sm:px-11 sm:py-10"
             style={{
               background: SURFACE,
               border: `1px solid ${BORDER}`,
               borderRadius: "16px",
-              padding: "40px 44px",
               display: "flex",
               flexDirection: "column",
               gap: "18px",
-              fontSize: "14px",
+              fontSize: "15px",
               lineHeight: 1.9,
               color: SLATE_600,
             }}
@@ -577,7 +613,7 @@ export default function HintlPage() {
       </section>
 
       {/* ── Blog Insights ─────────────────────────────────────── */}
-      <section id="blog" style={{ padding: "0 24px 80px" }}>
+      <section id="blog" className="px-5 sm:px-6 pb-14 sm:pb-20">
         <div style={{ maxWidth: "680px", margin: "0 auto" }}>
           <h2 style={{ fontSize: "clamp(20px,2.5vw,26px)", fontWeight: 700, color: INK, textAlign: "center", marginBottom: "36px", letterSpacing: "-0.01em" }}>
             エビデンスとAIについて学ぶ
@@ -615,11 +651,11 @@ export default function HintlPage() {
                 style={{ textDecoration: "none" }}
               >
                 <div
+                  className="p-5 sm:px-7 sm:py-6"
                   style={{
                     background: "#ffffff",
                     border: `1px solid ${BORDER}`,
                     borderRadius: "16px",
-                    padding: "24px 28px",
                     transition: "all 0.2s ease",
                     cursor: "pointer",
                   }}
@@ -647,8 +683,8 @@ export default function HintlPage() {
                     >
                       {a.tag}
                     </span>
-                    <span style={{ fontSize: "12px", color: SLATE_500 }}>{a.date}</span>
-                    <span style={{ fontSize: "12px", color: SLATE_500 }}>· 読了 {a.readTime}</span>
+                    <span style={{ fontSize: "13px", color: SLATE_500 }}>{a.date}</span>
+                    <span style={{ fontSize: "13px", color: SLATE_500 }}>· 読了 {a.readTime}</span>
                   </div>
                   <h3 style={{ fontSize: "16px", fontWeight: 700, color: INK, marginBottom: "8px", lineHeight: 1.45, letterSpacing: "-0.01em" }}>
                     {a.title}
@@ -668,7 +704,7 @@ export default function HintlPage() {
       </section>
 
       {/* ── FAQ ───────────────────────────────────────────────── */}
-      <section id="faq" style={{ padding: "80px 0" }} className="px-6">
+      <section id="faq" className="px-5 sm:px-6 py-14 sm:py-20">
         <div style={{ maxWidth: "720px", margin: "0 auto" }}>
           <div style={{ textAlign: "center", marginBottom: "48px" }}>
             <h2 style={{ fontSize: "clamp(24px,3vw,34px)", fontWeight: 900, color: INK, letterSpacing: "-0.01em" }}>
@@ -684,13 +720,13 @@ export default function HintlPage() {
       </section>
 
       {/* ── CTA ───────────────────────────────────────────────── */}
-      <section style={{ padding: "0 24px 80px" }}>
+      <section className="px-5 sm:px-6 pb-14 sm:pb-20">
         <div
+          className="p-8 sm:px-12 sm:py-14"
           style={{
             maxWidth: "680px",
             margin: "0 auto",
             borderRadius: "16px",
-            padding: "56px 48px",
             textAlign: "center",
             background: HERO_WASH,
             border: `1px solid ${TEAL_TINT_BORDER}`,
@@ -753,8 +789,8 @@ export default function HintlPage() {
 
       {/* ── Footer ────────────────────────────────────────────── */}
       <footer
+        className="px-5 sm:px-6 py-7"
         style={{
-          padding: "28px 24px",
           textAlign: "center",
           borderTop: `1px solid ${BORDER}`,
         }}
