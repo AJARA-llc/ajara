@@ -23,6 +23,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${base}/reskilling/ai-operation`, lastModified: now, changeFrequency: "monthly", priority: 0.7 },
     { url: `${base}/products`, lastModified: now, changeFrequency: "monthly", priority: 0.7 },
     { url: `${base}/news/hintl-launch`, lastModified: now, changeFrequency: "monthly", priority: 0.6 },
+    { url: `${base}/news/hintl-press-release`, lastModified: now, changeFrequency: "monthly", priority: 0.5 },
     { url: `${base}/legal/tokushoho`, lastModified: now, changeFrequency: "yearly", priority: 0.3 },
     { url: `${base}/legal/privacy`, lastModified: now, changeFrequency: "yearly", priority: 0.3 },
     { url: `${base}/legal/terms`, lastModified: now, changeFrequency: "yearly", priority: 0.3 },

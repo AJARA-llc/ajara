@@ -216,6 +216,12 @@ export default function HintlPage() {
             詳しく見る →
           </Link>
         </p>
+        <p style={{ fontSize: "12px", color: TEXT, margin: "6px 0 0", lineHeight: 1.6, opacity: 0.85 }}>
+          「答えるAIから、エビデンスで伴走するAIへ。hintl誕生」プレスリリースを配信しました（自社配信のプレスリリース）。
+          <Link href="/news/hintl-press-release" style={{ marginLeft: "8px", color: ACCENT, textDecoration: "underline", textUnderlineOffset: "3px" }}>
+            詳しく見る →
+          </Link>
+        </p>
       </div>
 
       {/* ── Hero ─────────────────────────────────────────────── */}
