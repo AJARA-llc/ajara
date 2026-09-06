@@ -50,6 +50,14 @@ export default function Footer() {
                 {l.label}
               </Link>
             ))}
+            <a
+              href="https://hintl.net"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-slate-600 hover:text-slate-400 text-xs transition-colors"
+            >
+              hintl — 公開研究にもとづく健康セルフチェック
+            </a>
           </div>
         </FadeInSection>
       </div>
