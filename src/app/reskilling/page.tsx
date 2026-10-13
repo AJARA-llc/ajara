@@ -7,50 +7,63 @@ import FadeInSection from "@/components/FadeInSection";
 import Footer from "@/components/Footer";
 import ScrollProgress from "@/components/ScrollProgress";
 import Link from "next/link";
-import { COURSES } from "@/data/reskillingCourses";
+import { COURSES, TRACKS, coursesByTrack } from "@/data/reskillingCourses";
 
 const problems = [
-  { n: "01", title: "導入したのに使われていない", desc: "ツールは契約したのに、社員が日々の仕事で使っていない。" },
-  { n: "02", title: "どの業務に使えばいいか分からない", desc: "「AIが便利」とは聞くが、自社のどの業務に使えばいいのか判断できない。" },
-  { n: "03", title: "研修しても定着しない", desc: "一度研修をしたが、翌週には誰も使わず元に戻ってしまった。" },
-  { n: "04", title: "社内に詳しい人がいない", desc: "AIにくわしい社員がいないため、何から手をつければいいか分からない。" },
+  { n: "01", title: "業務が属人化している", desc: "担当者しか分からない仕事が多く、休みや退職のたびに業務が止まる。" },
+  { n: "02", title: "抜け漏れ・二重処理が減らない", desc: "申請・発注・問い合わせ対応で、確認漏れや同じ作業の重複が繰り返される。" },
+  { n: "03", title: "情報管理に不安がある", desc: "ファイルの場所・共有範囲・個人情報の扱いが人によってばらつき、漏えいが怖い。" },
+  { n: "04", title: "生成AIを事務に活かせていない", desc: "ChatGPTは聞いたことがあるが、総務・事務のどの業務で使えばよいか分からない。" },
 ];
 
-// 研修で実際に「できるようになること」を具体的に。
+// 研修で実際に「できるようになること」を具体的に（4コース横断）。
 const skills = [
-  "メール・議事録・報告書の下書きと要約",
-  "企画書・資料のたたき台づくり",
-  "長い資料やデータの要約・整理",
-  "問い合わせ・接客対応の文章作成",
-  "自社の業務で使える「プロンプト」の作り方",
-  "情報漏えい・著作権など、安全に使うための注意点",
+  "依頼・進捗・期限を台帳で一元管理し、抜け漏れを仕組みで防ぐ",
+  "申請・社内文書・発注の確認ポイントを押さえ、差戻しとミスを減らす",
+  "業務量を数字で測り、ムダ・重複・手戻りを見つけて削る",
+  "手順書・チェックリストを作り、誰がやっても同じ品質にする",
+  "情報を区分し、アクセス権限・保存期間・個人情報を法令に沿って扱う",
+  "社内通知・議事録・問い合わせ回答・経費データの整理に生成AIを使う",
 ];
 
 const reasons = [
+  { title: "総務・事務職の実務に特化", desc: "一般論ではなく、依頼受付・申請・発注・会議・情報管理・経費など、総務・事務の実際の業務を題材に構成しています。" },
+  { title: "2つの助成金コース区分に対応", desc: "人材開発支援助成金の「人材育成支援コース」と「事業展開等リスキリング支援コース」それぞれの対象要件を満たす設計で、申請に使える書類もお渡しします。" },
+  { title: "eラーニング＋LMSで進捗を管理", desc: "全コース12時間のeラーニング。学習日時・学習時間・進捗をLMSで管理し、修了後は修了証を発行します。" },
   { title: "研修後も、定着まで伴走", desc: "研修をイベントで終わらせないよう、研修後も隔週のチェックインで定着をお手伝いします（回数・期間はご相談のうえ設定します）。" },
-  { title: "実際の業務で練習する", desc: "一般論ではなく、御社の実際の仕事を題材に学ぶので、現場で活かしやすい内容です。" },
-  { title: "助成金に対応した設計", desc: "各種リスキリング助成金の対象要件を満たす形でご提供し、申請に使える書類もお渡しします。" },
-  { title: "特定のツールに縛られない", desc: "ChatGPTなど複数のツールを扱い、原理から学ぶので、値上げや仕様変更があっても学びが無駄になりにくい設計です。" },
 ];
 
 const process = [
   { step: "01", title: "無料相談（60分）", desc: "オンラインで現状をうかがい、御社に合うコースと対象の部署・人数を一緒に決めます。" },
   { step: "02", title: "お申し込み・計画届", desc: "受講内容を確定します。助成金を使う場合は、訓練開始の原則1ヶ月前までに計画届を提出します（顧問社労士と連携可）。" },
-  { step: "03", title: "コース受講（12時間）", desc: "60分×12コマのカリキュラムを、eラーニング・オンライン・対面のいずれかで受講します。" },
-  { step: "04", title: "修了・申請サポート", desc: "受講者名簿・カリキュラム・実施記録など、助成金申請に必要な資料をお渡しします。" },
+  { step: "03", title: "コース受講（12時間）", desc: "全12章・各1時間のカリキュラムをeラーニングで受講します。LMSで学習進捗を管理し、講師派遣・オンライン研修にも対応します。" },
+  { step: "04", title: "修了・申請サポート", desc: "修了証を発行し、受講者名簿・カリキュラム・LMSの学習記録など、助成金申請に必要な資料をお渡しします。" },
 ];
 
 const pricing = [
-  { label: "AI活用 無料相談（60分）", price: "無料" },
-  { label: "生成AI 基礎コース（12時間）", price: "¥400,000 / 人" },
-  { label: "生成AI 実践・応用コース（12時間）", price: "¥400,000 / 人" },
-  { label: "生成AI 業務定着・運用コース（12時間）", price: "¥400,000 / 人" },
+  { label: "無料相談（オンライン・60分）", price: "無料" },
+  ...COURSES.map((c) => ({
+    label: `${c.title}（${c.hours}・${c.trackLabel}）`,
+    price: `${c.price} / 名`,
+  })),
 ];
 
 const faqs = [
   {
+    q: "どのコースから受ければよいですか？",
+    a: "社内業務の抜け漏れや属人化が課題なら「社内業務管理研修」、業務量の削減や標準化なら「バックオフィス業務改善研修」、個人情報や機密情報の扱いに不安があれば「情報管理業務研修」、生成AIを事務に活かしたいなら「生成AI活用実務研修」が出発点です。無料相談で現状をうかがい、一緒に決めます。",
+  },
+  {
+    q: "対象は総務・事務職だけですか？",
+    a: "各コースは総務・事務職の実務を題材に設計していますが、経理・人事・営業事務など、申請・文書・データを扱うバックオフィス職全般にご受講いただけます。",
+  },
+  {
     q: "生成AIを触ったことがない社員でも大丈夫ですか？",
-    a: "はい。「そもそも生成AIとは何か」という基礎から始めるので、はじめての方でも問題ありません。",
+    a: "はい。生成AI活用実務研修は、社内通知文の作成など身近な事務業務から始めるので、はじめての方でも問題ありません。",
+  },
+  {
+    q: "「人材育成支援コース」と「事業展開等リスキリング支援コース」の違いは何ですか？",
+    a: "いずれも人材開発支援助成金のコース区分です。社内業務管理・バックオフィス業務改善・情報管理の3研修は「人材育成支援コース」、生成AI活用実務研修は新分野への事業展開やDXに伴う訓練を対象とする「事業展開等リスキリング支援コース」の対象要件を満たす設計です。どちらを申請するかは御社の事業計画と顧問社労士にご確認ください。",
   },
   {
     q: "何人から依頼できますか？",
@@ -117,7 +130,7 @@ export default function ReskillingPage() {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="text-accent text-sm tracking-[0.2em] uppercase font-sans mb-6"
             >
-              AI Reskilling — AJARA
+              Corporate Training — AJARA
             </motion.p>
             <motion.h1
               initial={{ opacity: 0, y: 30 }}
@@ -125,9 +138,9 @@ export default function ReskillingPage() {
               transition={{ duration: 1, delay: 0.4 }}
               className="font-serif text-4xl sm:text-5xl md:text-6xl font-semibold text-snow leading-tight mb-6"
             >
-              社員が、生成AIを
+              総務・事務職の
               <br />
-              <span className="text-accent">仕事で使える</span>ようになる研修。
+              <span className="text-accent">「できる」を増やす</span>法人研修。
             </motion.h1>
             <motion.p
               initial={{ opacity: 0, y: 20 }}
@@ -135,7 +148,7 @@ export default function ReskillingPage() {
               transition={{ duration: 0.8, delay: 0.8 }}
               className="text-slate-400 text-lg sm:text-xl mb-4"
             >
-              ChatGPTなどの生成AIを、御社の毎日の業務で実際に使えるようにする、法人向けの研修です。
+              社内業務管理・バックオフィス業務改善・情報管理・生成AI活用の4コース。各12時間のeラーニングで、現場の実務力を底上げします。
             </motion.p>
             <motion.p
               initial={{ opacity: 0 }}
@@ -143,8 +156,8 @@ export default function ReskillingPage() {
               transition={{ duration: 0.8, delay: 1.1 }}
               className="text-slate-500 text-sm max-w-xl mx-auto mb-12 leading-relaxed"
             >
-              「使い方」の座学で終わらせません。基礎から、実際の業務での使い方まで、少人数で丁寧に。
-              各種リスキリング助成金の対象要件を満たす設計です。
+              人材開発支援助成金の「人材育成支援コース」「事業展開等リスキリング支援コース」それぞれの
+              対象要件を満たす設計。LMSで進捗を管理し、修了証を発行します。
             </motion.p>
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -196,7 +209,7 @@ export default function ReskillingPage() {
                 こんなお悩みはありませんか？
               </h2>
               <p className="text-slate-400 text-center mb-16 max-w-xl mx-auto">
-                多くの中小企業が、「ツールはあるのに、どう使えばいいか分からない」段階で止まっています。
+                多くの中小企業の総務・事務部門が、人手不足のなかで「仕組みがないまま、人の頑張りで回している」状態です。
               </p>
             </FadeInSection>
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -226,7 +239,7 @@ export default function ReskillingPage() {
                 研修で「できるようになる」こと
               </h2>
               <p className="text-slate-400 text-center mb-12 max-w-xl mx-auto">
-                生成AIを、こんな身近な仕事に使えるようになります。
+                4つのコースを通じて、総務・事務の身近な仕事がこう変わります。
               </p>
             </FadeInSection>
             <FadeInSection delay={0.1}>
@@ -258,42 +271,56 @@ export default function ReskillingPage() {
                 Courses
               </p>
               <h2 className="font-serif text-3xl sm:text-4xl font-semibold text-snow text-center mb-4">
-                3つの生成AIコース
+                4つの研修コース
               </h2>
               <p className="text-slate-400 text-center mb-16 max-w-xl mx-auto">
-                基礎 → 実践 → 運用の3段階。各コース12時間（60分×12コマ）で、
-                リスキリング助成金の対象要件（OFF-JT 10時間以上）を満たす設計です。
+                すべて総務・事務職向け、12時間（全12章・各1時間）のeラーニング。
+                人材開発支援助成金の2つのコース区分に対応する設計です（OFF-JT 10時間以上）。
               </p>
             </FadeInSection>
-            <div className="space-y-6">
-              {COURSES.map((c, i) => (
-                <FadeInSection key={c.slug} delay={i * 0.08}>
-                  <Link
-                    href={`/reskilling/${c.slug}`}
-                    className="glass p-6 sm:p-8 flex flex-col sm:flex-row sm:items-center gap-5 hover:border-accent/30 transition-all duration-300 group"
-                  >
-                    <div className="flex-shrink-0 flex sm:flex-col items-center sm:items-start gap-3 sm:gap-1 sm:w-28">
-                      <span className="text-accent/70 font-mono font-bold text-xs">{c.step}</span>
-                      <span className="text-slate-500 text-xs">{c.hours}・全12コマ</span>
+            <div className="space-y-14">
+              {(["development", "reskilling"] as const).map((track) => (
+                <div key={track}>
+                  <FadeInSection>
+                    <div className="mb-6">
+                      <p className="text-accent text-xs tracking-[0.15em] uppercase mb-2">人材開発支援助成金</p>
+                      <h3 className="font-serif text-2xl text-snow mb-2">{TRACKS[track].label}</h3>
+                      <p className="text-slate-400 text-sm max-w-2xl">{TRACKS[track].desc}</p>
                     </div>
-                    <div className="flex-1 min-w-0">
-                      <h3 className="font-serif text-xl text-snow mb-1">{c.title}</h3>
-                      <p className="text-slate-400 text-sm leading-relaxed">{c.short}</p>
-                    </div>
-                    <div className="flex-shrink-0 flex items-center justify-between sm:flex-col sm:items-end gap-4 sm:gap-1">
-                      <span className="text-accent font-medium text-sm whitespace-nowrap">
-                        {c.price}
-                        <span className="text-slate-500 text-xs ml-1">/ 人</span>
-                      </span>
-                      <span className="inline-flex items-center gap-1 text-accent text-sm group-hover:gap-2 transition-all">
-                        カリキュラムを見る
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                          <path d="M5 12h14M12 5l7 7-7 7" />
-                        </svg>
-                      </span>
-                    </div>
-                  </Link>
-                </FadeInSection>
+                  </FadeInSection>
+                  <div className="space-y-6">
+                    {coursesByTrack(track).map((c, i) => (
+                      <FadeInSection key={c.slug} delay={i * 0.08}>
+                        <Link
+                          href={`/reskilling/${c.slug}`}
+                          className="glass p-6 sm:p-8 flex flex-col sm:flex-row sm:items-center gap-5 hover:border-accent/30 transition-all duration-300 group"
+                        >
+                          <div className="flex-shrink-0 flex sm:flex-col items-center sm:items-start gap-3 sm:gap-1 sm:w-28">
+                            <span className="text-accent/70 font-mono font-bold text-xs">{c.eyebrow}</span>
+                            <span className="text-slate-500 text-xs">{c.hours}・全12章</span>
+                            <span className="text-slate-500 text-xs">契約期間 {c.contractPeriod}</span>
+                          </div>
+                          <div className="flex-1 min-w-0">
+                            <h4 className="font-serif text-lg sm:text-xl text-snow mb-1">{c.title}</h4>
+                            <p className="text-slate-400 text-sm leading-relaxed">{c.short}</p>
+                          </div>
+                          <div className="flex-shrink-0 flex items-center justify-between sm:flex-col sm:items-end gap-4 sm:gap-1">
+                            <span className="text-accent font-medium text-sm whitespace-nowrap">
+                              {c.price}
+                              <span className="text-slate-500 text-xs ml-1">/ 名（税込）</span>
+                            </span>
+                            <span className="inline-flex items-center gap-1 text-accent text-sm group-hover:gap-2 transition-all">
+                              カリキュラムを見る
+                              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                                <path d="M5 12h14M12 5l7 7-7 7" />
+                              </svg>
+                            </span>
+                          </div>
+                        </Link>
+                      </FadeInSection>
+                    ))}
+                  </div>
+                </div>
               ))}
             </div>
           </div>
@@ -389,6 +416,9 @@ export default function ReskillingPage() {
                     各学習コンテンツは、<strong className="text-slate-200">eラーニング（動画教育）</strong>にて提供します。受講者の学習状況は、<strong className="text-slate-200">LMS（学習進捗管理システム）</strong>にて、学習日時・学習時間・進捗状況をすべて管理いたします。
                   </p>
                   <p className="mt-3">
+                    研修修了後は<strong className="text-slate-200">修了証</strong>を発行します。契約期間は、人材育成支援コースの3研修が3か月、生成AI活用実務研修が6か月です。
+                  </p>
+                  <p className="mt-3">
                     eラーニングに加え、研修会場等への<strong className="text-slate-200">講師派遣</strong>、<strong className="text-slate-200">オンライン（Web会議ツール：Zoom）</strong>による研修実施にも対応しております。
                   </p>
                   <p className="text-slate-500 text-xs mt-2">※ 研修会場等にて受講を希望される場合は、会場等にかかる費用および講師の交通費等をご負担いただきます。</p>
@@ -438,30 +468,53 @@ export default function ReskillingPage() {
                 研修費は、助成金で下げられる場合があります
               </h2>
               <p className="text-slate-400 text-center mb-12 max-w-xl mx-auto text-sm">
-                御社が対象となり得る制度の一例：東京都 DXリスキリング助成金（経費3/4）、
-                人材開発支援助成金（事業展開等リスキリング支援コース／経費 中小75%＋賃金助成）など。
+                人材開発支援助成金の「人材育成支援コース」（経費助成 中小企業45%〜＋賃金助成）、
+                「事業展開等リスキリング支援コース」（経費助成 中小企業75%＋賃金助成）、東京都 DXリスキリング助成金（経費3/4）などが対象になり得ます。
               </p>
             </FadeInSection>
 
             <FadeInSection delay={0.1}>
               <div className="glass p-8">
-                <p className="text-slate-500 text-xs tracking-[0.15em] uppercase mb-4">試算例（1コース ¥400,000／1名・中小企業の場合）</p>
-                <ul className="divide-y divide-white/5 mb-6">
-                  <li className="flex items-center justify-between py-3 first:pt-0">
-                    <span className="text-slate-400 text-sm">受講料（御社お支払い）</span>
-                    <span className="text-snow text-sm">¥400,000</span>
-                  </li>
-                  <li className="flex items-center justify-between py-3">
-                    <span className="text-slate-400 text-sm">経費助成（75%）</span>
-                    <span className="text-snow text-sm">− ¥300,000</span>
-                  </li>
-                  <li className="flex items-center justify-between py-3 last:pb-0">
-                    <span className="text-accent font-medium text-sm">経費の実質負担（25%）</span>
-                    <span className="text-accent font-medium text-sm">約 ¥100,000</span>
-                  </li>
-                </ul>
+                <p className="text-slate-500 text-xs tracking-[0.15em] uppercase mb-4">試算例（経費助成のみ・中小企業・1名の場合）</p>
+                <div className="grid sm:grid-cols-2 gap-6 mb-6">
+                  <div>
+                    <p className="text-slate-300 text-sm font-medium mb-2">人材育成支援コース（3研修）</p>
+                    <ul className="divide-y divide-white/5">
+                      <li className="flex items-center justify-between py-3 first:pt-0">
+                        <span className="text-slate-400 text-sm">受講料（税込・御社お支払い）</span>
+                        <span className="text-snow text-sm">¥220,000</span>
+                      </li>
+                      <li className="flex items-center justify-between py-3">
+                        <span className="text-slate-400 text-sm">経費助成（45%）</span>
+                        <span className="text-snow text-sm">− ¥99,000</span>
+                      </li>
+                      <li className="flex items-center justify-between py-3 last:pb-0">
+                        <span className="text-accent font-medium text-sm">経費の実質負担（55%）</span>
+                        <span className="text-accent font-medium text-sm">約 ¥121,000</span>
+                      </li>
+                    </ul>
+                  </div>
+                  <div>
+                    <p className="text-slate-300 text-sm font-medium mb-2">事業展開等リスキリング支援コース（生成AI研修）</p>
+                    <ul className="divide-y divide-white/5">
+                      <li className="flex items-center justify-between py-3 first:pt-0">
+                        <span className="text-slate-400 text-sm">受講料（税込・御社お支払い）</span>
+                        <span className="text-snow text-sm">¥400,000</span>
+                      </li>
+                      <li className="flex items-center justify-between py-3">
+                        <span className="text-slate-400 text-sm">経費助成（75%）</span>
+                        <span className="text-snow text-sm">− ¥300,000</span>
+                      </li>
+                      <li className="flex items-center justify-between py-3 last:pb-0">
+                        <span className="text-accent font-medium text-sm">経費の実質負担（25%）</span>
+                        <span className="text-accent font-medium text-sm">約 ¥100,000</span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
                 <p className="text-slate-500 text-xs leading-relaxed border-l-2 border-accent/30 pl-4">
-                  ※ 人材開発支援助成金の対象となるには、OFF-JTの実訓練時間が10時間以上であることが基本要件です。
+                  ※ 助成率は中小企業の基本率で、賃金要件等を満たす場合の加算や賃金助成（1時間あたりの定額）は含めていません。
+                  人材開発支援助成金の対象となるには、OFF-JTの実訓練時間が10時間以上であることが基本要件です。
                   助成金を受給されるのは研修を受ける御社（雇用主）で、研修費は全額をお支払いいただくことが前提です。
                   支給の可否は御社の申請内容と労働局等の審査により決まり、当社が受給を保証するものではありません。
                   計画届は訓練開始の原則1ヶ月前までの提出が必要です。助成率・上限は制度改正で変わる場合があります。
@@ -508,7 +561,7 @@ export default function ReskillingPage() {
                 </ul>
               </div>
               <p className="text-slate-500 text-xs text-center mt-6">
-                ※ 表示価格は税抜・参考価格です。規模・ご要望により変わります。
+                ※ 表示価格は税込・1名あたりです。講師派遣・会場受講をご希望の場合は、会場費・交通費等を別途ご負担いただきます。
               </p>
             </FadeInSection>
           </div>

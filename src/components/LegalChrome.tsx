@@ -34,7 +34,7 @@ export default function LegalChrome({
             href="/reskilling"
             className="text-xs text-slate-500 hover:text-slate-300 transition-colors"
           >
-            AI研修・リスキリング
+            法人研修・リスキリング
           </Link>
         </div>
       </header>

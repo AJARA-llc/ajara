@@ -44,7 +44,7 @@ export default function ReskillingNavigation() {
           </Link>
           <span className="w-px h-3 bg-white/10" />
           <span className="text-snow font-semibold text-sm tracking-wide">
-            AI研修
+            法人研修
           </span>
         </div>
 
