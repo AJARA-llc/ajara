@@ -416,7 +416,7 @@ export default function ReskillingPage() {
                     各学習コンテンツは、<strong className="text-slate-200">eラーニング（動画教育）</strong>にて提供します。受講者の学習状況は、<strong className="text-slate-200">LMS（学習進捗管理システム）</strong>にて、学習日時・学習時間・進捗状況をすべて管理いたします。
                   </p>
                   <p className="mt-3">
-                    研修修了後は<strong className="text-slate-200">修了証</strong>を発行します。契約期間は、人材育成支援コースの3研修が3か月、生成AI活用実務研修が6か月です。
+                    研修修了後は<strong className="text-slate-200">修了証</strong>を発行します。契約期間はいずれのコースも6か月です。
                   </p>
                   <p className="mt-3">
                     eラーニングに加え、研修会場等への<strong className="text-slate-200">講師派遣</strong>、<strong className="text-slate-200">オンライン（Web会議ツール：Zoom）</strong>による研修実施にも対応しております。
