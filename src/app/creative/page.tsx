@@ -15,7 +15,7 @@ const services = [
     description:
       "Kling AI・Runway・Soraなど最先端の生成AIを駆使し、ブランドの世界観を映像化。撮影コストを抑えながら、圧倒的なビジュアル品質を実現します。",
     items: ["15秒・30秒・60秒 CM制作", "ブランドムービー", "商品・サービス紹介映像", "I2V（画像→動画）生成"],
-    price: "¥80,000〜",
+    price: "¥144,000〜",
     priceNote: "15秒 / 1本",
     icon: (
       <svg viewBox="0 0 48 48" fill="none" className="w-8 h-8">
@@ -30,8 +30,8 @@ const services = [
     description:
       "Instagram Reels・TikTok・YouTube Shortsに最適化したショート動画を量産。月次パックで継続的なSNSマーケティングを支援します。",
     items: ["SNS縦型ショート動画", "月次コンテンツパック", "広告クリエイティブ", "プロモーション映像"],
-    price: "¥50,000〜",
-    priceNote: "15〜30秒 / 1本",
+    price: "¥72,000〜",
+    priceNote: "5〜10秒 / 1本",
     icon: (
       <svg viewBox="0 0 48 48" fill="none" className="w-8 h-8">
         <rect x="14" y="4" width="20" height="40" rx="4" stroke="#E8600A" strokeWidth="2" />
@@ -49,13 +49,49 @@ const process = [
   { step: "05", title: "納品", desc: "各プラットフォーム向けの最適フォーマットで納品" },
 ];
 
-const pricing = [
-  { label: "15秒 / 1本", price: "¥80,000〜" },
-  { label: "30秒 / 1本", price: "¥150,000〜" },
-  { label: "60秒 / 1本", price: "¥250,000〜" },
-  { label: "ショート動画 15〜30秒 / 1本", price: "¥50,000〜" },
-  { label: "ショート動画 月3本パック", price: "¥120,000〜" },
-  { label: "ショート動画 月10本パック", price: "¥350,000〜" },
+const plans = [
+  {
+    name: "LIGHT",
+    pill: "月間15pt",
+    price: "¥150,000",
+    desc: "SNS・広告素材の継続制作。再現精度を求めないショート動画・バナーが中心です。",
+    features: ["商品再現なしの制作", "軽微な修正 1回", "同時進行 1案件"],
+    featured: false,
+  },
+  {
+    name: "STANDARD",
+    pill: "月間30pt",
+    price: "¥300,000",
+    desc: "ブランドCM・ショート動画を毎月安定して継続制作したい法人様向けの主力プランです。",
+    features: ["商品再現は近似レベル", "修正 2回", "同時進行 2案件", "15〜30秒CMに対応"],
+    featured: true,
+  },
+  {
+    name: "PREMIUM",
+    pill: "月間50pt",
+    price: "¥500,000",
+    desc: "ブランド・EC向け。高精度の商品再現、合成、60秒CM、月次の改善提案まで対応します。",
+    features: ["高精度の商品再現に対応", "修正 2回", "同時進行 2案件", "月次レビュー・改善提案"],
+    featured: false,
+  },
+];
+
+const oneOffPricing = [
+  { label: "ショート動画（5〜10秒・簡易）", price: "¥72,000〜" },
+  { label: "AI広告動画（15〜30秒・編集込み）", price: "¥144,000〜" },
+  { label: "ブランドムービー（30秒）", price: "¥240,000〜" },
+  { label: "ブランドムービー（60秒）", price: "¥360,000〜" },
+  { label: "高精度の商品再現を伴う動画", price: "個別見積" },
+];
+
+const contractTerms = [
+  { label: "最低契約期間（月額プラン）", value: "3か月" },
+  { label: "お支払い", value: "月額前払い" },
+  { label: "未使用ポイント", value: "原則失効" },
+  { label: "追加ポイント", value: "1pt＝¥12,000" },
+  { label: "撮影・高度な3D制作", value: "別途お見積り" },
+  { label: "商品素材", value: "お客様よりご提供" },
+  { label: "著作権等", value: "個別契約で明確化" },
 ];
 
 const CONTACT_EMAIL = "contact@ajara.co.jp";
@@ -259,39 +295,118 @@ export default function CreativePage() {
 
         {/* Pricing */}
         <section id="pricing" className="py-32 px-6">
-          <div className="max-w-3xl mx-auto">
+          <div className="max-w-5xl mx-auto">
             <FadeInSection>
               <p className="text-accent text-sm tracking-[0.2em] uppercase mb-6 font-sans text-center">
                 Pricing
               </p>
               <h2 className="font-serif text-3xl sm:text-4xl font-semibold text-snow text-center mb-4">
-                参考価格
+                料金プラン
               </h2>
               <p className="text-slate-400 text-center mb-16 max-w-xl mx-auto text-sm">
-                すべての案件はご要件に応じてお見積もりします。
+                単発の制作から、月額の継続制作まで。制作は難易度に応じたポイント制で、法人のご契約にも対応します。
               </p>
             </FadeInSection>
 
-            <FadeInSection delay={0.1}>
-              <div className="glass p-8">
-                <ul className="divide-y divide-white/5">
-                  {pricing.map((item) => (
-                    <li
-                      key={item.label}
-                      className="flex items-center justify-between gap-4 py-4 first:pt-0 last:pb-0"
-                    >
-                      <span className="text-slate-400 text-sm">{item.label}</span>
-                      <span className="text-snow font-medium text-sm whitespace-nowrap">
-                        {item.price}
+            {/* Monthly plans */}
+            <div className="grid md:grid-cols-3 gap-6 mb-20">
+              {plans.map((plan, i) => (
+                <FadeInSection key={plan.name} delay={i * 0.1}>
+                  <div
+                    className={`glass p-8 h-full relative ${
+                      plan.featured ? "border-accent/40 ring-1 ring-accent/20" : ""
+                    }`}
+                  >
+                    {plan.featured && (
+                      <span className="absolute -top-3 left-6 bg-accent text-navy-dark text-xs font-medium px-3 py-1 rounded-full">
+                        主力プラン
                       </span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              <p className="text-slate-500 text-xs text-center mt-6">
-                ※ 表示価格は税抜・参考価格です。規模・要件により変動します。
-              </p>
-            </FadeInSection>
+                    )}
+                    <div className="flex items-center justify-between gap-2 mb-3">
+                      <p className="font-serif text-snow text-lg">{plan.name}</p>
+                      <span className="text-accent/70 text-xs tracking-wider border border-accent/20 rounded-full px-2.5 py-1 whitespace-nowrap">
+                        {plan.pill}
+                      </span>
+                    </div>
+                    <p className="text-slate-400 text-sm leading-relaxed mb-6">{plan.desc}</p>
+                    <p className="mb-6">
+                      <span className="text-snow font-serif text-2xl">{plan.price}</span>
+                      <span className="text-slate-500 text-xs ml-2">/ 月・税別</span>
+                    </p>
+                    <ul className="space-y-2">
+                      {plan.features.map((f) => (
+                        <li key={f} className="flex items-start gap-2 text-sm text-slate-400">
+                          <svg
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="#E8600A"
+                            strokeWidth="2"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            className="w-4 h-4 mt-0.5 flex-shrink-0"
+                          >
+                            <path d="M20 6 9 17l-5-5" />
+                          </svg>
+                          {f}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </FadeInSection>
+              ))}
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-8">
+              {/* One-off pricing */}
+              <FadeInSection>
+                <div className="glass p-8 h-full">
+                  <h3 className="font-serif text-snow text-lg mb-1">単発制作の料金</h3>
+                  <p className="text-slate-500 text-xs mb-6">
+                    月額契約なしでもご依頼いただけます。すべて税別・1本あたりの目安です。
+                  </p>
+                  <ul className="divide-y divide-white/5">
+                    {oneOffPricing.map((item) => (
+                      <li
+                        key={item.label}
+                        className="flex items-center justify-between gap-4 py-3 first:pt-0 last:pb-0"
+                      >
+                        <span className="text-slate-400 text-sm">{item.label}</span>
+                        <span className="text-snow font-medium text-sm whitespace-nowrap">
+                          {item.price}
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </FadeInSection>
+
+              {/* Contract terms */}
+              <FadeInSection delay={0.1}>
+                <div className="glass p-8 h-full">
+                  <h3 className="font-serif text-snow text-lg mb-1">ご契約条件</h3>
+                  <p className="text-slate-500 text-xs mb-6">
+                    法人のご契約を前提とした条件です。詳細は個別契約で取り決めます。
+                  </p>
+                  <ul className="divide-y divide-white/5">
+                    {contractTerms.map((term) => (
+                      <li
+                        key={term.label}
+                        className="flex items-center justify-between gap-4 py-3 first:pt-0 last:pb-0"
+                      >
+                        <span className="text-slate-400 text-sm">{term.label}</span>
+                        <span className="text-snow font-medium text-sm whitespace-nowrap">
+                          {term.value}
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </FadeInSection>
+            </div>
+
+            <p className="text-slate-500 text-xs text-center mt-10">
+              ※ 表示価格は税別です。制作内容・規模により変動するため、詳細はお見積りいたします。
+            </p>
           </div>
         </section>
 

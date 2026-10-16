@@ -3,10 +3,10 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "AI映像制作 — ブランドCM・ショート動画 | AJARA Creative",
   description:
-    "生成AIによるブランドCM・ショート動画制作。素材ゼロから最短1週間、¥50,000〜。Kling AI・Runway・Soraを駆使した圧倒的なビジュアル品質を実現。",
+    "生成AIによるブランドCM・ショート動画制作。素材ゼロから最短1週間、¥72,000〜。Kling AI・Runway・Soraを駆使した圧倒的なビジュアル品質を実現。",
   openGraph: {
     title: "AI映像制作 — ブランドCM・ショート動画 | AJARA Creative",
-    description: "生成AIによるブランドCM・ショート動画制作。素材ゼロから最短1週間、¥50,000〜。",
+    description: "生成AIによるブランドCM・ショート動画制作。素材ゼロから最短1週間、¥72,000〜。",
     type: "website",
     locale: "ja_JP",
     url: "https://ajara.co.jp/creative",
@@ -40,27 +40,42 @@ const jsonLd = {
           {
             "@type": "Offer",
             "itemOffered": { "@type": "Service", "name": "ブランドCM 15秒" },
-            "priceSpecification": { "@type": "PriceSpecification", "minPrice": "80000", "priceCurrency": "JPY" },
+            "priceSpecification": { "@type": "PriceSpecification", "minPrice": "144000", "priceCurrency": "JPY" },
           },
           {
             "@type": "Offer",
             "itemOffered": { "@type": "Service", "name": "ブランドCM 30秒" },
-            "priceSpecification": { "@type": "PriceSpecification", "minPrice": "150000", "priceCurrency": "JPY" },
+            "priceSpecification": { "@type": "PriceSpecification", "minPrice": "240000", "priceCurrency": "JPY" },
           },
           {
             "@type": "Offer",
             "itemOffered": { "@type": "Service", "name": "ブランドCM 60秒" },
-            "priceSpecification": { "@type": "PriceSpecification", "minPrice": "250000", "priceCurrency": "JPY" },
+            "priceSpecification": { "@type": "PriceSpecification", "minPrice": "360000", "priceCurrency": "JPY" },
           },
           {
             "@type": "Offer",
-            "itemOffered": { "@type": "Service", "name": "ショート動画 15〜30秒" },
-            "priceSpecification": { "@type": "PriceSpecification", "minPrice": "50000", "priceCurrency": "JPY" },
+            "itemOffered": { "@type": "Service", "name": "ショート動画 5〜10秒" },
+            "priceSpecification": { "@type": "PriceSpecification", "minPrice": "72000", "priceCurrency": "JPY" },
           },
           {
             "@type": "Offer",
-            "itemOffered": { "@type": "Service", "name": "ショート動画 月3本パック" },
-            "priceSpecification": { "@type": "PriceSpecification", "minPrice": "120000", "priceCurrency": "JPY" },
+            "itemOffered": { "@type": "Service", "name": "AI広告動画 15〜30秒" },
+            "priceSpecification": { "@type": "PriceSpecification", "minPrice": "144000", "priceCurrency": "JPY" },
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": { "@type": "Service", "name": "継続制作プラン LIGHT（月額）" },
+            "priceSpecification": { "@type": "PriceSpecification", "price": "150000", "priceCurrency": "JPY", "billingDuration": "P1M" },
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": { "@type": "Service", "name": "継続制作プラン STANDARD（月額）" },
+            "priceSpecification": { "@type": "PriceSpecification", "price": "300000", "priceCurrency": "JPY", "billingDuration": "P1M" },
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": { "@type": "Service", "name": "継続制作プラン PREMIUM（月額）" },
+            "priceSpecification": { "@type": "PriceSpecification", "price": "500000", "priceCurrency": "JPY", "billingDuration": "P1M" },
           },
         ],
       },
@@ -69,7 +84,7 @@ const jsonLd = {
       "@type": "WebPage",
       "name": "AI映像制作 — ブランドCM・ショート動画 | AJARA Creative",
       "url": "https://ajara.co.jp/creative",
-      "description": "生成AIによるブランドCM・ショート動画制作。素材ゼロから最短1週間、¥50,000〜。",
+      "description": "生成AIによるブランドCM・ショート動画制作。素材ゼロから最短1週間、¥72,000〜。",
       "breadcrumb": {
         "@type": "BreadcrumbList",
         "itemListElement": [
