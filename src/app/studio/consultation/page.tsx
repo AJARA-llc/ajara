@@ -1,10 +1,16 @@
 import type { Metadata } from "next";
+import { studioShare } from "@/components/studio/share";
 import StudioConsultForm from "@/components/studio/StudioConsultForm";
 
+const title = "30分の無料相談｜AJARA Studio";
+const description =
+  "AIアプリ開発スクール・アプリ開発コーチングの30分無料相談。Google Meet でオンライン、まだアイデアがまとまっていなくても大丈夫です。";
+
 export const metadata: Metadata = {
-  title: "30分の無料相談｜AJARA Studio",
-  description: "AIアプリ開発スクール・アプリ開発コーチングの30分無料相談。Google Meet でオンライン、まだアイデアがまとまっていなくても大丈夫です。",
+  title,
+  description,
   alternates: { canonical: "https://ajara.co.jp/studio/consultation" },
+  ...studioShare("/studio/consultation", title, description, "top"),
 };
 
 const badges = ["30分", "Google Meet", "無料"];

@@ -1,11 +1,16 @@
 import type { Metadata } from "next";
+import { studioShare } from "@/components/studio/share";
 import StudioServicePage from "@/components/studio/StudioServicePage";
 
+const title = "アプリ開発コーチング｜AJARA Studio";
+const description =
+  "作りたいアプリのアイデアを、企画から開発・公開までコーチング形式で伴走。アイデア整理・要件定義・技術選定・UI/UX設計の助言・進捗確認・テスト・公開支援まで。";
+
 export const metadata: Metadata = {
-  title: "アプリ開発コーチング｜AJARA Studio",
-  description:
-    "作りたいアプリのアイデアを、企画から開発・公開までコーチング形式で伴走。アイデア整理・要件定義・技術選定・UI/UX設計の助言・進捗確認・テスト・公開支援まで。",
+  title,
+  description,
   alternates: { canonical: "https://ajara.co.jp/studio/coaching" },
+  ...studioShare("/studio/coaching", title, description, "coaching"),
 };
 
 export default function CoachingPage() {

@@ -1,11 +1,16 @@
 import type { Metadata } from "next";
+import { studioShare } from "@/components/studio/share";
 import StudioServicePage from "@/components/studio/StudioServicePage";
 
+const title = "AIアプリ開発スクール｜AJARA Studio";
+const description =
+  "AIを活用して、自分でアプリを開発できるスキルを身につける塾形式の継続型サービス。AI開発ツールの使い方から企画・設計・開発・デバッグ・公開までを段階的に学べます。";
+
 export const metadata: Metadata = {
-  title: "AIアプリ開発スクール｜AJARA Studio",
-  description:
-    "AIを活用して、自分でアプリを開発できるスキルを身につける塾形式の継続型サービス。AI開発ツールの使い方から企画・設計・開発・デバッグ・公開までを段階的に学べます。",
+  title,
+  description,
   alternates: { canonical: "https://ajara.co.jp/studio/school" },
+  ...studioShare("/studio/school", title, description, "school"),
 };
 
 export default function SchoolPage() {
