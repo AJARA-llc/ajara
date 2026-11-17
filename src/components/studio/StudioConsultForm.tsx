@@ -9,7 +9,7 @@ const EMPTY: ConsultAnswers = { purpose: "", level: "", detail: "", name: "", em
 const STEPS = ["相談目的", "現在の状況", "相談内容・連絡先"];
 
 const inputClass =
-  "w-full rounded-2xl border-2 border-studio-ink bg-white px-4 py-3.5 text-base text-studio-ink placeholder-studio-muted/60 focus:outline-none focus:ring-4 focus:ring-studio-purple/25";
+  "w-full rounded-2xl border border-studio-ink/15 bg-white px-4 py-3.5 text-base text-studio-ink placeholder-studio-muted/60 focus:outline-none focus:border-studio-purple focus:ring-4 focus:ring-studio-purple/20";
 
 function Choice({ selected, onClick, label, hint }: { selected: boolean; onClick: () => void; label: string; hint: string }) {
   return (
@@ -18,8 +18,8 @@ function Choice({ selected, onClick, label, hint }: { selected: boolean; onClick
       role="radio"
       aria-checked={selected}
       onClick={onClick}
-      className={`w-full text-left rounded-2xl border-2 border-studio-ink px-5 py-4 transition-all duration-150 ${
-        selected ? "bg-studio-purple text-white shadow-[4px_4px_0_#1F1A3D]" : "bg-white hover:bg-studio-lavender"
+      className={`w-full text-left rounded-2xl border px-5 py-4 transition-all duration-150 ${
+        selected ? "bg-studio-purple border-studio-purple text-white shadow-[0_10px_20px_-10px_rgba(139,76,246,0.8)]" : "bg-white border-studio-ink/10 text-studio-ink hover:border-studio-purple/50 hover:bg-studio-lavender/50"
       }`}
     >
       <span className="block font-rounded font-bold">{label}</span>
@@ -57,7 +57,7 @@ export default function StudioConsultForm() {
   };
 
   return (
-    <form onSubmit={submit} noValidate className="rounded-[1.75rem] bg-white border-2 border-studio-ink shadow-[6px_6px_0_#1F1A3D] p-5 sm:p-10">
+    <form onSubmit={submit} noValidate className="rounded-[1.75rem] bg-white border border-studio-ink/[0.06] shadow-[0_20px_40px_-24px_rgba(46,10,114,0.35)] p-5 sm:p-10">
       <div className="mb-8">
         <div className="flex justify-between text-xs font-bold mb-2">
           <span className="text-studio-purple">
@@ -66,7 +66,7 @@ export default function StudioConsultForm() {
           <span className="text-studio-muted">{STEPS[step]}</span>
         </div>
         <div
-          className="h-3 rounded-full bg-studio-lavender border-2 border-studio-ink overflow-hidden"
+          className="h-2.5 rounded-full bg-studio-lavender overflow-hidden"
           role="progressbar"
           aria-valuemin={1}
           aria-valuemax={STEPS.length}
@@ -74,7 +74,7 @@ export default function StudioConsultForm() {
           aria-label="入力の進み具合"
         >
           <div
-            className="h-full bg-studio-yellow transition-all duration-500"
+            className="h-full bg-gradient-to-r from-studio-purple to-studio-orange transition-all duration-500"
             style={{ width: `${((step + 1) / STEPS.length) * 100}%` }}
           />
         </div>
@@ -107,13 +107,13 @@ export default function StudioConsultForm() {
           <legend className="font-rounded font-black text-xl sm:text-2xl mb-6">あと少しです！</legend>
           <div>
             <label htmlFor="studio-name" className="block text-sm font-bold mb-2">
-              お名前 <span className="text-studio-coral">必須</span>
+              お名前 <span className="text-studio-orange">必須</span>
             </label>
             <input id="studio-name" type="text" autoComplete="name" maxLength={100} value={answers.name} onChange={(e) => set({ name: e.target.value })} className={inputClass} placeholder="山田 太郎" />
           </div>
           <div>
             <label htmlFor="studio-email" className="block text-sm font-bold mb-2">
-              メールアドレス <span className="text-studio-coral">必須</span>
+              メールアドレス <span className="text-studio-orange">必須</span>
             </label>
             <input id="studio-email" type="email" inputMode="email" autoComplete="email" maxLength={254} value={answers.email} onChange={(e) => set({ email: e.target.value })} className={inputClass} placeholder="mail@example.com" />
           </div>
@@ -143,7 +143,7 @@ export default function StudioConsultForm() {
         </fieldset>
       )}
 
-      <p role="alert" className="text-studio-coral font-bold text-sm min-h-[1.5rem] mt-5">
+      <p role="alert" className="text-[#E5484D] font-bold text-sm min-h-[1.5rem] mt-5">
         {error}
       </p>
 
@@ -155,7 +155,7 @@ export default function StudioConsultForm() {
               setError("");
               setStep((s) => s - 1);
             }}
-            className="px-6 py-4 rounded-full border-2 border-studio-ink font-rounded font-bold bg-white hover:bg-studio-lavender"
+            className="px-6 py-4 rounded-full border border-studio-ink/15 font-rounded font-bold text-studio-ink bg-white hover:bg-studio-lavender"
           >
             戻る
           </button>
@@ -163,7 +163,7 @@ export default function StudioConsultForm() {
         {step === STEPS.length - 1 && (
           <button
             type="submit"
-            className="flex-1 rounded-full font-rounded font-bold py-4 bg-studio-yellow border-2 border-studio-ink shadow-[4px_4px_0_#1F1A3D] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0_#1F1A3D] transition-all"
+            className="flex-1 rounded-full font-rounded font-bold py-4 text-white bg-gradient-to-r from-studio-orange to-studio-orange-light shadow-[0_10px_24px_-8px_rgba(255,122,31,0.7)] hover:-translate-y-0.5 transition-all"
           >
             {STUDIO_BOOKING_URL ? "相談日時の予約へ進む" : "入力内容を確認する"}
           </button>

@@ -16,7 +16,7 @@ export default function StudioConsultComplete() {
 
   if (answers === null) {
     return (
-      <div className="rounded-[1.75rem] bg-white border-2 border-studio-ink p-8 text-center">
+      <div className="rounded-[1.75rem] bg-white border border-studio-ink/[0.06] shadow-[0_20px_40px_-24px_rgba(46,10,114,0.35)] p-8 text-center">
         <p className="font-rounded font-black text-xl mb-3">相談内容が見つかりませんでした</p>
         <p className="text-studio-muted text-sm mb-6">お手数ですが、もう一度フォームから入力してください。</p>
         <Link href="/studio/consultation" className="font-bold text-studio-purple underline underline-offset-4">
@@ -34,8 +34,8 @@ export default function StudioConsultComplete() {
   ];
 
   return (
-    <div className="rounded-[1.75rem] bg-white border-2 border-studio-ink shadow-[6px_6px_0_#1F1A3D] p-5 sm:p-10">
-      <p className="inline-block font-rounded font-bold text-xs bg-studio-yellow border-2 border-studio-ink rounded-full px-3 py-1 mb-4">
+    <div className="rounded-[1.75rem] bg-white border border-studio-ink/[0.06] shadow-[0_20px_40px_-24px_rgba(46,10,114,0.35)] p-5 sm:p-10">
+      <p className="inline-block font-rounded font-bold text-xs text-white bg-studio-purple rounded-full px-3 py-1 mb-4">
         STEP 4 / 4
       </p>
       <h2 className="font-rounded font-black text-2xl sm:text-3xl mb-3">
@@ -47,7 +47,7 @@ export default function StudioConsultComplete() {
           : "ボタンを押すとメールアプリが開きます。内容を確認してそのまま送信してください。2営業日以内に、相談日時の候補と Google Meet の案内をお送りします。"}
       </p>
 
-      <dl className="rounded-2xl bg-studio-cream border-2 border-studio-ink/15 p-5 mb-8 space-y-2 text-sm">
+      <dl className="rounded-2xl bg-studio-lavender/60 p-5 mb-8 space-y-2 text-sm">
         {rows.map(([k, v]) => (
           <div key={k} className="flex gap-3">
             <dt className="text-studio-muted w-28 shrink-0">{k}</dt>
@@ -63,7 +63,7 @@ export default function StudioConsultComplete() {
               href={STUDIO_BOOKING_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-center rounded-full font-rounded font-bold py-4 bg-studio-yellow border-2 border-studio-ink shadow-[4px_4px_0_#1F1A3D] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0_#1F1A3D] transition-all"
+              className="text-center rounded-full font-rounded font-bold py-4 text-white bg-gradient-to-r from-studio-orange to-studio-orange-light shadow-[0_10px_24px_-8px_rgba(255,122,31,0.7)] hover:-translate-y-0.5 transition-all"
             >
               空いている日時を見る
             </a>
@@ -77,7 +77,7 @@ export default function StudioConsultComplete() {
         ) : (
           <a
             href={consultMailto(answers)}
-            className="text-center rounded-full font-rounded font-bold py-4 bg-studio-yellow border-2 border-studio-ink shadow-[4px_4px_0_#1F1A3D] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0_#1F1A3D] transition-all"
+            className="text-center rounded-full font-rounded font-bold py-4 text-white bg-gradient-to-r from-studio-orange to-studio-orange-light shadow-[0_10px_24px_-8px_rgba(255,122,31,0.7)] hover:-translate-y-0.5 transition-all"
           >
             メールで送信する
           </a>

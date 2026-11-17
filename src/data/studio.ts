@@ -14,7 +14,9 @@ export const studioServices = [
     name: "AIアプリ開発スクール",
     catch: "AIアプリ開発者になろう。",
     short: "自分で作れるようになる",
-    summary: "AIを活用して、自分でアプリを開発できるスキルを身につける塾形式の継続型サービスです。",
+    tag: "学んで作れるようになりたい",
+    icon: "/images/studio/icon-laptop.webp",
+    summary: "AIを活用して、自分の手でアプリを作れる力を身につける学びの場です。",
     accent: "purple" as const,
   },
   {
@@ -24,8 +26,10 @@ export const studioServices = [
     name: "アプリ開発コーチング",
     catch: "そのアイデア、リリースまで一緒に。",
     short: "アイデアを実現する",
-    summary: "作りたいアプリのアイデアを、企画から開発・公開までコーチング形式で伴走します。",
-    accent: "coral" as const,
+    tag: "アイデアを実現したい",
+    icon: "/images/studio/icon-rocket.webp",
+    summary: "やりたいアイデアをもとに、設計から開発・リリースまで一緒に伴走するプランです。",
+    accent: "orange" as const,
   },
 ];
 

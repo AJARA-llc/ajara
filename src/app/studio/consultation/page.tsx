@@ -11,7 +11,7 @@ const badges = ["30分", "Google Meet", "無料"];
 
 export default function ConsultationPage() {
   return (
-    <section className="px-4 sm:px-6 pt-10 pb-20 sm:pt-16 sm:pb-28">
+    <section className="px-4 sm:px-6 pt-10 pb-20 sm:pt-16 sm:pb-28 bg-gradient-to-b from-[#F3ECFF] via-[#FAF0FA] to-studio-bg">
       <div className="max-w-2xl mx-auto">
         <div className="text-center mb-10">
           <h1 className="font-rounded font-black text-3xl sm:text-5xl mb-4">30分の無料相談</h1>
@@ -20,8 +20,8 @@ export default function ConsultationPage() {
             {badges.map((b, i) => (
               <li
                 key={b}
-                className={`font-rounded font-bold text-sm rounded-full border-2 border-studio-ink px-4 py-1.5 ${
-                  ["bg-studio-lavender", "bg-white", "bg-studio-yellow"][i]
+                className={`font-rounded font-bold text-sm text-studio-ink rounded-full px-4 py-1.5 ${
+                  ["bg-studio-lavender", "bg-white shadow-sm", "bg-studio-peach"][i]
                 }`}
               >
                 {b}

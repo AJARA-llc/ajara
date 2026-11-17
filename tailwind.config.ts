@@ -38,16 +38,19 @@ const config: Config = {
           200: "#9fd6d8",
         },
         border: "#e4e7ec",
-        // AJARA Studio (/studio/*) only — requirements v3.0 proposal palette, not a confirmed brand.
+        // AJARA Studio (/studio/*) only — taken from the operator's logo and design mock (2026-11-17).
         studio: {
-          purple: "#6D4AFF",
-          "purple-dark": "#5534E0",
-          yellow: "#FFD23F",
-          coral: "#FF6F61",
-          lavender: "#EFEAFF",
-          cream: "#FFFBF2",
-          ink: "#1F1A3D",
-          muted: "#5B5675",
+          ink: "#2E0A72",
+          muted: "#5F5785",
+          purple: "#8B4CF6",
+          "purple-dark": "#6A2FE0",
+          orange: "#FF7A1F",
+          "orange-light": "#FFA24A",
+          yellow: "#FFC83D",
+          pink: "#F7B6E0",
+          lavender: "#F1EAFF",
+          peach: "#FFF0E4",
+          bg: "#FBF9FF",
         },
       },
       fontFamily: {

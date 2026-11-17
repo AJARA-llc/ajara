@@ -1,9 +1,11 @@
 import Link from "next/link";
-import { STUDIO_CTA, STUDIO_CTA_SUB } from "@/data/studio";
+import { STUDIO_CTA } from "@/data/studio";
 
 const navLinks = [
-  { href: "/studio/school", label: "スクール" },
-  { href: "/studio/coaching", label: "コーチング" },
+  { href: "/studio#services", label: "サービス" },
+  { href: "/studio#features", label: "特徴" },
+  { href: "/studio#flow", label: "ご利用の流れ" },
+  { href: "/studio#faq", label: "よくある質問" },
 ];
 
 const legalLinks = [
@@ -12,16 +14,20 @@ const legalLinks = [
   { href: "/legal/tokushoho", label: "特定商取引法に基づく表記" },
 ];
 
-export function StudioLogo() {
+export function CalendarIcon({ className = "w-5 h-5" }: { className?: string }) {
   return (
-    <Link href="/studio" className="flex items-center gap-2 shrink-0" aria-label="AJARA Studio トップ">
-      <span className="w-8 h-8 rounded-xl bg-studio-purple grid place-items-center rotate-[-8deg] shadow-[3px_3px_0_#1F1A3D]">
-        <span className="w-2.5 h-2.5 rounded-full bg-studio-yellow" />
-      </span>
-      <span className="font-rounded font-black text-lg tracking-tight text-studio-ink">
-        AJARA <span className="text-studio-purple">Studio</span>
-      </span>
-    </Link>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className} aria-hidden>
+      <rect x="3" y="5" width="18" height="16" rx="3" />
+      <path d="M16 3v4M8 3v4M3 10h18M8 14h.01M12 14h.01M16 14h.01M8 17.5h.01M12 17.5h.01" />
+    </svg>
+  );
+}
+
+function ArrowIcon({ className = "w-5 h-5" }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className={className} aria-hidden>
+      <path d="M5 12h14M13 6l6 6-6 6" />
+    </svg>
   );
 }
 
@@ -29,64 +35,157 @@ export function StudioButton({
   href = "/studio/consultation",
   children = STUDIO_CTA,
   size = "lg",
-  variant = "primary",
 }: {
   href?: string;
   children?: React.ReactNode;
-  size?: "sm" | "lg";
-  variant?: "primary" | "ghost";
+  size?: "sm" | "md" | "lg";
 }) {
-  const sizing = size === "lg" ? "px-7 py-4 text-base sm:text-lg" : "px-4 py-2 text-sm";
-  const look =
-    variant === "primary"
-      ? "bg-studio-yellow text-studio-ink border-2 border-studio-ink shadow-[4px_4px_0_#1F1A3D] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0_#1F1A3D]"
-      : "bg-white text-studio-ink border-2 border-studio-ink hover:bg-studio-lavender";
+  const sizing = {
+    sm: "px-4 py-2 text-sm gap-1.5",
+    md: "px-5 py-3 text-sm sm:text-base gap-2",
+    lg: "px-6 sm:px-8 py-4 sm:py-5 text-base sm:text-xl gap-2.5 sm:gap-3",
+  }[size];
   return (
     <Link
       href={href}
-      className={`inline-flex items-center justify-center gap-2 rounded-full font-rounded font-bold transition-all duration-150 ${sizing} ${look}`}
+      className={`group inline-flex items-center justify-center rounded-full font-rounded font-bold text-white bg-gradient-to-r from-studio-orange to-studio-orange-light shadow-[0_10px_24px_-8px_rgba(255,122,31,0.7)] hover:shadow-[0_14px_30px_-8px_rgba(255,122,31,0.8)] hover:-translate-y-0.5 transition-all duration-200 ${sizing}`}
     >
-      {children}
+      <CalendarIcon className={size === "lg" ? "w-6 h-6 sm:w-7 sm:h-7" : "w-5 h-5"} />
+      <span>{children}</span>
+      <ArrowIcon className={`${size === "lg" ? "w-5 h-5 sm:w-6 sm:h-6" : "w-4 h-4"} group-hover:translate-x-1 transition-transform`} />
     </Link>
+  );
+}
+
+const trust = [
+  {
+    label: "Google Meet",
+    icon: (
+      <svg viewBox="0 0 24 24" className="w-5 h-5" aria-hidden>
+        <rect x="2" y="6" width="13" height="12" rx="3" fill="#8B4CF6" />
+        <path d="M15 10.5 21 7v10l-6-3.5z" fill="#FF7A1F" />
+      </svg>
+    ),
+  },
+  {
+    label: "30分",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-5 h-5" aria-hidden>
+        <circle cx="12" cy="12" r="9" />
+        <path d="M12 7v5l3 2" strokeLinecap="round" />
+      </svg>
+    ),
+  },
+  {
+    label: "無料",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" className="w-5 h-5" aria-hidden>
+        <path d="M6 4l6 8 6-8M12 12v8M8 13h8M8 16.5h8" />
+      </svg>
+    ),
+  },
+  {
+    label: "無理な勧誘なし",
+    icon: (
+      <svg viewBox="0 0 24 24" className="w-5 h-5" aria-hidden>
+        <path d="M12 2 4 5v6c0 5 3.4 9.4 8 11 4.6-1.6 8-6 8-11V5z" fill="#A78BFA" />
+        <path d="m8.5 12 2.5 2.5 4.5-5" fill="none" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+      </svg>
+    ),
+  },
+];
+
+export function StudioTrustRow({ className = "" }: { className?: string }) {
+  return (
+    <ul className={`flex flex-wrap items-center gap-x-5 gap-y-2 text-sm font-bold text-studio-ink ${className}`}>
+      {trust.map((t) => (
+        <li key={t.label} className="inline-flex items-center gap-1.5">
+          <span className="text-studio-purple">{t.icon}</span>
+          {t.label}
+        </li>
+      ))}
+    </ul>
   );
 }
 
 export function StudioHeader() {
   return (
-    <header className="sticky top-0 z-50 bg-studio-cream border-b-2 border-studio-ink/10">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-4">
-        <StudioLogo />
-        <nav className="flex items-center gap-1 sm:gap-2">
+    <header className="sticky top-0 z-50 bg-white/95 shadow-[0_1px_0_rgba(46,10,114,0.06)]">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 h-16 sm:h-[72px] flex items-center justify-between gap-4">
+        <Link href="/studio" className="shrink-0" aria-label="AJARA Studio トップ">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src="/images/studio/logo.png" alt="AJARA Studio" width={720} height={152} className="h-8 sm:h-9 w-auto" />
+        </Link>
+        <nav className="hidden lg:flex items-center gap-7">
           {navLinks.map((l) => (
-            <Link
-              key={l.href}
-              href={l.href}
-              className="hidden sm:inline-block px-3 py-2 rounded-full text-sm font-bold text-studio-ink hover:bg-studio-lavender transition-colors"
-            >
+            <Link key={l.href} href={l.href} className="text-sm font-bold text-studio-ink hover:text-studio-purple transition-colors">
               {l.label}
             </Link>
           ))}
-          <StudioButton size="sm">無料相談</StudioButton>
         </nav>
+        <div className="hidden sm:block">
+          <StudioButton size="md" />
+        </div>
+        <div className="sm:hidden">
+          <StudioButton size="sm">無料相談</StudioButton>
+        </div>
       </div>
     </header>
   );
 }
 
-export function StudioCTABand({ title = "まずは30分、気軽に話してみよう。" }: { title?: string }) {
+export function SectionHeading({ children, id }: { children: React.ReactNode; id?: string }) {
   return (
-    <section className="px-4 sm:px-6 py-16 sm:py-24">
-      <div className="max-w-4xl mx-auto relative overflow-hidden rounded-[2rem] bg-studio-purple text-white px-6 py-12 sm:px-12 sm:py-16 text-center border-2 border-studio-ink shadow-[6px_6px_0_#1F1A3D]">
-        <span aria-hidden className="absolute -top-10 -left-10 w-36 h-36 rounded-full bg-studio-coral/80" />
-        <span aria-hidden className="absolute -bottom-12 -right-8 w-40 h-40 rounded-full bg-studio-yellow/90" />
-        <div className="relative">
-          <p className="inline-block font-rounded font-bold text-sm bg-white/15 rounded-full px-4 py-1 mb-5">
-            オンライン・30分・無料
-          </p>
-          <h2 className="font-rounded font-black text-2xl sm:text-4xl leading-snug mb-4">{title}</h2>
-          <p className="text-white/85 text-sm sm:text-base mb-8 max-w-lg mx-auto leading-relaxed">{STUDIO_CTA_SUB}</p>
-          <StudioButton />
-          <p className="text-white/70 text-xs mt-4">Google Meet で気軽に相談できます</p>
+    <h2 id={id} className="relative text-center font-rounded font-black text-[1.45rem] leading-snug sm:text-[2rem] text-studio-ink px-8">
+      <span aria-hidden className="hidden sm:inline-block align-middle mr-3 -mt-2">
+        <Sparks />
+      </span>
+      {children}
+      <span aria-hidden className="hidden sm:inline-block align-middle ml-3 -mt-2 -scale-x-100">
+        <Sparks />
+      </span>
+    </h2>
+  );
+}
+
+export function BigNum({ children }: { children: React.ReactNode }) {
+  return <span className="text-studio-purple text-[1.5em] leading-none mx-0.5 align-[-0.08em]">{children}</span>;
+}
+
+function Sparks() {
+  return (
+    <svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="#FFC83D" strokeWidth="3" strokeLinecap="round">
+      <path d="M6 6l5 5M3 15h6M12 3l1 5" />
+    </svg>
+  );
+}
+
+export function StudioCTABand() {
+  return (
+    <section className="px-4 sm:px-6 py-14 sm:py-20">
+      <div className="max-w-6xl mx-auto relative overflow-hidden rounded-[2rem] bg-gradient-to-br from-[#E9DDFF] via-[#F6DDF2] to-[#FFE6D6]">
+        <span aria-hidden className="absolute -top-20 right-24 w-72 h-72 rounded-full bg-white/40 blur-2xl" />
+        <div className="relative grid md:grid-cols-[0.9fr_1.1fr] items-end">
+          <div className="relative order-2 md:order-1 flex justify-center md:justify-start">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="/images/studio/cta-boy.webp" alt="" width={720} height={720} loading="lazy" className="w-64 sm:w-80 md:w-[26rem] h-auto -mb-1" />
+            <span aria-hidden className="absolute top-6 right-6 md:right-2 rotate-6 w-24 sm:w-28 rounded-[1.6rem] bg-white shadow-xl p-3">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/images/studio/icon-phone.webp" alt="" width={256} height={256} loading="lazy" className="w-full h-auto" />
+            </span>
+          </div>
+          <div className="order-1 md:order-2 px-6 pt-10 pb-4 sm:px-10 md:py-14 text-center md:text-left">
+            <h2 className="font-rounded font-black text-2xl sm:text-[2rem] leading-snug text-studio-ink mb-4">
+              まずは、気軽に話してみませんか？
+            </h2>
+            <p className="text-studio-ink/80 leading-relaxed mb-8">
+              「こんなこと、相談していいのかな？」という段階でも大丈夫です。
+              <br className="hidden sm:inline" />
+              アイデアの整理から、一緒にお話ししましょう。
+            </p>
+            <StudioButton />
+            <StudioTrustRow className="justify-center md:justify-start mt-5" />
+          </div>
         </div>
       </div>
     </section>
@@ -95,11 +194,12 @@ export function StudioCTABand({ title = "まずは30分、気軽に話してみ�
 
 export function StudioMobileBar() {
   return (
-    <div className="sm:hidden fixed bottom-0 inset-x-0 z-40 bg-studio-cream/95 border-t-2 border-studio-ink/10 px-4 py-3">
+    <div className="sm:hidden fixed bottom-0 inset-x-0 z-40 bg-white/95 shadow-[0_-6px_20px_rgba(46,10,114,0.08)] px-4 py-3">
       <Link
         href="/studio/consultation"
-        className="block text-center rounded-full font-rounded font-bold py-3.5 bg-studio-yellow text-studio-ink border-2 border-studio-ink"
+        className="flex items-center justify-center gap-2 rounded-full font-rounded font-bold py-3.5 text-white bg-gradient-to-r from-studio-orange to-studio-orange-light"
       >
+        <CalendarIcon />
         {STUDIO_CTA}
       </Link>
     </div>
@@ -111,12 +211,12 @@ export function StudioFooter() {
     <footer className="bg-studio-ink text-white/80 px-4 sm:px-6 pt-14 pb-28 sm:pb-14">
       <div className="max-w-6xl mx-auto grid gap-10 sm:grid-cols-[1.4fr_1fr_1fr]">
         <div>
-          <p className="font-rounded font-black text-xl text-white mb-2">
-            AJARA <span className="text-studio-yellow">Studio</span>
+          <p className="flex items-center gap-2 mb-3">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="/images/studio/logo-mark.png" alt="" width={256} height={187} className="h-8 w-auto" />
+            <span className="font-rounded font-black text-xl text-white">AJARA Studio</span>
           </p>
-          <p className="text-sm leading-relaxed text-white/70">
-            AIアプリ開発の学習と開発コーチングを提供するオンラインスタジオ。
-          </p>
+          <p className="text-sm leading-relaxed text-white/70">AIアプリ開発の学習と開発コーチングを提供するオンラインスタジオ。</p>
           <p className="text-xs text-white/50 mt-4">
             運営：
             <Link href="/" className="underline underline-offset-4 hover:text-white">
@@ -139,16 +239,5 @@ export function StudioFooter() {
       </div>
       <p className="max-w-6xl mx-auto text-xs text-white/40 mt-12">&copy; {new Date().getFullYear()} AJARA LLC.</p>
     </footer>
-  );
-}
-
-export function StudioSectionTitle({ eyebrow, title, center = true }: { eyebrow: string; title: string; center?: boolean }) {
-  return (
-    <div className={center ? "text-center" : ""}>
-      <p className="inline-block font-rounded font-bold text-xs tracking-widest text-studio-purple bg-studio-lavender rounded-full px-3 py-1 mb-4">
-        {eyebrow}
-      </p>
-      <h2 className="font-rounded font-black text-2xl sm:text-4xl text-studio-ink leading-snug">{title}</h2>
-    </div>
   );
 }
