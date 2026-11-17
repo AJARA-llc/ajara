@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
-export default function FloatingCTA() {
+export default function FloatingCTA({ href = "#contact" }: { href?: string }) {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
@@ -25,7 +25,7 @@ export default function FloatingCTA() {
           className="floating-cta"
         >
           <a
-            href="#contact"
+            href={href}
             className="flex items-center gap-2 bg-accent hover:bg-accent-light text-navy-dark font-medium px-5 py-3 rounded-full shadow-lg shadow-accent/20 transition-all duration-300 hover:shadow-accent/40 hover:scale-105"
           >
             <svg

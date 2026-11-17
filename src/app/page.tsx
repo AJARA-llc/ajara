@@ -41,6 +41,15 @@ const pillars = [
     href: "/creative",
     cta: "制作事例を見る",
   },
+  {
+    name: "開発伴走",
+    tag: "AI・開発コンサル",
+    tagline: "アプリ・ゲーム・AI開発の相談と伴走",
+    description:
+      "初心者から個人開発者・事業者まで、アイデアを形にする月額制の開発支援。設計・技術選定・レビューから、完成・公開までの伴走まで。月額¥6,980〜、30分の無料相談受付中。",
+    href: "/studio",
+    cta: "サービスを見る",
+  },
 ];
 
 export default function Home() {
@@ -83,14 +92,14 @@ export default function Home() {
                 Services
               </p>
               <h2 className="font-serif text-3xl sm:text-4xl font-semibold text-snow text-center mb-4">
-                AJARAの4つの事業とは？
+                AJARAの5つの事業とは？
               </h2>
               <p className="text-slate-400 text-center mb-16 max-w-lg mx-auto">
-                AIを核に、AIO診断・法人研修（リスキリング）・エビデンス意思決定（hintl）・AI映像制作の4分野で事業を展開しています。
+                AIを核に、AIO診断・法人研修（リスキリング）・エビデンス意思決定（hintl）・AI映像制作・開発伴走の5分野で事業を展開しています。
               </p>
             </FadeInSection>
 
-            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {pillars.map((p, i) => (
                 <FadeInSection key={p.name} delay={i * 0.1}>
                   <a
@@ -188,7 +197,7 @@ export default function Home() {
               {[
                 {
                   q: "合同会社AJARAはどのような会社ですか？",
-                  a: "AI検索最適化（AIO）コンサルティング・法人向けAI研修（リスキリング）・エビデンスベースの意思決定エンジン（hintl）・AI映像制作の4事業を展開する会社です。ChatGPT・Perplexity・Google AI Overviewなど生成AI検索で引用される企業づくりを支援しています。",
+                  a: "AI検索最適化（AIO）コンサルティング・法人向けAI研修（リスキリング）・エビデンスベースの意思決定エンジン（hintl）・AI映像制作・アプリ/ゲーム/AI開発の伴走支援（AJARA Studio）の5事業を展開する会社です。ChatGPT・Perplexity・Google AI Overviewなど生成AI検索で引用される企業づくりを支援しています。",
                 },
                 {
                   q: "AIに引用されるサイトにするにはどうすればよいですか？",
@@ -196,7 +205,7 @@ export default function Home() {
                 },
                 {
                   q: "AJARAのサービスはどれから始めればよいですか？",
-                  a: "AI検索での引用率向上を目指す企業には AIOコンサルティング（aioru）、総務・事務職の実務力や生成AI活用力を高めたい法人には 法人研修・リスキリング（人材開発支援助成金の対象要件を満たす設計）、健康・美容などの選択を研究から比較したいなら hintl（無料診断）、映像コンテンツ制作には AI映像制作サービスをご利用ください。迷っている方はまず無料相談をどうぞ。",
+                  a: "AI検索での引用率向上を目指す企業には AIOコンサルティング（aioru）、総務・事務職の実務力や生成AI活用力を高めたい法人には 法人研修・リスキリング（人材開発支援助成金の対象要件を満たす設計）、健康・美容などの選択を研究から比較したいなら hintl（無料診断）、映像コンテンツ制作には AI映像制作サービス、アプリ・ゲーム・AIツールを自分で作りたい方には 開発伴走（AJARA Studio）をご利用ください。迷っている方はまず無料相談をどうぞ。",
                 },
                 {
                   q: "問い合わせ・相談はどうすればよいですか？",

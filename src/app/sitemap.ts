@@ -4,6 +4,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const base = "https://ajara.co.jp";
   const now = new Date("2026-06-12");
   const reskillingUpdated = new Date("2026-10-13");
+  const studioUpdated = new Date("2026-11-17");
 
   return [
     { url: base, lastModified: now, changeFrequency: "monthly", priority: 1.0 },
@@ -23,6 +24,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${base}/reskilling/backoffice-improvement`, lastModified: reskillingUpdated, changeFrequency: "monthly", priority: 0.7 },
     { url: `${base}/reskilling/information-management`, lastModified: reskillingUpdated, changeFrequency: "monthly", priority: 0.7 },
     { url: `${base}/reskilling/generative-ai-practice`, lastModified: reskillingUpdated, changeFrequency: "monthly", priority: 0.7 },
+    { url: `${base}/studio`, lastModified: studioUpdated, changeFrequency: "monthly", priority: 0.85 },
     { url: `${base}/products`, lastModified: now, changeFrequency: "monthly", priority: 0.7 },
     { url: `${base}/news/hintl-launch`, lastModified: now, changeFrequency: "monthly", priority: 0.6 },
     { url: `${base}/news/hintl-press-release`, lastModified: now, changeFrequency: "monthly", priority: 0.5 },
