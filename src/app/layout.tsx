@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://ajara.co.jp"),
   title: "合同会社AJARA | AIで、ビジネスの次の一手を共創する",
   description:
-    "合同会社AJARAは、AI検索最適化（AIO）コンサルティング・法人向けAI研修（リスキリング）・AIライフコーチング（hintl）・AI映像制作・アプリ/ゲーム/AI開発の伴走支援の5事業を展開。ChatGPT・Perplexity・Geminiで引用される企業へ。",
+    "合同会社AJARAは、AI検索最適化（AIO）コンサルティング・法人向けAI研修（リスキリング）・AIライフコーチング（hintl）・AI映像制作・AIアプリ開発の学習・コーチング（AJARA Studio）の5事業を展開。ChatGPT・Perplexity・Geminiで引用される企業へ。",
   alternates: {
     canonical: "https://ajara.co.jp",
   },
@@ -48,7 +48,7 @@ const schemaOrg = {
     "width": 800,
     "height": 200,
   },
-  "description": "AI検索最適化（AIO）コンサルティング・法人向けAI研修（リスキリング）・AIライフコーチング（hintl）・AI映像制作・アプリ/ゲーム/AI開発の伴走支援の5事業を展開する合同会社。ChatGPT・Perplexity・Google AI Overviewなど生成AI検索で引用される企業づくりを支援。",
+  "description": "AI検索最適化（AIO）コンサルティング・法人向けAI研修（リスキリング）・AIライフコーチング（hintl）・AI映像制作・AIアプリ開発の学習・コーチング（AJARA Studio）の5事業を展開する合同会社。ChatGPT・Perplexity・Google AI Overviewなど生成AI検索で引用される企業づくりを支援。",
   "foundingDate": "2024",
   "address": {
     "@type": "PostalAddress",
@@ -120,9 +120,9 @@ const schemaOrg = {
         "@type": "Offer",
         "itemOffered": {
           "@type": "Service",
-          "name": "開発伴走（AJARA Studio）",
+          "name": "AJARA Studio（AIアプリ開発スクール・アプリ開発コーチング）",
           "url": "https://ajara.co.jp/studio",
-          "description": "アプリ・ゲーム・AI開発の相談と伴走支援。初心者から個人開発者・事業者まで、月額制の相談・学習支援と完成・公開までのプロジェクト伴走を提供",
+          "description": "AIアプリ開発の学習と開発コーチングを提供するオンラインスタジオ。AIアプリ開発スクール（自分で作れるようになる）とアプリ開発コーチング（アイデアを企画から公開まで伴走）の2サービス",
         },
       },
     ],
@@ -164,7 +164,7 @@ const schemaWebPage = {
   "@id": "https://ajara.co.jp/#webpage",
   "url": "https://ajara.co.jp",
   "name": "合同会社AJARA | AIで、ビジネスの次の一手を共創する",
-  "description": "AI検索最適化（AIO）コンサルティング・法人向けAI研修（リスキリング）・AIライフコーチング（hintl）・AI映像制作・アプリ/ゲーム/AI開発の伴走支援の5事業を展開する合同会社AJARA。",
+  "description": "AI検索最適化（AIO）コンサルティング・法人向けAI研修（リスキリング）・AIライフコーチング（hintl）・AI映像制作・AIアプリ開発の学習・コーチング（AJARA Studio）の5事業を展開する合同会社AJARA。",
   "isPartOf": { "@id": "https://ajara.co.jp/#website" },
   "about": { "@id": "https://ajara.co.jp/#organization" },
   "inLanguage": "ja",
@@ -250,7 +250,7 @@ const schemaFaq = {
       "name": "合同会社AJARAはどのような会社ですか？",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "合同会社AJARAは、AI検索最適化（AIO）コンサルティング・法人向けAI研修（リスキリング）・AIライフコーチング（hintl）・AI映像制作・アプリ/ゲーム/AI開発の伴走支援の5事業を展開する会社です。法人向けAI研修では、中小企業の生成AI活用を実践研修と現場伴走で支援し、各種リスキリング助成金の対象要件を満たす設計でご提供します。",
+        "text": "合同会社AJARAは、AI検索最適化（AIO）コンサルティング・法人向けAI研修（リスキリング）・AIライフコーチング（hintl）・AI映像制作・AIアプリ開発の学習・コーチング（AJARA Studio）の5事業を展開する会社です。法人向けAI研修では、中小企業の生成AI活用を実践研修と現場伴走で支援し、各種リスキリング助成金の対象要件を満たす設計でご提供します。",
       },
     },
     {

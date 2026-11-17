@@ -1,287 +1,204 @@
-import Navigation from "@/components/Navigation";
-import FadeInSection from "@/components/FadeInSection";
-import FloatingCTA from "@/components/FloatingCTA";
-import Footer from "@/components/Footer";
-import StudioConsultForm from "@/components/StudioConsultForm";
+import Link from "next/link";
 import {
-  studioExtraServices,
-  studioFaq,
-  studioPlans,
-  studioPricingNotes,
-} from "@/data/studio";
+  StudioButton,
+  StudioCTABand,
+  StudioMobileBar,
+  StudioSectionTitle,
+} from "@/components/studio/StudioChrome";
+import { STUDIO_CTA_SUB, studioFaq, studioServices } from "@/data/studio";
+
+const worries = [
+  "初心者でも大丈夫？",
+  "何から始めればいい？",
+  "AIでどこまで作れるの？",
+  "途中で止まってしまった…",
+  "アイデアを形にする方法がわからない",
+  "リリースまでの道筋が見えない",
+];
 
 const features = [
   {
-    title: "気軽に相談できる",
-    desc: "「何から始めればいい？」の段階から相談OK。専門用語を使わず、今のあなたに合わせて一緒に考えます。",
+    title: "AIを使って作る",
+    desc: "最新のAI開発ツールを使い、少ないコードでも動くアプリを作る方法を身につけます。",
+    color: "bg-studio-purple text-white",
   },
   {
-    title: "自分の手で作れるようになる",
-    desc: "代わりに作るのではなく、設計・技術選定・コードレビューで、あなたが作り切れるように支えます。",
+    title: "実践重視",
+    desc: "教科書を読むだけで終わらせず、実際にアプリを作り、動かし、公開するところまで進めます。",
+    color: "bg-studio-yellow text-studio-ink",
   },
   {
-    title: "完成・公開まで伴走",
-    desc: "企画・要件整理から開発計画、公開準備まで。途中で止まりがちなところを、定期的な相談で前に進めます。",
+    title: "オンラインで伴走",
+    desc: "どこからでも参加できるオンライン中心のサポート。つまずいたら一緒に解決します。",
+    color: "bg-studio-coral text-white",
   },
-];
-
-const buildables = [
-  { title: "アプリ", desc: "スマホアプリ・Webアプリ・業務ツール" },
-  { title: "ゲーム", desc: "ブラウザ・スマホ・PC向けのゲーム" },
-  { title: "AIツール", desc: "生成AIを使ったサービスやチャットボット" },
-  { title: "自動化", desc: "AIを使った日々の作業・業務の自動化" },
-];
-
-const audiences = [
-  "アイデアはあるけれど、何から手をつければいいかわからない",
-  "独学で作り始めたが、途中で行き詰まっている",
-  "副業や個人開発で、アプリやゲームを公開してみたい",
-  "クリエイターとして、自分の作品をゲームやアプリにしたい",
-  "事業者として、新しいサービスや社内ツールを形にしたい",
 ];
 
 const flow = [
-  { step: "01", title: "フォームで相談内容を送る", desc: "作りたいもの・今の状況を選ぶだけ。1分ほどで終わります。" },
-  { step: "02", title: "日時を予約する", desc: "空いている日時から選ぶと、オンライン相談のURL（Google Meet）が届きます。" },
-  { step: "03", title: "30分の無料相談", desc: "やりたいこと・開発経験・ご予算・必要な支援の範囲をお聞きします。" },
-  { step: "04", title: "プランのご提案", desc: "合う月額プラン、または個別のお見積もりをご案内します。" },
+  { step: "1", title: "30分の無料相談", desc: "Google Meet で、やってみたいことや今の状況をお聞きします。" },
+  { step: "2", title: "ご提案", desc: "スクールとコーチングのどちらが合うか、進め方と内容をご案内します。" },
+  { step: "3", title: "サポート開始", desc: "納得いただけたらスタート。あなたのペースで一緒に進めます。" },
 ];
 
-export default function StudioPage() {
+const accentBg = { purple: "bg-studio-purple", coral: "bg-studio-coral" } as const;
+
+export default function StudioTop() {
   return (
     <>
-      <Navigation />
-      <main>
-        {/* Hero */}
-        <section className="relative pt-40 pb-24 px-6 overflow-hidden">
-          <div className="max-w-4xl mx-auto text-center">
-            <FadeInSection>
-              <span className="inline-block text-xs px-3 py-1 rounded-full border border-accent/20 text-accent/80 mb-8 font-sans">
-                アプリ・ゲーム・AI開発の相談と伴走
+      {/* Hero */}
+      <section className="relative overflow-hidden px-4 sm:px-6 pt-12 pb-16 sm:pt-20 sm:pb-24">
+        <span aria-hidden className="absolute top-10 -right-16 w-56 h-56 rounded-full bg-studio-lavender" />
+        <span aria-hidden className="absolute bottom-6 -left-10 w-32 h-32 rounded-full bg-studio-yellow/60" />
+        <div className="relative max-w-6xl mx-auto grid lg:grid-cols-[1.15fr_1fr] gap-12 items-center">
+          <div>
+            <p className="inline-flex items-center gap-2 font-rounded font-bold text-sm bg-white border-2 border-studio-ink rounded-full px-4 py-1.5 mb-6">
+              <span className="w-2 h-2 rounded-full bg-studio-coral" />
+              オンライン・30分・無料
+            </p>
+            <h1 className="font-rounded font-black text-[2.1rem] leading-[1.3] sm:text-5xl xl:text-[3.6rem] sm:leading-[1.2] mb-6">
+              そのアイデア、
+              <br />
+              <span className="whitespace-nowrap">
+              <span className="relative inline-block">
+                <span aria-hidden className="absolute inset-x-0 bottom-1 h-4 sm:h-5 bg-studio-yellow -z-0 rounded" />
+                <span className="relative">一緒にカタチ</span>
               </span>
-              <h1 className="font-serif text-4xl sm:text-6xl font-semibold text-snow leading-tight mb-6">
-                そのアイデア、
-                <br />
-                一緒につくろう。
-              </h1>
-              <p className="text-slate-400 text-base sm:text-lg leading-relaxed max-w-2xl mx-auto mb-10">
-                アプリ・ゲーム・AI開発を、もっと身近に。初心者から個人開発者・事業者まで、気軽に相談しながらアイデアを形にできる、月額制の開発支援・個別伴走サービスです。
-              </p>
-              <div className="flex flex-col sm:flex-row gap-3 justify-center">
-                <a
-                  href="#consult"
-                  className="bg-accent hover:bg-accent-light text-navy-dark font-semibold px-8 py-4 rounded-full transition-all duration-300 hover:shadow-lg hover:shadow-accent/20"
-                >
-                  無料で相談する（30分）
-                </a>
-                <a
-                  href="#pricing"
-                  className="px-8 py-4 rounded-full border border-white/15 text-slate-300 hover:border-white/30 hover:text-snow transition-all duration-300"
-                >
-                  料金を見る
-                </a>
-              </div>
-            </FadeInSection>
+              にしよう。
+              </span>
+            </h1>
+            <p className="text-studio-muted text-base sm:text-lg leading-relaxed mb-8 max-w-xl">
+              AIでアプリを作れるようになりたい人も、作りたいアイデアがある人も。学ぶことから、リリースすることまで。
+            </p>
+            <StudioButton />
+            <p className="text-studio-muted text-sm mt-4">Google Meet で気軽に相談できます</p>
           </div>
-        </section>
 
-        <div className="section-divider" />
-
-        {/* Features */}
-        <section className="py-24 px-6">
-          <div className="max-w-6xl mx-auto">
-            <FadeInSection>
-              <p className="text-accent text-sm tracking-[0.2em] uppercase mb-6 font-sans text-center">Features</p>
-              <h2 className="font-serif text-3xl sm:text-4xl font-semibold text-snow text-center mb-16">
-                AJARA Studio の特徴
-              </h2>
-            </FadeInSection>
-            <div className="grid md:grid-cols-3 gap-6">
-              {features.map((f, i) => (
-                <FadeInSection key={f.title} delay={i * 0.1}>
-                  <div className="glass p-8 h-full">
-                    <p className="font-serif text-3xl text-accent mb-4">0{i + 1}</p>
-                    <h3 className="text-snow font-semibold text-lg mb-3">{f.title}</h3>
-                    <p className="text-slate-400 text-sm leading-relaxed">{f.desc}</p>
-                  </div>
-                </FadeInSection>
-              ))}
+          <div aria-hidden className="relative mx-auto w-full max-w-md">
+            <div className="rounded-[1.75rem] bg-white border-2 border-studio-ink shadow-[8px_8px_0_#1F1A3D] p-5 rotate-[2deg]">
+              <div className="flex gap-1.5 mb-4">
+                <span className="w-3 h-3 rounded-full bg-studio-coral" />
+                <span className="w-3 h-3 rounded-full bg-studio-yellow" />
+                <span className="w-3 h-3 rounded-full bg-studio-purple" />
+              </div>
+              <div className="rounded-2xl bg-studio-lavender p-4 mb-3">
+                <p className="font-rounded font-bold text-sm mb-1">💡 アイデア</p>
+                <p className="text-xs text-studio-muted">近所のカフェの空席がわかるアプリ</p>
+              </div>
+              <div className="rounded-2xl bg-studio-purple text-white p-4 mb-3 ml-8">
+                <p className="font-rounded font-bold text-sm mb-1">🤖 AIと一緒に設計</p>
+                <p className="text-xs text-white/80">画面・データ・機能を整理</p>
+              </div>
+              <div className="rounded-2xl bg-studio-yellow p-4 mr-8">
+                <p className="font-rounded font-bold text-sm mb-1">🚀 リリース！</p>
+                <p className="text-xs text-studio-ink/70">みんなに使ってもらえる</p>
+              </div>
             </div>
           </div>
-        </section>
+        </div>
+      </section>
 
-        <div className="section-divider" />
+      {/* 01 Services */}
+      <section className="px-4 sm:px-6 py-16 sm:py-24 bg-white border-y-2 border-studio-ink/10">
+        <div className="max-w-6xl mx-auto">
+          <StudioSectionTitle eyebrow="01｜2つのサービス" title="学びたい人にも、作りたい人にも。" />
+          <div className="grid md:grid-cols-2 gap-6 mt-12">
+            {studioServices.map((s) => (
+              <Link
+                key={s.id}
+                href={s.href}
+                className="group rounded-[1.75rem] bg-studio-cream border-2 border-studio-ink p-7 sm:p-9 shadow-[6px_6px_0_#1F1A3D] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[4px_4px_0_#1F1A3D] transition-all"
+              >
+                <span className={`inline-block text-xs font-bold text-white rounded-full px-3 py-1 mb-5 ${accentBg[s.accent]}`}>
+                  {s.label}
+                </span>
+                <h3 className="font-rounded font-black text-2xl sm:text-3xl mb-2">{s.name}</h3>
+                <p className="font-rounded font-bold text-studio-purple mb-4">{s.short}</p>
+                <p className="text-studio-muted leading-relaxed mb-6">{s.summary}</p>
+                <span className="inline-flex items-center gap-1 font-bold text-sm group-hover:gap-2 transition-all">
+                  くわしく見る →
+                </span>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
 
-        {/* Buildables + audiences */}
-        <section className="py-24 px-6">
-          <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-16">
-            <FadeInSection>
-              <p className="text-accent text-sm tracking-[0.2em] uppercase mb-6 font-sans">What You Can Build</p>
-              <h2 className="font-serif text-3xl font-semibold text-snow mb-10">どんなものを作れる？</h2>
-              <div className="grid grid-cols-2 gap-4">
-                {buildables.map((b) => (
-                  <div key={b.title} className="glass p-6">
-                    <h3 className="text-snow font-semibold mb-2">{b.title}</h3>
-                    <p className="text-slate-400 text-sm leading-relaxed">{b.desc}</p>
-                  </div>
-                ))}
+      {/* 02 Worries */}
+      <section className="px-4 sm:px-6 py-16 sm:py-24">
+        <div className="max-w-5xl mx-auto">
+          <StudioSectionTitle eyebrow="02｜こんなお悩みありませんか？" title="そのモヤモヤ、相談してください。" />
+          <ul className="flex flex-wrap justify-center gap-3 mt-12">
+            {worries.map((w, i) => (
+              <li
+                key={w}
+                className={`font-rounded font-bold rounded-full border-2 border-studio-ink px-5 py-3 text-sm sm:text-base ${
+                  i % 3 === 0 ? "bg-white" : i % 3 === 1 ? "bg-studio-lavender" : "bg-studio-yellow/70"
+                }`}
+              >
+                {w}
+              </li>
+            ))}
+          </ul>
+          <p className="text-center text-studio-muted mt-10 leading-relaxed">{STUDIO_CTA_SUB}</p>
+        </div>
+      </section>
+
+      {/* 03 Features */}
+      <section className="px-4 sm:px-6 py-16 sm:py-24 bg-studio-lavender">
+        <div className="max-w-6xl mx-auto">
+          <StudioSectionTitle eyebrow="03｜AJARA Studio の特徴" title="AIで、作れる人になる。" />
+          <div className="grid md:grid-cols-3 gap-6 mt-12">
+            {features.map((f, i) => (
+              <div key={f.title} className="rounded-[1.5rem] bg-white border-2 border-studio-ink p-7">
+                <span className={`w-12 h-12 rounded-2xl grid place-items-center font-rounded font-black text-xl mb-5 ${f.color}`}>
+                  {i + 1}
+                </span>
+                <h3 className="font-rounded font-black text-xl mb-3">{f.title}</h3>
+                <p className="text-studio-muted text-sm leading-relaxed">{f.desc}</p>
               </div>
-            </FadeInSection>
-            <FadeInSection delay={0.1}>
-              <p className="text-accent text-sm tracking-[0.2em] uppercase mb-6 font-sans">For You</p>
-              <h2 className="font-serif text-3xl font-semibold text-snow mb-10">こんな人におすすめ</h2>
-              <ul className="space-y-3">
-                {audiences.map((a) => (
-                  <li key={a} className="glass px-5 py-4 flex gap-3 text-slate-300 text-sm leading-relaxed">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#E8600A" strokeWidth="2.5" className="shrink-0 mt-0.5">
-                      <path d="M20 6L9 17l-5-5" />
-                    </svg>
-                    {a}
-                  </li>
-                ))}
-              </ul>
-            </FadeInSection>
+            ))}
           </div>
-        </section>
+        </div>
+      </section>
 
-        <div className="section-divider" />
+      {/* 04 Flow */}
+      <section className="px-4 sm:px-6 py-16 sm:py-24">
+        <div className="max-w-5xl mx-auto">
+          <StudioSectionTitle eyebrow="04｜ご利用までの流れ" title="まずは話すところから。" />
+          <ol className="grid md:grid-cols-3 gap-6 mt-12">
+            {flow.map((f) => (
+              <li key={f.step} className="relative rounded-[1.5rem] bg-white border-2 border-studio-ink p-7">
+                <span className="absolute -top-5 left-6 w-10 h-10 rounded-full bg-studio-yellow border-2 border-studio-ink grid place-items-center font-rounded font-black">
+                  {f.step}
+                </span>
+                <h3 className="font-rounded font-black text-lg mt-3 mb-2">{f.title}</h3>
+                <p className="text-studio-muted text-sm leading-relaxed">{f.desc}</p>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </section>
 
-        {/* Pricing */}
-        <section id="pricing" className="py-24 px-6">
-          <div className="max-w-6xl mx-auto">
-            <FadeInSection>
-              <p className="text-accent text-sm tracking-[0.2em] uppercase mb-6 font-sans text-center">Pricing</p>
-              <h2 className="font-serif text-3xl sm:text-4xl font-semibold text-snow text-center mb-4">料金プラン</h2>
-              <p className="text-slate-400 text-center mb-16">入会金0円。月額制で、必要な分だけ相談できます。</p>
-            </FadeInSection>
-            <div className="grid md:grid-cols-3 gap-6 items-stretch">
-              {studioPlans.map((p, i) => (
-                <FadeInSection key={p.id} delay={i * 0.1}>
-                  <div
-                    className={`glass relative p-8 h-full flex flex-col ${
-                      p.featured ? "border-accent/50 shadow-lg shadow-accent/10" : ""
-                    }`}
-                  >
-                    {p.featured && (
-                      <span className="absolute -top-3 left-1/2 -translate-x-1/2 text-xs px-3 py-1 rounded-full bg-accent text-navy-dark font-semibold whitespace-nowrap">
-                        主力プラン
-                      </span>
-                    )}
-                    <p className="text-xs tracking-widest text-slate-500 mb-2">{p.label}</p>
-                    <h3 className="text-snow text-xl font-bold">{p.name}</h3>
-                    <p className="text-accent/80 text-sm mb-6">{p.tagline}</p>
-                    <p className="mb-6">
-                      <span className="font-serif text-4xl font-bold text-snow">{p.price}</span>
-                      <span className="text-slate-500 text-sm ml-1">{p.priceSuffix}</span>
-                    </p>
-                    <p className="text-slate-400 text-sm leading-relaxed mb-6">{p.description}</p>
-                    <ul className="space-y-2.5 text-sm text-slate-300 flex-1">
-                      {p.features.map((f) => (
-                        <li key={f} className="flex gap-2">
-                          <span className="text-accent shrink-0">✓</span>
-                          {f}
-                        </li>
-                      ))}
-                    </ul>
-                    <a
-                      href="#consult"
-                      className={`mt-8 text-center py-3 rounded-full font-semibold transition-all duration-300 ${
-                        p.featured
-                          ? "bg-accent hover:bg-accent-light text-navy-dark"
-                          : "border border-white/15 text-slate-200 hover:border-accent/50"
-                      }`}
-                    >
-                      無料相談で相談する
-                    </a>
-                  </div>
-                </FadeInSection>
-              ))}
-            </div>
-
-            <FadeInSection>
-              <div className="glass p-6 sm:p-8 mt-8">
-                <h3 className="text-snow font-semibold mb-4">その他のサービス</h3>
-                <dl className="grid sm:grid-cols-2 gap-4 mb-6">
-                  {studioExtraServices.map((s) => (
-                    <div key={s.name} className="flex justify-between gap-4 border-b border-white/5 pb-3">
-                      <dt className="text-slate-300 text-sm">{s.name}</dt>
-                      <dd className="text-snow text-sm font-semibold whitespace-nowrap">{s.price}</dd>
-                    </div>
-                  ))}
-                </dl>
-                <ul className="space-y-1.5 text-slate-500 text-xs leading-relaxed">
-                  {studioPricingNotes.map((n) => (
-                    <li key={n}>※ {n}</li>
-                  ))}
-                </ul>
-              </div>
-            </FadeInSection>
+      {/* 05 FAQ */}
+      <section className="px-4 sm:px-6 py-16 sm:py-24 bg-white border-y-2 border-studio-ink/10">
+        <div className="max-w-3xl mx-auto">
+          <StudioSectionTitle eyebrow="05｜よくある質問" title="気になること、先にお答えします。" />
+          <div className="mt-12 space-y-3">
+            {studioFaq.map(({ q, a }) => (
+              <details key={q} className="group rounded-2xl border-2 border-studio-ink bg-studio-cream px-5 py-4 open:bg-studio-lavender">
+                <summary className="cursor-pointer list-none flex justify-between gap-4 font-rounded font-bold">
+                  <span>Q. {q}</span>
+                  <span className="text-studio-purple text-xl leading-none group-open:rotate-45 transition-transform">＋</span>
+                </summary>
+                <p className="text-studio-muted text-sm leading-relaxed mt-3">{a}</p>
+              </details>
+            ))}
           </div>
-        </section>
+        </div>
+      </section>
 
-        <div className="section-divider" />
-
-        {/* Flow */}
-        <section className="py-24 px-6">
-          <div className="max-w-5xl mx-auto">
-            <FadeInSection>
-              <p className="text-accent text-sm tracking-[0.2em] uppercase mb-6 font-sans text-center">Flow</p>
-              <h2 className="font-serif text-3xl sm:text-4xl font-semibold text-snow text-center mb-16">
-                ご利用開始までの流れ
-              </h2>
-            </FadeInSection>
-            <ol className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-              {flow.map((f, i) => (
-                <FadeInSection key={f.step} delay={i * 0.1}>
-                  <li className="glass p-6 h-full list-none">
-                    <p className="font-serif text-2xl text-accent mb-3">{f.step}</p>
-                    <h3 className="text-snow font-semibold mb-2">{f.title}</h3>
-                    <p className="text-slate-400 text-sm leading-relaxed">{f.desc}</p>
-                  </li>
-                </FadeInSection>
-              ))}
-            </ol>
-          </div>
-        </section>
-
-        <div className="section-divider" />
-
-        {/* FAQ */}
-        <section id="faq" className="py-24 px-6">
-          <div className="max-w-2xl mx-auto">
-            <p className="text-accent text-sm tracking-[0.2em] uppercase mb-6 font-sans text-center">FAQ</p>
-            <h2 className="font-serif text-3xl font-semibold text-snow text-center mb-12">よくある質問</h2>
-            <dl className="flex flex-col gap-6">
-              {studioFaq.map(({ q, a }) => (
-                <div key={q} className="glass p-6">
-                  <dt className="font-sans font-semibold text-snow mb-3">{q}</dt>
-                  <dd className="text-slate-400 text-sm leading-relaxed">{a}</dd>
-                </div>
-              ))}
-            </dl>
-          </div>
-        </section>
-
-        <div className="section-divider" />
-
-        {/* Consult form */}
-        <section id="consult" className="py-24 px-6 scroll-mt-20">
-          <div className="max-w-2xl mx-auto">
-            <FadeInSection>
-              <p className="text-accent text-sm tracking-[0.2em] uppercase mb-6 font-sans text-center">Free Consultation</p>
-              <h2 className="font-serif text-3xl sm:text-4xl font-semibold text-snow text-center mb-4">
-                まずは30分、無料で相談
-              </h2>
-              <p className="text-slate-400 text-center mb-12">
-                3つの質問に答えるだけ。オンライン（Google Meet）で、作りたいものについてお話ししましょう。
-              </p>
-            </FadeInSection>
-            <StudioConsultForm />
-          </div>
-        </section>
-      </main>
-      <Footer />
-      <FloatingCTA href="#consult" />
+      <StudioCTABand />
+      <StudioMobileBar />
     </>
   );
 }

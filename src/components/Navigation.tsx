@@ -8,7 +8,7 @@ const serviceLinks = [
   { href: "/aioru", label: "aioru" },
   { href: "/reskilling", label: "法人研修" },
   { href: "/creative", label: "映像制作" },
-  { href: "/studio", label: "開発伴走" },
+  { href: "/studio", label: "Studio" },
 ];
 
 export default function Navigation() {

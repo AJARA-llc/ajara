@@ -38,10 +38,22 @@ const config: Config = {
           200: "#9fd6d8",
         },
         border: "#e4e7ec",
+        // AJARA Studio (/studio/*) only — requirements v3.0 proposal palette, not a confirmed brand.
+        studio: {
+          purple: "#6D4AFF",
+          "purple-dark": "#5534E0",
+          yellow: "#FFD23F",
+          coral: "#FF6F61",
+          lavender: "#EFEAFF",
+          cream: "#FFFBF2",
+          ink: "#1F1A3D",
+          muted: "#5B5675",
+        },
       },
       fontFamily: {
         serif: ["Noto Serif JP", "serif"],
         sans: ["DM Sans", "Noto Sans JP", "sans-serif"],
+        rounded: ["Zen Maru Gothic", "Noto Sans JP", "sans-serif"],
       },
       animation: {
         "float": "float 6s ease-in-out infinite",

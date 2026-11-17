@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
+import { StudioFooter, StudioHeader } from "@/components/studio/StudioChrome";
 
-const title = "開発伴走 — アプリ・ゲーム・AI開発の相談と伴走 | AJARA Studio";
+const title = "AJARA Studio｜AIアプリ開発スクール・アプリ開発コーチング";
 const description =
-  "アプリ・ゲーム・AI開発を、もっと身近に。初心者から個人開発者・事業者まで、月額¥6,980〜の相談・学習支援と、完成まで伴走するプロジェクト支援。30分の無料オンライン相談受付中。";
+  "AIでアプリを作れるようになりたい人も、作りたいアイデアがある人も。AJARA Studio は、AIアプリ開発の学習と開発コーチングを提供するオンラインスタジオです。30分の無料相談を受付中。";
 
 export const metadata: Metadata = {
   title,
@@ -14,17 +15,23 @@ export const metadata: Metadata = {
     type: "website",
     locale: "ja_JP",
     url: "https://ajara.co.jp/studio",
-    siteName: "合同会社AJARA",
-    images: [{ url: "/images/ogp.png", width: 1200, height: 630, alt: "AJARA Studio 開発伴走" }],
+    siteName: "AJARA Studio",
+    images: [{ url: "/images/ogp.png", width: 1200, height: 630, alt: "AJARA Studio" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "開発伴走 | AJARA Studio",
-    description: "アプリ・ゲーム・AI開発の相談と伴走。30分の無料オンライン相談受付中。",
+    title,
+    description: "AIアプリ開発の学習と開発コーチング。30分の無料相談を受付中。",
     images: ["/images/ogp.png"],
   },
 };
 
 export default function StudioLayout({ children }: { children: React.ReactNode }) {
-  return children;
+  return (
+    <div className="min-h-screen bg-studio-cream text-studio-ink font-sans">
+      <StudioHeader />
+      <main>{children}</main>
+      <StudioFooter />
+    </div>
+  );
 }
