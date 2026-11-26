@@ -1,26 +1,31 @@
 import Link from "next/link";
 import {
-  BigNum,
-  CalendarIcon,
+  ArrowCircle,
   SectionHeading,
+  SectionTag,
   StudioButton,
   StudioCTABand,
+  StudioIcon,
   StudioMobileBar,
   StudioTrustRow,
+  display,
+  type StudioIconName,
 } from "@/components/studio/StudioChrome";
-import { studioFaq, studioServices } from "@/data/studio";
+import { studioFaq, studioInstructor, studioServices } from "@/data/studio";
 
-const ideas = [
-  { icon: "icon-coffee", text: ["近所のカフェの", "空席がわかるアプリ"] },
-  { icon: "icon-heart", text: ["推し活をもっと楽しく", "管理できるアプリ"] },
-  { icon: "icon-check", text: ["習慣化をサポートする", "アプリ"] },
-  { icon: "icon-calendar", text: ["お店の予約や", "顧客管理をラクにするアプリ"] },
+const marquee = ["AI APP", "PRODUCT DEVELOPMENT", "LEARNING", "COACHING"];
+
+const ideas: { icon: StudioIconName; text: string[] }[] = [
+  { icon: "coffee", text: ["近所のカフェの", "空席がわかるアプリ"] },
+  { icon: "heart", text: ["推し活を", "もっと楽しく", "管理できるアプリ"] },
+  { icon: "check", text: ["習慣化を", "サポートする", "アプリ"] },
+  { icon: "calendar", text: ["お店の予約や", "顧客管理を", "ラクにするアプリ"] },
 ];
 
-const reasons = [
-  { icon: "icon-robot", title: "AIでぐっと身近に", desc: "むずかしい開発も、AIの力でスムーズに。" },
-  { icon: "icon-bolt", title: "実践で身につく", desc: "学ぶだけでなく、実際にアプリを作りながら進める。" },
-  { icon: "icon-team", title: "最後まで伴走", desc: "わからないことも、一緒に考え、解決していきます。" },
+const reasons: { icon: StudioIconName; title: string; desc: string }[] = [
+  { icon: "spark", title: "AIでぐっと身近に", desc: "むずかしい開発も、AIの力でスムーズに。" },
+  { icon: "bolt", title: "実践で身につく", desc: "学ぶだけでなく、実際にアプリを作りながら進める。" },
+  { icon: "team", title: "最後まで伴走", desc: "わからないことも、一緒に考え、解決していきます。" },
 ];
 
 const flow = [
@@ -29,29 +34,159 @@ const flow = [
   { step: "03", title: "サポート開始", desc: "納得いただけたらスタート。あなたのペースで一緒に進めます。" },
 ];
 
-const cardTheme = {
-  purple: {
-    card: "bg-gradient-to-br from-[#F4EDFF] to-[#EADFFF] border-[#DCCBFF]",
-    tag: "bg-studio-purple",
-    arrow: "bg-studio-purple",
-  },
-  orange: {
-    card: "bg-gradient-to-br from-[#FFF4EC] to-[#FFE6D8] border-[#FFD3B8]",
-    tag: "bg-studio-orange",
-    arrow: "bg-[#F5455C]",
-  },
-} as const;
-
-function Img({ name, className, alt = "" }: { name: string; className: string; alt?: string }) {
-  // eslint-disable-next-line @next/next/no-img-element
-  return <img src={`/images/studio/${name}.webp`} alt={alt} width={256} height={256} loading="lazy" className={className} />;
+/** Keeps a Japanese phrase on one line so headings never break mid-word. */
+function Ph({ children }: { children: React.ReactNode }) {
+  return <span className="inline-block">{children}</span>;
 }
 
-function Arrow({ className = "" }: { className?: string }) {
+const card = "rounded-3xl border-2 border-studio-line bg-white";
+
+// 20x20 pixel rocket. K = outline, W = body, P = lilac, . = empty.
+const ROCKET = [
+  "....................",
+  "..............KKKKK.",
+  "............KKPPPPK.",
+  "...........KWWPPPPK.",
+  "..........KWWWWPPPK.",
+  ".........KWWWWWWPK..",
+  "..KKKKKKKWWKKKWWWK..",
+  "..KPPPPKWWKPPPKWWK..",
+  "..KPPPKWWWKPPPKWK...",
+  "...KPKWWWWKPPPKWK...",
+  "....KWWWWWWKKKWK....",
+  "....KWWWWWWWWWWK....",
+  "...KWWWWWWWWWKKK....",
+  "..KKWWWWWWWWKPPK....",
+  "....KWWWWWWKKPPK....",
+  ".K...KWWWWK.KPPK....",
+  "...K..KKKK..KPPK....",
+  ".K..K.......KPK.....",
+  "..K..........KK.....",
+  "....................",
+];
+const ROCKET_FILL: Record<string, string> = { K: "#111111", W: "#FFFFFF", P: "#C9B6FF" };
+
+function PixelRocket({ className = "" }: { className?: string }) {
   return (
-    <svg viewBox="0 0 48 24" className={`w-8 sm:w-10 text-studio-purple ${className}`} fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
-      <path d="M3 12h38M33 5l8 7-8 7" />
+    <svg viewBox="0 0 20 20" shapeRendering="crispEdges" className={className} aria-hidden>
+      {ROCKET.flatMap((row, y) =>
+        row.split("").map((c, x) => (c === "." ? null : <rect key={`${x}-${y}`} x={x} y={y} width="1.02" height="1.02" fill={ROCKET_FILL[c]} />)),
+      )}
     </svg>
+  );
+}
+
+function Sparkle({ className = "" }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 12 12" shapeRendering="crispEdges" className={className} aria-hidden>
+      <path fill="#111" d="M5 0h2v3h1v1h1v1h3v2H9v1H8v1H7v3H5V9H4V8H3V7H0V5h3V4h1V3h1z" />
+      <path fill="#D2FB2E" d="M5.5 2.5h1v2h1v1h2v1h-2v1h-1v2h-1v-2h-1v-1h-2v-1h2v-1h1z" />
+    </svg>
+  );
+}
+
+function PixelCursor({ className = "" }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 12 16" shapeRendering="crispEdges" className={className} aria-hidden>
+      <path fill="#fff" d="M1 1v12l3-3 2 5 2-1-2-5h4z" />
+      <path fill="#111" d="M0 0h1v14H0zM1 1h1v1H1zM2 2h1v1H2zM3 3h1v1H3zM4 4h1v1H4zM5 5h1v1H5zM6 6h1v1H6zM7 7h1v1H7zM8 8h1v1H8zM9 9h1v1H9zM6 10h5v1H6zM1 13h1v1H1zM2 12h1v1H2zM3 11h1v1H3zM4 11h1v2H4zM5 13h1v2H5zM6 15h2v1H6zM8 13h1v2H8zM7 11h1v2H7z" />
+    </svg>
+  );
+}
+
+function CrossGrid({ className = "" }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 120 90" className={className} fill="none" stroke="#111" strokeOpacity="0.14" strokeWidth="1" aria-hidden>
+      {[15, 45, 75, 105].flatMap((x) => [15, 45, 75].map((y) => <path key={`${x}-${y}`} d={`M${x - 9} ${y}h18M${x} ${y - 9}v18`} />))}
+    </svg>
+  );
+}
+
+function HeroArt() {
+  return (
+    <div aria-hidden className="relative mx-auto aspect-[10/9] w-full max-w-[34rem] lg:max-w-none">
+      {/* code window */}
+      <div className="absolute left-[4%] top-[9%] w-[62%] rotate-[8deg] rounded-[1.1rem] border-[3px] border-studio-lime bg-[#161616] p-[4%] pb-[17%] shadow-[0_18px_40px_-22px_rgba(0,0,0,0.6)]">
+        <div className="flex gap-[0.4em] text-[clamp(0.5rem,1.5vw,0.8rem)]">
+          <span className="h-[1em] w-[1em] rounded-full bg-[#FF5147]" />
+          <span className="h-[1em] w-[1em] rounded-full bg-[#9BE21B]" />
+          <span className="h-[1em] w-[1em] rounded-full bg-[#1FB6F5]" />
+        </div>
+        <pre className="mt-[9%] font-code font-medium leading-[1.75] text-[clamp(0.62rem,1.75vw,1.05rem)] text-[#C9B6FF]">
+          {">_ AI × Development\n"}
+          <span className="text-[#8E7BFF]">{"> "}</span>
+          <span className="text-[#FFE45C]">create</span>
+          <span className="text-white/80">{"();\n"}</span>
+          <span className="text-[#8E7BFF]">{"> "}</span>
+          <span className="text-[#B8F53A]">build</span>
+          <span className="text-white/80">{"();\n"}</span>
+          <span className="text-[#8E7BFF]">{"> "}</span>
+          <span className="text-[#5BE36A]">release</span>
+          <span className="text-white/80">();</span>
+        </pre>
+      </div>
+
+      {/* starburst */}
+      <div className="absolute right-[-3%] top-[-3%] w-[34%] rotate-[-7deg]">
+        <svg viewBox="0 0 200 200" className="w-full text-studio-lime">
+          <path fill="currentColor" d="M100 0l14 30 27-19 1 33 32-7-12 31 33 7-24 22 28 18-31 11 18 28-33-2 5 33-30-14-10 32-18-28-18 28-10-32-30 14 5-33-33 2 18-28-31-11 28-18-24-22 33-7-12-31 32 7 1-33 27 19z" />
+        </svg>
+        <p className="absolute inset-0 grid place-content-center text-center font-studio font-black uppercase leading-[1.15] text-studio-ink text-[clamp(0.5rem,1.45vw,0.92rem)]">
+          <span className="text-[1.5em] leading-none">AI</span>
+          Development
+          <br />
+          Studio
+        </p>
+      </div>
+
+      {/* 3D letter */}
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        src="/images/studio/hero-a.webp"
+        alt=""
+        width={900}
+        height={900}
+        fetchPriority="high"
+        className="absolute bottom-[-2%] right-[2%] w-[70%] h-auto animate-studio-bob drop-shadow-[0_24px_30px_rgba(107,63,224,0.22)]"
+      />
+
+      {/* AI tile */}
+      <div className="absolute left-[-1%] top-[49%] grid aspect-square w-[21%] rotate-[-9deg] place-items-center rounded-[22%] bg-gradient-to-br from-white to-[#DCCBFF] shadow-[5px_8px_0_#B9A4F5,0_18px_26px_-12px_rgba(60,30,140,0.45)]">
+        <span className={`${display} italic text-studio-ink text-[clamp(1.2rem,4.4vw,2.9rem)] leading-none`}>AI</span>
+      </div>
+
+      {/* code tile */}
+      <div className="absolute bottom-[6%] left-[-10%] grid aspect-[4/3] w-[20%] rotate-[9deg] place-items-center rounded-[20%] bg-studio-lime shadow-[4px_7px_0_#A9D400,0_16px_24px_-12px_rgba(90,120,0,0.5)]">
+        <span className="font-code font-bold text-studio-ink text-[clamp(0.9rem,3vw,2rem)] leading-none">{"</>"}</span>
+      </div>
+
+      <Sparkle className="absolute right-[-3%] top-[32%] w-[9%]" />
+      <PixelCursor className="absolute bottom-[1%] right-[22%] w-[8%]" />
+    </div>
+  );
+}
+
+function MessageArt() {
+  return (
+    <div aria-hidden className="relative mx-auto aspect-[6/4] w-full max-w-[36rem]">
+      <svg viewBox="0 0 600 400" className="absolute inset-0 h-full w-full text-studio-lime">
+        <path fill="currentColor" d="M318 6c58-16 96 52 148 86 50 33 122 46 128 112 6 62-58 82-106 120-56 44-108 82-190 74-86-8-176 4-232-52-48-48-46-126-6-176 34-42 70-56 112-92 46-40 84-56 146-72z" />
+      </svg>
+      <CrossGrid className="absolute -left-[16%] top-[4%] w-[26%]" />
+      <CrossGrid className="absolute -right-[2%] -top-[6%] w-[22%]" />
+      <div className="absolute left-[10%] top-[12%] w-[58%] rotate-[-7deg] rounded-[1.6rem] bg-white p-[2.2%] shadow-[0_22px_40px_-20px_rgba(0,0,0,0.45)]">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src="/images/studio/photo-laptop.webp" alt="" width={800} height={600} loading="lazy" className="aspect-[4/3] w-full rounded-[1.15rem] object-cover" />
+      </div>
+      <div className="absolute right-[4%] top-[22%] w-[45%] rotate-[7deg] rounded-[1.6rem] bg-white p-[2.2%] shadow-[0_22px_40px_-20px_rgba(0,0,0,0.45)]">
+        <div className="grid aspect-square place-items-center rounded-[1.15rem] bg-studio-lime">
+          <PixelRocket className="w-[74%]" />
+        </div>
+      </div>
+      <svg viewBox="0 0 60 60" className="absolute right-[20%] top-[2%] w-[9%]" fill="none" stroke="#111" strokeWidth="6" strokeLinecap="round">
+        <path d="M10 8l6 22M32 12 24 34M52 26 36 42" />
+      </svg>
+    </div>
   );
 }
 
@@ -59,154 +194,188 @@ export default function StudioTop() {
   return (
     <>
       {/* Hero */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-[#F3ECFF] via-[#F7E9FA] to-[#FFF1E8]">
-        <span aria-hidden className="absolute -top-24 -left-24 w-96 h-96 rounded-full bg-white/60 blur-3xl" />
-        <span aria-hidden className="absolute top-40 right-1/3 w-80 h-80 rounded-full bg-[#E4D3FF]/70 blur-3xl" />
-        <span aria-hidden className="absolute -bottom-24 right-0 w-[28rem] h-72 rounded-full bg-white/70 blur-3xl" />
-        <div className="relative max-w-6xl mx-auto px-4 sm:px-6 pt-8 sm:pt-12 pb-16 lg:pb-20 grid lg:grid-cols-[1fr_1.05fr] gap-8 lg:gap-4 items-center">
-          <div className="lg:py-10">
-            <p className="inline-flex items-center gap-2 font-rounded font-bold text-sm text-studio-purple bg-white/80 rounded-full px-4 py-2 mb-6 shadow-sm">
-              <CalendarIcon className="w-4 h-4" />
-              オンラインで気軽に相談
-            </p>
-            <h1 className="font-rounded font-black text-studio-ink text-[2.2rem] leading-[1.28] sm:text-[3.3rem] sm:leading-[1.22] mb-6 tracking-tight">
-              そのアイデア、
+      <section className="relative overflow-x-clip">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 pt-8 sm:pt-10 pb-12 lg:pb-16 grid lg:grid-cols-[0.9fr_1.1fr] gap-10 lg:gap-4 items-center">
+          <div className="relative">
+            <p className="font-studio font-bold text-[0.8rem] sm:text-[1.05rem] tracking-[0.07em] text-studio-ink">AI DEVELOPMENT &amp; CREATIVE STUDIO</p>
+            <svg aria-hidden viewBox="0 0 200 110" className="absolute right-0 top-4 hidden w-40 text-studio-lime sm:block lg:-right-16 lg:w-48" fill="none" stroke="currentColor" strokeWidth="6" strokeLinecap="round">
+              <path d="M4 22c40-22 78 2 66 40-8 26-44 26-42 4 2-24 52-34 74-8 14 18 0 44-16 40-18-4 0-40 44-40 26 0 44 6 66-2" />
+            </svg>
+            <h1 className={`${display} relative mt-3 uppercase text-studio-ink text-[clamp(3.1rem,15.5vw,5.9rem)] leading-[0.9] tracking-[-0.035em]`}>
+              Build
               <br />
-              <span className="whitespace-nowrap">
-                一緒に
-                <span className="relative inline-block">
-                  アプリ
-                  <svg aria-hidden viewBox="0 0 140 24" preserveAspectRatio="none" className="absolute left-0 -bottom-2 w-full h-4 sm:h-5">
-                    <path d="M4 15c30-8 70-11 130-6M18 20c30-5 60-6 100-3" fill="none" stroke="#FFC83D" strokeWidth="5" strokeLinecap="round" />
-                  </svg>
-                </span>
-                に
+              Your
+              <br />
+              <span className="relative inline-block -rotate-[4deg] px-[0.12em] pb-[0.04em] pt-[0.1em] italic">
+                <span aria-hidden className="absolute -inset-x-[0.14em] inset-y-0 -z-10 -skew-x-[8deg] bg-studio-lime" />
+                Future.
               </span>
-              <br />
-              しよう。
             </h1>
-            <p className="text-studio-ink/85 text-[0.95rem] sm:text-lg leading-[1.9] mb-8 font-medium">
-              AIを使ってアプリを作れるようになりたい人も、
-              <br className="hidden sm:inline" />
-              作りたいアイデアをリリースしたい人も。
+            <p className="mt-8 font-studio font-black text-studio-ink text-[clamp(1.35rem,6.9vw,1.65rem)] sm:text-[2.35rem] leading-tight">AIで、アイデアを現実に。</p>
+            <p className="mt-5 text-studio-ink text-[0.95rem] sm:text-[1.05rem] leading-[1.9] font-medium">
+              学ぶだけで終わらない。
               <br />
-              AJARA Studio が、最初の一歩から伴走します。
+              アイデアを、実際のプロダクトとして
+              <br />
+              <Ph>世の中に届けるところまで</Ph>
+              <Ph>支援するAI開発スタジオです。</Ph>
             </p>
-            <StudioButton />
-            <StudioTrustRow className="mt-6" />
-          </div>
-
-          <div className="relative min-h-[22rem] sm:min-h-[30rem] lg:min-h-[34rem]">
-            <div aria-hidden className="absolute top-0 inset-x-0 flex items-center justify-center lg:justify-end gap-1 sm:gap-2 z-10">
-              <div className="-rotate-6 w-[4.5rem] sm:w-24 aspect-square rounded-md bg-[#FFE992] shadow-md flex flex-col items-center justify-center">
-                <Img name="icon-bulb" className="w-9 sm:w-12 h-auto" />
-                <span className="font-rounded font-bold text-[0.65rem] sm:text-xs text-studio-ink">アイデア!</span>
-              </div>
-              <Arrow />
-              <div className="rotate-3 w-14 sm:w-[4.5rem] aspect-[3/4] rounded-xl bg-white shadow-md border border-studio-ink/10 p-2 flex flex-col gap-1.5">
-                <span className="h-1.5 rounded bg-studio-ink/20" />
-                <span className="flex-1 rounded-md border-2 border-dashed border-studio-ink/20" />
-                <span className="h-1.5 w-2/3 rounded bg-studio-ink/20" />
-                <span className="h-1.5 rounded bg-studio-ink/20" />
-              </div>
-              <Arrow />
-              <Img name="icon-phone" className="w-16 sm:w-24 h-auto drop-shadow-md" />
-              <Arrow />
-              <Img name="icon-rocket" className="w-16 sm:w-24 h-auto -translate-y-3" />
+            <div className="mt-8">
+              <StudioButton />
             </div>
-            <p aria-hidden className="absolute top-[5.5rem] sm:top-28 right-0 z-10 rotate-[-8deg] font-rounded font-black text-studio-ink text-base sm:text-2xl text-center leading-tight bg-white/70 sm:bg-transparent rounded-xl px-2 py-1">
-              リリース！
-              <br />
-              <span className="text-sm sm:text-lg">（公開！）</span>
-            </p>
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src="/images/studio/hero-girl.webp"
-              alt="ノートパソコンでアプリ作りを楽しむ女性"
-              width={900}
-              height={900}
-              fetchPriority="high"
-              className="absolute bottom-0 left-[42%] -translate-x-1/2 lg:translate-x-0 lg:left-auto lg:right-24 w-[17rem] sm:w-[24rem] lg:w-[28rem] h-auto"
-            />
+            <StudioTrustRow className="mt-5" />
+          </div>
+          <HeroArt />
+        </div>
+
+        {/* marquee band */}
+        <div className="relative -mx-[2vw] -rotate-[1.8deg] bg-studio-lime py-3 sm:py-4 overflow-hidden" aria-hidden>
+          <div className="flex w-max animate-marquee">
+            {[0, 1, 2, 3].map((n) => (
+              <ul key={n} className="flex shrink-0 items-center font-studio font-bold text-sm sm:text-[1.05rem] tracking-[0.06em] text-studio-ink">
+                {marquee.map((m) => (
+                  <li key={m} className="flex items-center">
+                    <span className="px-6 sm:px-9">{m}</span>
+                    <span>/</span>
+                  </li>
+                ))}
+              </ul>
+            ))}
           </div>
         </div>
-        <svg aria-hidden viewBox="0 0 1440 60" preserveAspectRatio="none" className="absolute bottom-0 inset-x-0 w-full h-8 sm:h-12 text-studio-bg">
-          <path d="M0 40c240-30 480-30 720-8s480 26 720-6v34H0z" fill="currentColor" />
-        </svg>
+      </section>
+
+      {/* Message */}
+      <section id="message" className="scroll-mt-24 pt-16 sm:pt-24 pb-12 overflow-x-clip">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 grid lg:grid-cols-[0.9fr_1.1fr] gap-12 lg:gap-6 items-center">
+          <div>
+            <SectionTag>MESSAGE</SectionTag>
+            <h2 className="mt-5 font-studio font-black text-studio-ink text-[2.9rem] sm:text-[4.6rem] leading-[1.14] tracking-[-0.01em]">
+              誰もが、
+              <br />
+              つくる側へ。
+            </h2>
+            <p className="mt-6 text-studio-ink text-[0.95rem] sm:text-[1.05rem] leading-[2] font-medium">
+              <Ph>AIの登場によって、</Ph>
+              <Ph>アイデアを実現するための</Ph>
+              <br className="hidden sm:inline" />
+              <Ph>ハードルは大きく変わった。</Ph>
+              <br />
+              <Ph>AJARA STUDIOは、</Ph>
+              <br className="hidden sm:inline" />
+              <Ph>新しい時代の挑戦を支援します。</Ph>
+            </p>
+          </div>
+          <MessageArt />
+        </div>
+      </section>
+
+      {/* Instructor */}
+      <section id="instructor" className="scroll-mt-24 py-12 sm:py-16 overflow-x-clip">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 grid lg:grid-cols-[0.8fr_1.2fr] gap-10 lg:gap-16 items-center">
+          <div className="relative mx-auto w-full max-w-[19rem] sm:max-w-[22rem]">
+            <svg aria-hidden viewBox="0 0 200 200" className="absolute -left-[16%] -top-[12%] w-[46%] text-studio-lime">
+              <path fill="currentColor" d="M100 0l14 30 27-19 1 33 32-7-12 31 33 7-24 22 28 18-31 11 18 28-33-2 5 33-30-14-10 32-18-28-18 28-10-32-30 14 5-33-33 2 18-28-31-11 28-18-24-22 33-7-12-31 32 7 1-33 27 19z" />
+            </svg>
+            <div className="relative -rotate-3 rounded-[1.8rem] bg-white p-[3.5%] shadow-[0_22px_40px_-20px_rgba(0,0,0,0.45)]">
+              {studioInstructor.photo ? (
+                // eslint-disable-next-line @next/next/no-img-element
+                <img src={studioInstructor.photo} alt={`講師 ${studioInstructor.name}`} width={720} height={900} loading="lazy" className="aspect-[4/5] w-full rounded-[1.3rem] object-cover" />
+              ) : (
+                <div className="grid aspect-[4/5] w-full place-items-center rounded-[1.3rem] border-2 border-dashed border-studio-ink/30 bg-studio-lavender">
+                  <span className="font-code font-bold text-sm text-studio-ink/60">PHOTO</span>
+                </div>
+              )}
+            </div>
+            <p aria-hidden className={`${display} absolute -bottom-4 -right-3 rotate-[5deg] bg-studio-ink px-4 py-2 text-sm text-studio-lime sm:text-base`}>
+              {studioInstructor.nameEn}
+            </p>
+          </div>
+          <div>
+            <SectionTag>INSTRUCTOR</SectionTag>
+            <h2 className="mt-5 font-studio font-black text-studio-ink text-[clamp(1.6rem,8vw,2.2rem)] sm:text-[3rem] leading-[1.25]">
+              <Ph>つくってきた人が、</Ph>
+              <Ph>隣で教える。</Ph>
+            </h2>
+            <p className="mt-6 font-studio font-black text-studio-ink text-xl sm:text-2xl">
+              {studioInstructor.name}
+              <span className="ml-3 align-middle text-xs sm:text-sm font-bold text-studio-muted">{studioInstructor.role}</span>
+            </p>
+            <div className="mt-4 space-y-3 text-studio-ink text-[0.95rem] sm:text-[1.05rem] leading-[1.95] font-medium">
+              {studioInstructor.bio.map((b) => (
+                <p key={b}>{b}</p>
+              ))}
+            </div>
+            <ul className="mt-6 flex flex-wrap gap-2">
+              {studioInstructor.points.map((pt) => (
+                <li key={pt} className="rounded-full bg-studio-lavender px-3.5 py-1.5 text-xs sm:text-sm font-bold text-studio-ink">
+                  {pt}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
       </section>
 
       {/* Services */}
-      <section id="services" className="scroll-mt-20 px-4 sm:px-6 pt-12 sm:pt-16 pb-12">
-        <div className="max-w-6xl mx-auto">
-          <SectionHeading>
-            あなたの目的に合わせて選べる<BigNum>2</BigNum>つのサービス
+      <section id="services" className="scroll-mt-24 py-12 sm:py-16">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6">
+          <SectionHeading tag="SERVICE">
+            <Ph>AIで、</Ph>
+            <Ph>つくる・学ぶ・届ける。</Ph>
           </SectionHeading>
-          <div className="grid md:grid-cols-2 gap-6 sm:gap-8 mt-12">
-            {studioServices.map((s) => {
-              const t = cardTheme[s.accent];
-              return (
-                <Link
-                  key={s.id}
-                  href={s.href}
-                  className={`group relative rounded-3xl border ${t.card} px-5 sm:px-7 pt-10 pb-7 shadow-[0_12px_30px_-18px_rgba(46,10,114,0.35)] hover:-translate-y-1 transition-transform`}
-                >
-                  <span className={`absolute -top-4 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full text-white font-rounded font-bold text-sm px-5 py-1.5 ${t.tag}`}>
-                    {s.tag}
-                  </span>
-                  <div className="flex items-center gap-3 sm:gap-6">
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img src={s.icon} alt="" width={256} height={256} loading="lazy" className="w-16 sm:w-32 h-auto shrink-0" />
-                    <div className="flex-1">
-                      <h3 className="font-rounded font-black text-[1.15rem] sm:text-[1.65rem] text-studio-ink mb-2 min-[375px]:whitespace-nowrap">{s.name}</h3>
-                      <p className="text-studio-ink/80 text-sm sm:text-[0.95rem] leading-relaxed">{s.summary}</p>
-                    </div>
-                    <span className={`w-9 h-9 shrink-0 rounded-full text-white grid place-items-center self-end group-hover:translate-x-1 transition-transform ${t.arrow}`}>
-                      <svg viewBox="0 0 24 24" className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
-                        <path d="M5 12h14M13 6l6 6-6 6" />
-                      </svg>
-                    </span>
-                  </div>
-                </Link>
-              );
-            })}
+          <div className="grid md:grid-cols-2 gap-5 mt-9">
+            {studioServices.map((s) => (
+              <Link key={s.id} href={s.href} className={`group ${card} px-4 py-6 sm:px-8 sm:py-8 transition-colors duration-200 hover:border-studio-ink`}>
+                <div className="flex items-center gap-3 sm:gap-6">
+                  <StudioIcon name={s.icon} className="w-10 h-10 sm:w-16 sm:h-16" />
+                  <h3 className="flex-1 font-studio font-black text-studio-ink text-[clamp(0.85rem,4.4vw,1.2rem)] sm:text-[1.6rem] leading-snug">{s.name}</h3>
+                  <ArrowCircle />
+                </div>
+                <p className="mt-5 inline-block rounded-full bg-studio-lavender px-3 py-1 text-xs font-bold text-studio-ink">{s.tag}</p>
+                <p className="mt-3 text-studio-ink/80 text-sm sm:text-[0.95rem] leading-[1.85]">{s.summary}</p>
+              </Link>
+            ))}
           </div>
         </div>
       </section>
 
       {/* Idea examples */}
-      <section className="px-4 sm:px-6 py-12">
-        <div className="max-w-6xl mx-auto">
-          <SectionHeading>こんなアプリのアイデアも、実現できます</SectionHeading>
-          <ul className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-5 mt-10">
+      <section id="ideas" className="scroll-mt-24 py-12 sm:py-16">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6">
+          <SectionHeading tag="IDEAS">
+            <Ph>こんなアイデアも、</Ph>
+            <Ph>アプリにできます。</Ph>
+          </SectionHeading>
+          <ul className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-5 mt-9">
             {ideas.map((i) => (
-              <li key={i.icon} className="rounded-2xl bg-white border border-studio-ink/[0.06] shadow-[0_10px_24px_-16px_rgba(46,10,114,0.3)] px-3 py-6 text-center">
-                <Img name={i.icon} className="w-14 sm:w-16 h-auto mx-auto mb-3" />
-                <p className="font-rounded font-bold text-studio-ink text-[0.82rem] sm:text-base leading-snug">
-                  {i.text[0]}
-                  <br />
-                  {i.text[1]}
+              <li key={i.icon} className={`${card} px-3 min-[360px]:px-4 py-6 sm:px-6 sm:py-7`}>
+                <StudioIcon name={i.icon} className="w-11 h-11 sm:w-12 sm:h-12" />
+                <p className="mt-4 font-studio font-black text-studio-ink text-[0.72rem] min-[360px]:text-[0.85rem] sm:text-[1.05rem] leading-snug">
+                  {i.text.map((t) => (
+                    <Ph key={t}>{t}</Ph>
+                  ))}
                 </p>
               </li>
             ))}
           </ul>
-          <p className="text-center text-studio-muted text-xs mt-4">※ アイデアの一例です。</p>
+          <p className="text-studio-muted text-xs mt-4">※ アイデアの一例です。</p>
         </div>
       </section>
 
       {/* Reasons */}
-      <section id="features" className="scroll-mt-20 px-4 sm:px-6 py-12">
-        <div className="max-w-6xl mx-auto">
-          <SectionHeading>
-            AJARA Studio が選ばれる<BigNum>3</BigNum>つの理由
+      <section id="features" className="scroll-mt-24 py-12 sm:py-16">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6">
+          <SectionHeading tag="WHY">
+            <Ph>AJARA STUDIO の</Ph>
+            <Ph>3つの特徴。</Ph>
           </SectionHeading>
-          <ul className="grid md:grid-cols-3 gap-4 sm:gap-6 mt-10">
+          <ul className="grid md:grid-cols-3 gap-4 sm:gap-5 mt-9">
             {reasons.map((r) => (
-              <li key={r.title} className="flex items-center gap-4 rounded-2xl bg-white border border-studio-ink/[0.06] shadow-[0_10px_24px_-16px_rgba(46,10,114,0.3)] px-5 py-6">
-                <Img name={r.icon} className="w-16 h-auto shrink-0" />
-                <div>
-                  <h3 className="font-rounded font-black text-lg sm:text-xl text-studio-ink mb-1">{r.title}</h3>
-                  <p className="text-studio-ink/75 text-sm leading-relaxed">{r.desc}</p>
-                </div>
+              <li key={r.title} className={`${card} px-6 py-7`}>
+                <StudioIcon name={r.icon} />
+                <h3 className="mt-4 font-studio font-black text-xl text-studio-ink">{r.title}</h3>
+                <p className="mt-2 text-studio-ink/80 text-sm leading-[1.85]">{r.desc}</p>
               </li>
             ))}
           </ul>
@@ -214,22 +383,15 @@ export default function StudioTop() {
       </section>
 
       {/* Flow */}
-      <section id="flow" className="scroll-mt-20 px-4 sm:px-6 py-12">
-        <div className="max-w-5xl mx-auto">
-          <SectionHeading>ご利用までの流れ</SectionHeading>
-          <ol className="grid md:grid-cols-3 gap-4 sm:gap-6 mt-10">
-            {flow.map((f, i) => (
-              <li key={f.step} className="relative rounded-2xl bg-white border border-studio-ink/[0.06] shadow-[0_10px_24px_-16px_rgba(46,10,114,0.3)] p-6">
-                <span className="inline-block font-rounded font-black text-transparent bg-clip-text bg-gradient-to-r from-studio-purple to-studio-orange text-3xl mb-2">
-                  {f.step}
-                </span>
-                <h3 className="font-rounded font-black text-lg text-studio-ink mb-2">{f.title}</h3>
-                <p className="text-studio-ink/75 text-sm leading-relaxed">{f.desc}</p>
-                {i < flow.length - 1 && (
-                  <span aria-hidden className="hidden md:block absolute top-1/2 -right-5 -translate-y-1/2 z-10 text-studio-purple">
-                    <svg viewBox="0 0 24 24" className="w-6 h-6" fill="currentColor"><path d="M8 4l10 8-10 8z" /></svg>
-                  </span>
-                )}
+      <section id="flow" className="scroll-mt-24 py-12 sm:py-16">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6">
+          <SectionHeading tag="PROCESS">ご利用までの流れ。</SectionHeading>
+          <ol className="grid md:grid-cols-3 gap-4 sm:gap-5 mt-9">
+            {flow.map((f) => (
+              <li key={f.step} className={`${card} px-6 py-7`}>
+                <span className={`${display} inline-block -rotate-2 bg-studio-lime px-2.5 text-3xl leading-[1.25] text-studio-ink`}>{f.step}</span>
+                <h3 className="mt-4 font-studio font-black text-xl text-studio-ink">{f.title}</h3>
+                <p className="mt-2 text-studio-ink/80 text-sm leading-[1.85]">{f.desc}</p>
               </li>
             ))}
           </ol>
@@ -237,22 +399,22 @@ export default function StudioTop() {
       </section>
 
       {/* FAQ */}
-      <section id="faq" className="scroll-mt-20 px-4 sm:px-6 py-12">
-        <div className="max-w-3xl mx-auto">
-          <SectionHeading>よくある質問</SectionHeading>
-          <div className="mt-10 space-y-3">
+      <section id="faq" className="scroll-mt-24 py-12 sm:py-16">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6">
+          <SectionHeading tag="FAQ">よくある質問。</SectionHeading>
+          <div className="mt-9 max-w-4xl space-y-3">
             {studioFaq.map(({ q, a }) => (
-              <details key={q} className="group rounded-2xl bg-white border border-studio-ink/[0.06] shadow-[0_8px_20px_-16px_rgba(46,10,114,0.35)] px-5 py-4 open:bg-studio-lavender/60">
-                <summary className="cursor-pointer list-none flex justify-between gap-4 font-rounded font-bold text-studio-ink">
-                  <span>
-                    <span className="text-studio-purple mr-1">Q.</span>
+              <details key={q} className={`group ${card} px-5 py-4 sm:px-7 sm:py-5 open:border-studio-ink`}>
+                <summary className="cursor-pointer list-none [&::-webkit-details-marker]:hidden flex items-center justify-between gap-4 font-studio font-black text-studio-ink sm:text-lg">
+                  <span className="flex gap-3 [word-break:auto-phrase]">
+                    <span className="font-code text-studio-purple">Q.</span>
                     {q}
                   </span>
-                  <span className="w-7 h-7 shrink-0 rounded-full bg-studio-lavender text-studio-purple grid place-items-center text-lg leading-none group-open:rotate-45 transition-transform">
+                  <span aria-hidden className="grid h-8 w-8 shrink-0 place-items-center rounded-full bg-studio-lime text-xl leading-none transition-transform duration-200 group-open:rotate-45">
                     ＋
                   </span>
                 </summary>
-                <p className="text-studio-ink/75 text-sm leading-relaxed mt-3">{a}</p>
+                <p className="mt-3 pl-8 text-studio-ink/80 text-sm sm:text-[0.95rem] leading-[1.9]">{a}</p>
               </details>
             ))}
           </div>

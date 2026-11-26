@@ -41,8 +41,19 @@ ITEMS = {
     "icon-calendar": (ICON + "a lavender desk calendar with purple rings at the top and a grid of small rounded squares.", 768, 768),
     "icon-robot": (ICON + "a friendly round light blue robot head with big oval eyes, a small antenna and a happy expression.", 768, 768),
     "icon-bolt": (ICON + "a bright yellow lightning bolt.", 768, 768),
+    # 2026-11-26 neon redesign. These two carry their own subject rules, so NEG is not appended (see NO_NEG).
+    "hero-a": ("Product render of a single huge capital letter A as a glossy inflated 3D balloon sculpture, thick soft rounded strokes, "
+               "made of translucent iridescent holographic glass in lavender violet with lime-green and soft blue reflections, "
+               "smooth liquid chrome highlights, the letter tilted slightly to the right and seen from slightly below, "
+               "floating, soft studio lighting, isolated on a plain pure white background, no shadow, no other objects, no other text.", 1024, 1024),
+    "photo-laptop": ("Close-up product photograph of an open thin dark laptop seen from a low three-quarter angle, the screen glowing with a "
+                     "smooth violet to pink gradient wallpaper, keyboard softly lit by the screen, dark purple studio backdrop, moody neon violet "
+                     "lighting, shallow depth of field, no text, no logo, no watermark.", 1024, 768),
     "icon-team": (ICON + "three friendly purple person figures standing together side by side, simple rounded heads and bodies, no faces.", 768, 768),
 }
+
+
+NO_NEG = {"hero-a", "photo-laptop"}
 
 
 def workflow(prompt: str, seed: int, prefix: str, width: int, height: int) -> dict:
@@ -98,4 +109,4 @@ if __name__ == "__main__":
         dest = OUT / f"{item_id}.png"
         if dest.exists() and not force:
             continue
-        generate(item_id, prompt + NEG + f" Output size: {w}x{h} pixels.", seed, w, h, dest)
+        generate(item_id, prompt + ("" if item_id in NO_NEG else NEG) + f" Output size: {w}x{h} pixels.", seed, w, h, dest)

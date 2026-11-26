@@ -11,13 +11,13 @@ export const metadata: Metadata = {
     locale: "ja_JP",
     url: "https://ajara.co.jp/hintl/blog",
     siteName: "合同会社AJARA",
-    images: [{ url: "/images/ogp.png", width: 1200, height: 630, alt: "hintl インサイト by AJARA" }],
+    images: [{ url: "/images/ogp-hintl.jpg", width: 1200, height: 630, alt: "hintl インサイト by AJARA" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "hintl インサイト | AJARA",
     description: "エビデンス × AIコーチングの実践知見コラム。",
-    images: ["/images/ogp.png"],
+    images: ["/images/ogp-hintl.jpg"],
   },
 };
 

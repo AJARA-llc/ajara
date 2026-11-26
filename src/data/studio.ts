@@ -15,9 +15,8 @@ export const studioServices = [
     catch: "AIアプリ開発者になろう。",
     short: "自分で作れるようになる",
     tag: "学んで作れるようになりたい",
-    icon: "/images/studio/icon-laptop.webp",
+    icon: "cap" as const,
     summary: "AIを活用して、自分の手でアプリを作れる力を身につける学びの場です。",
-    accent: "purple" as const,
   },
   {
     id: "coaching",
@@ -27,11 +26,25 @@ export const studioServices = [
     catch: "そのアイデア、リリースまで一緒に。",
     short: "アイデアを実現する",
     tag: "アイデアを実現したい",
-    icon: "/images/studio/icon-rocket.webp",
+    icon: "layers" as const,
     summary: "やりたいアイデアをもとに、設計から開発・リリースまで一緒に伴走するプランです。",
-    accent: "orange" as const,
   },
 ];
+
+// 講師紹介。photo が空のあいだは仮の枠を表示する（公開前に必ず写真を入れること）。
+// 写真は public/images/studio/ に置き、"/images/studio/instructor.webp" のように指定する。
+export const studioInstructor = {
+  name: "平田 拓也",
+  nameEn: "TAKUYA HIRATA",
+  role: "合同会社AJARA 代表",
+  photo: "",
+  // 下書き（要確認）。事実として確認できる内容だけにしている。
+  bio: [
+    "AIを活用して、Webサービスやアプリ、ゲームの企画から開発・公開までを自ら手がけています。",
+    "「学んで終わり」ではなく、自分のアイデアが実際に動き、人に届くところまで。つまずきやすいポイントを知っている立場から、一人ひとりのペースに合わせて伴走します。",
+  ],
+  points: ["企画から公開まで自分で開発", "AI開発ツールを日常的に活用", "オンラインで直接サポート"],
+};
 
 export const studioComparison = [
   { label: "主な目的", school: "AIアプリ開発スキルの習得", coaching: "特定のアプリのリリース" },

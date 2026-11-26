@@ -18,7 +18,9 @@ export const metadata: Metadata = {
     locale: "ja_JP",
     url: "https://ajara.co.jp/news/hintl-launch",
     siteName: "合同会社AJARA",
+    images: [{ url: "/images/ogp-hintl.jpg", width: 1200, height: 630 }],
   },
+  twitter: { card: "summary_large_image", images: ["/images/ogp-hintl.jpg"] },
 };
 
 // 正式リリース日: 2026年9月1日（operator確定 2026-09-01: PR配信と同日に9/1へ再統一）。

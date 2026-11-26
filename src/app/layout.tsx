@@ -10,9 +10,11 @@ export const metadata: Metadata = {
     canonical: "https://ajara.co.jp",
   },
   icons: {
-    icon: [{ url: "/images/logo-full.png", type: "image/png" }],
-    shortcut: "/images/logo-full.png",
-    apple: "/images/logo-full.png",
+    icon: [
+      { url: "/images/favicon-32.png", sizes: "32x32", type: "image/png" },
+      { url: "/images/favicon-192.png", sizes: "192x192", type: "image/png" },
+    ],
+    apple: "/images/apple-touch-icon.png",
   },
   openGraph: {
     title: "合同会社AJARA | AIで、ビジネスの次の一手を共創する",

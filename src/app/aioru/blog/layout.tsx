@@ -11,13 +11,13 @@ export const metadata: Metadata = {
     locale: "ja_JP",
     url: "https://ajara.co.jp/aioru/blog",
     siteName: "合同会社AJARA",
-    images: [{ url: "/images/ogp.png", width: 1200, height: 630, alt: "AIO インサイト by AJARA" }],
+    images: [{ url: "/images/ogp-aioru.jpg", width: 1200, height: 630, alt: "AIO インサイト by AJARA" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "AIO インサイト | aioru by AJARA",
     description: "AI検索最適化（AIO）の実践知見コラム。",
-    images: ["/images/ogp.png"],
+    images: ["/images/ogp-aioru.jpg"],
   },
 };
 

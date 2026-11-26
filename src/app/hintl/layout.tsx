@@ -12,13 +12,13 @@ export const metadata: Metadata = {
     locale: "ja_JP",
     url: "https://ajara.co.jp/hintl",
     siteName: "合同会社AJARA",
-    images: [{ url: "/images/ogp.png", width: 1200, height: 630, alt: "hintl エビデンスで選ぶ意思決定エンジン" }],
+    images: [{ url: "/images/ogp-hintl.jpg", width: 1200, height: 630, alt: "hintl エビデンスで選ぶ意思決定エンジン" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "hintl | エビデンスで選ぶ意思決定エンジン",
     description: "広告ではなく公開研究から比較。エビデンスを100点満点で可視化する無料診断メディア。",
-    images: ["/images/ogp.png"],
+    images: ["/images/ogp-hintl.jpg"],
   },
 };
 

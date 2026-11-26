@@ -13,13 +13,13 @@ export const metadata: Metadata = {
     locale: "ja_JP",
     url: "https://ajara.co.jp/reskilling",
     siteName: "合同会社AJARA",
-    images: [{ url: "/images/ogp.png", width: 1200, height: 630, alt: "AJARA 総務・事務職向け 法人研修・リスキリング" }],
+    images: [{ url: "/images/ogp-reskilling.jpg", width: 1200, height: 630, alt: "AJARA 総務・事務職向け 法人研修・リスキリング" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "総務・事務職向け 法人研修・リスキリング | AJARA",
     description: "社内業務管理・バックオフィス改善・情報管理・生成AI活用の4コース。各12時間のeラーニング。人材開発支援助成金の対象要件を満たす設計。",
-    images: ["/images/ogp.png"],
+    images: ["/images/ogp-reskilling.jpg"],
   },
 };
 

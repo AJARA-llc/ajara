@@ -15,9 +15,9 @@ export const metadata: Metadata = {
     locale: "ja_JP",
     url: "https://ajara.co.jp/aioru/blog/ai-search-growth",
     siteName: "合同会社AJARA",
-    images: [{ url: "/images/ogp.png", width: 1200, height: 630 }],
+    images: [{ url: "/images/ogp-aioru.jpg", width: 1200, height: 630 }],
   },
-  twitter: { card: "summary_large_image", title: "生成AI検索の急成長 | AIO インサイト", images: ["/images/ogp.png"] },
+  twitter: { card: "summary_large_image", title: "生成AI検索の急成長 | AIO インサイト", images: ["/images/ogp-aioru.jpg"] },
 };
 
 const articleJsonLd = {

@@ -11,13 +11,13 @@ export const metadata: Metadata = {
     locale: "ja_JP",
     url: "https://ajara.co.jp/aioru",
     siteName: "合同会社AJARA",
-    images: [{ url: "/images/ogp.png", width: 1200, height: 630, alt: "aioru AIO コンサルティング" }],
+    images: [{ url: "/images/ogp-aioru.jpg", width: 1200, height: 630, alt: "aioru AIO コンサルティング" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "AIO コンサルティング | aioru by AJARA",
     description: "ChatGPT・Perplexity・Gemini で引用される企業へ。AIO診断から継続支援まで。",
-    images: ["/images/ogp.png"],
+    images: ["/images/ogp-aioru.jpg"],
   },
 };
 

@@ -38,31 +38,33 @@ const config: Config = {
           200: "#9fd6d8",
         },
         border: "#e4e7ec",
-        // AJARA Studio (/studio/*) only — taken from the operator's logo and design mock (2026-11-17).
+        // AJARA Studio (/studio/*) only — neon lime / ink / lavender, from the operator's
+        // "Build Your Future" mock (2026-11-26). Replaces the 2026-11-17 purple/orange set.
         studio: {
-          ink: "#2E0A72",
-          muted: "#5F5785",
-          purple: "#8B4CF6",
-          "purple-dark": "#6A2FE0",
-          orange: "#FF7A1F",
-          "orange-light": "#FFA24A",
-          yellow: "#FFC83D",
-          pink: "#F7B6E0",
-          lavender: "#F1EAFF",
-          peach: "#FFF0E4",
-          bg: "#FBF9FF",
+          ink: "#111111",
+          muted: "#5C5C5C",
+          lime: "#D2FB2E",
+          "lime-dark": "#B9E800",
+          purple: "#6B3FE0",
+          lilac: "#C9B6FF",
+          lavender: "#EFE8FF",
+          line: "#DCD9DB",
+          bg: "#FAF7F8",
         },
       },
       fontFamily: {
         serif: ["Noto Serif JP", "serif"],
         sans: ["DM Sans", "Noto Sans JP", "sans-serif"],
-        rounded: ["Zen Maru Gothic", "Noto Sans JP", "sans-serif"],
+        // /studio only: wide grotesque for Latin, heavy gothic for Japanese.
+        studio: ["Archivo", "Noto Sans JP", "sans-serif"],
+        code: ["JetBrains Mono", "ui-monospace", "monospace"],
       },
       animation: {
         "float": "float 6s ease-in-out infinite",
         "glow": "glow 2s ease-in-out infinite alternate",
         "fade-up": "fadeUp 0.8s ease-out forwards",
         "marquee": "marquee 35s linear infinite",
+        "studio-bob": "studioBob 7s ease-in-out infinite",
       },
       keyframes: {
         float: {
@@ -76,6 +78,10 @@ const config: Config = {
         fadeUp: {
           "0%": { opacity: "0", transform: "translateY(30px)" },
           "100%": { opacity: "1", transform: "translateY(0)" },
+        },
+        studioBob: {
+          "0%, 100%": { transform: "translateY(0) rotate(0deg)" },
+          "50%": { transform: "translateY(-10px) rotate(1.5deg)" },
         },
         marquee: {
           "0%": { transform: "translateX(0)" },

@@ -11,13 +11,13 @@ export const metadata: Metadata = {
     locale: "ja_JP",
     url: "https://ajara.co.jp/creative",
     siteName: "合同会社AJARA",
-    images: [{ url: "/images/ogp.png", width: 1200, height: 630, alt: "AJARA AI映像制作" }],
+    images: [{ url: "/images/ogp-creative.jpg", width: 1200, height: 630, alt: "AJARA AI映像制作" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "AI映像制作 | AJARA Creative",
     description: "生成AIによるブランドCM・ショート動画制作。素材ゼロから最短1週間。",
-    images: ["/images/ogp.png"],
+    images: ["/images/ogp-creative.jpg"],
   },
 };
 
