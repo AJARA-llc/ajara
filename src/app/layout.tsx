@@ -11,10 +11,10 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      { url: "/images/favicon-32.png", sizes: "32x32", type: "image/png" },
-      { url: "/images/favicon-192.png", sizes: "192x192", type: "image/png" },
+      { url: "/images/favicon-32.png?v=2", sizes: "32x32", type: "image/png" },
+      { url: "/images/favicon-192.png?v=2", sizes: "192x192", type: "image/png" },
     ],
-    apple: "/images/apple-touch-icon.png",
+    apple: "/images/apple-touch-icon.png?v=2",
   },
   openGraph: {
     title: "合同会社AJARA | AIで、ビジネスの次の一手を共創する",
@@ -24,13 +24,13 @@ export const metadata: Metadata = {
     locale: "ja_JP",
     url: "https://ajara.co.jp",
     siteName: "合同会社AJARA",
-    images: [{ url: "/images/ogp.png", width: 1200, height: 630, alt: "合同会社AJARA" }],
+    images: [{ url: "/images/ogp.png?v=2", width: 1200, height: 630, alt: "合同会社AJARA" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "合同会社AJARA | AIで、ビジネスの次の一手を共創する",
     description: "AI検索最適化（AIO）コンサルティング・法人向けAI研修（リスキリング）・AIライフコーチング・AI映像制作。",
-    images: ["/images/ogp.png"],
+    images: ["/images/ogp.png?v=2"],
   },
 };
 

@@ -12,10 +12,10 @@ export const metadata: Metadata = {
   alternates: { canonical: "https://ajara.co.jp/studio" },
   icons: {
     icon: [
-      { url: "/images/studio/favicon-32.png", sizes: "32x32", type: "image/png" },
-      { url: "/images/studio/favicon-192.png", sizes: "192x192", type: "image/png" },
+      { url: "/images/studio/favicon-32.png?v=2", sizes: "32x32", type: "image/png" },
+      { url: "/images/studio/favicon-192.png?v=2", sizes: "192x192", type: "image/png" },
     ],
-    apple: "/images/studio/apple-touch-icon.png",
+    apple: "/images/studio/apple-touch-icon.png?v=2",
   },
   ...studioShare("/studio", title, description, "top"),
 };

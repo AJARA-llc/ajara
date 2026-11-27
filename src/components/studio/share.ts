@@ -7,7 +7,7 @@ export function studioShare(
   image: "top" | "school" | "coaching",
 ): Pick<Metadata, "openGraph" | "twitter"> {
   const url = `https://ajara.co.jp${path}`;
-  const img = `/images/studio/ogp-${image}.jpg`;
+  const img = `/images/studio/ogp-${image}.jpg?v=2`;
   return {
     openGraph: {
       title,
